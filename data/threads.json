@@ -1,0 +1,11 @@
+[
+  {"id": "nvidia-financing", "name": "NVIDIA 循環融資與 neocloud 信用壓力", "desc": "供應商出錢給客戶買自己的 GPU，這個模式能不能撐過資金成本上升與財報檢驗。"},
+  {"id": "ai-capital", "name": "AI 的錢從哪來：回報、利率與大廠籌資", "desc": "AI 需求很強，但回報還沒擴散、利率走高，大廠開始用募資與縮編付帳。"},
+  {"id": "dc-power", "name": "AI 機房：電力、液冷與台廠供應鏈", "desc": "算力擴張的瓶頸從晶片轉到供電與散熱。"},
+  {"id": "ai-security", "name": "AI 安全：從 AI 做稽核到 agent 隔離", "desc": "AI 一邊成為資安工具，一邊自己成為需要被關進沙盒的風險。"},
+  {"id": "agent-infra", "name": "工程工具鏈為 agent 規模重做", "desc": "Git、IDE、代理架構、用量治理，都在改成以「大量 agent 同時工作」為前提。"},
+  {"id": "model-price", "name": "模型降價、開放權重與商品化", "desc": "前沿模型價格快速下滑，開放權重模型追得很近。"},
+  {"id": "ai-verification", "name": "AI 成果怎麼驗證（OpenAI 數學證明等）", "desc": "AI 宣稱的能力越來越強，可信度取決於驗證方式。"},
+  {"id": "anthropic", "name": "Anthropic 動向與 IPO", "desc": "從內部工程、資安研究到公開 S-1。"},
+  {"id": "php-vuln", "name": "PHP 遠端執行漏洞潮", "desc": "傳統網站漏洞在同一週擴散成多個服務下線。"}
+]

@@ -1,0 +1,156 @@
+{
+ "date": "2026-10-27",
+ "label": "10/27（二）",
+ "news_url": "https://penguin-yeh.github.io/daily-news/#2026-10-27",
+ "verdict": "今天兩家 AI 龍頭都拿出「可以被外人檢查」的東西：OpenAI 的數學成果附上 Lean 形式化、頂尖學者複閱與公開原始資料；Anthropic 公開 S-1，第一次讓外界看財務細節。同時 OpenAI 推出便宜、會操作電腦的 GPT-6.1 Terra，當天就進 GitHub Copilot。資本面上 Meta 啟動約 350 億美元股權募資、微軟對約四分之一員工提出買斷；機房戰場確定移到電力與液冷。我的判讀是：AI 產業正從「相信我」走向「你自己檢查」，而檢查的對象包括證明、財報與帳單。",
+ "learned": "宣稱的強度要看驗證方式；Lean 過了只代表「寫下的那個命題」成立。",
+ "insights": [
+  {
+   "id": "i1",
+   "icon": "📐",
+   "headline": "OpenAI 的數學大新聞，真正的新聞是驗證流程",
+   "analysis": "OpenAI 10/26 公布推翻 ETH、證出任意維度局部平滑猜想、給出四維量子場論嚴格存在性證明，每項都附 Lean 形式化、交給頂尖學者小組義務複閱（不付費、不簽 NDA），並公開手稿與 Lean 腳本，回應 10/6「722 篇看不懂的證明」翻車事件。但細看「推翻 ETH」是針對固定寬度 k-CNF 的確定性精確計數演算法，且 Lean 版界線比論文主張弱。arXiv 研究也提醒，Lean 只保證形式化的敘述成立，不保證它忠實對應原猜想。",
+   "view": "我覺得 OpenAI 這次學乖了：與其讓外界懷疑，不如把驗證工具一起交出來。不過這仍是 OpenAI 單方宣稱，接下來要看評審小組的結論，以及 Lean 版和論文版的落差會不會被補上。",
+   "lesson": "形式化證明像報稅軟體：只檢查你填的東西自洽，不保證你填的是對的題目。",
+   "threads": [
+    "ai-verification"
+   ],
+   "sources": [
+    {
+     "title": "OpenAI：與學術社群建立科學理解",
+     "href": "https://openai.com/index/building-scientific-understanding-with-academic-communities/"
+    },
+    {
+     "title": "arXiv：Lean 通過不等於定理被證出",
+     "href": "https://arxiv.org/pdf/2608.14673"
+    }
+   ]
+  },
+  {
+   "id": "i2",
+   "icon": "🤝",
+   "headline": "驗收 AI 數學被制度化：1,500 萬美元計畫",
+   "analysis": "OpenAI 出資 500 萬美元，連同 Anthropic 與 Simons 基金會辦工作坊與研討會、提供模型與算力，支持數學社群檢查並延伸 AI 產出的結果。",
+   "view": "我認為讓競爭對手 Anthropic 一起出資，代表「AI 成果的可信度」被視為整個產業的公共財。這和 10/25 Cloudflare 用獨立驗證者代理挑錯是同一個邏輯，只是這次驗證者是人類專家社群。",
+   "lesson": "生成很便宜、驗證很貴；誰願意為驗證付錢，誰的成果才可信。",
+   "threads": [
+    "ai-verification",
+    "anthropic"
+   ],
+   "sources": [
+    {
+     "title": "OpenAI、Simons 基金會 AI 數學計畫",
+     "href": "https://cryptobriefing.com/openai-simons-foundation-ai-math-initiative/"
+    }
+   ]
+  },
+  {
+   "id": "i3",
+   "icon": "🖱️",
+   "headline": "GPT-6.1 Terra：便宜又會操作電腦，當天就進 Copilot",
+   "analysis": "Terra 專攻視覺推理與電腦操作（填表、桌面自動化、剪影片），API 每百萬 token 輸入 $1、輸出 $5（約 Sol 的一半）、1M 脈絡；官方稱 Terminal-Bench 4.0 最高檔由 21.5% 升到 50.3%（廠商自評）。已上 ChatGPT Work、Codex、API 與 GitHub Copilot，但最難的程式工作官方仍建議用 Sol／Astra。",
+   "view": "我覺得這延續了兩條線：一是 10/26 的降價潮，中階模型被做得更便宜；二是工具鏈當天就整合，新模型上架到日常開發工具幾乎沒有時間差。會操作電腦的便宜模型一普及，10/26 談的沙盒與權限控管就更重要。",
+   "lesson": "模型分層越來越清楚：便宜的中階模型做大量操作，最貴的模型只留給最難的任務。",
+   "threads": [
+    "model-price",
+    "agent-infra"
+   ],
+   "sources": [
+    {
+     "title": "Introducing GPT-6.1 Terra",
+     "href": "https://openai.com/index/introducing-gpt-6-1-terra/"
+    },
+    {
+     "title": "GitHub Changelog",
+     "href": "https://github.blog/changelog/"
+    }
+   ]
+  },
+  {
+   "id": "i4",
+   "icon": "📄",
+   "headline": "Anthropic 公開 S-1，擬以 ANT 在那斯達克上市",
+   "analysis": "Anthropic 首度公開 IPO 的 S-1，預計以代碼 ANT 在那斯達克掛牌，文件揭露營收、虧損與資本結構等細節。討論焦點在估值是否合理、與 OpenAI／Microsoft 的競爭地位，以及上市後治理結構的變化。",
+   "view": "我認為這是這三天最值得長期追的一件事：前兩天看到的 Anthropic，是每天 3 萬筆 PR、自建 Scion、用 Claude 找漏洞的工程公司；S-1 會讓外界第一次用財報檢驗這些投入的成本。等我拿到 S-1 的具體數字（今天的新聞沒有列出）再補上比較。",
+   "lesson": "S-1 是公司被迫「自己攤開」的時刻，最該看的是營收成長、虧損速度和算力承諾。",
+   "threads": [
+    "anthropic",
+    "ai-capital"
+   ],
+   "sources": [
+    {
+     "title": "SEC（S-1 原始文件來源）",
+     "href": "http://sec.gov"
+    },
+    {
+     "title": "HN 討論",
+     "href": "https://news.ycombinator.com/item?id=50242939"
+    }
+   ]
+  },
+  {
+   "id": "i5",
+   "icon": "🏗️",
+   "headline": "大廠用募資和縮編付 AI 的帳，GPU 供應商又出現在認購名單",
+   "analysis": "Meta 10/26 向 SEC 申報，發行約 350 億美元的普通股與強制可轉換特別股，2027 年另有更大的 ATM 計畫；據報 NVIDIA、AMD、Broadcom 表達最高 50 億美元認購意願（非承諾）。RSS 報則寫「最高 950 億美元」，兩報口徑不同。微軟同時對約四分之一員工提出自願買斷。",
+   "view": "我覺得兩點值得記：連 Meta 都要用股權募資擴 AI，代表現金流已追不上資本支出；而晶片供應商表態認購客戶的股票，和 10/25 的循環融資是同一種模式，只是換到超大型客戶身上。微軟買斷則是「加碼 AI、精簡人力」同時進行。",
+   "lesson": "當供應商同時是客戶的股東，訂單和投資就很難分開看。",
+   "threads": [
+    "ai-capital",
+    "nvidia-financing"
+   ],
+   "sources": [
+    {
+     "title": "Meta SEC 申報",
+     "href": "https://www.sec.gov/Archives/edgar/data/0001326801/000119312526431036/d116268dfwp.htm"
+    },
+    {
+     "title": "微軟買斷（HN 討論）",
+     "href": "https://news.ycombinator.com/item?id=50245524"
+    }
+   ]
+  },
+  {
+   "id": "i6",
+   "icon": "❄️",
+   "headline": "機房戰場確定移到電力與液冷，台廠卡位 800V 高壓直流",
+   "analysis": "NVIDIA 把 Vera Rubin 機櫃與運算托盤設計捐給 OCP，並與 AMD、Google、Meta 發布 Open Data Centre Specification v0.7。Meta 在 OCP 公開首款液冷網路機架 IcePack 與 IceCube（102.4T 交換器）。TechNews 報導光寶科、台達電等 36 家台廠搶進 AI 伺服器電源，業界轉向 800V 高壓直流配電。",
+   "view": "我認為這是 10/25 Prometheus 與渦輪機那條線的落地版：從「需要很多電」進到「機櫃怎麼配電、網路設備也要液冷」。對台灣來說，電源與機櫃零組件可能是比 GPU 更直接的受惠點，值得追後續的出貨與財報。",
+   "lesson": "開放規格（OCP）會決定誰能進供應鏈；標準化的地方，就是新市場出現的地方。",
+   "threads": [
+    "dc-power"
+   ],
+   "sources": [
+    {
+     "title": "NVIDIA 捐出 Vera Rubin 設計",
+     "href": "https://nvidianews.nvidia.com/news/meta-builds-ai-infrastructure-with-nvidia"
+    },
+    {
+     "title": "Meta OCP 2026 網路設施",
+     "href": "https://engineering.fb.com/2026/10/26/open-source/ocp-summit-2026-meta-networking-talks/"
+    },
+    {
+     "title": "36 家台廠搶 800V 高壓直流",
+     "href": "https://technews.tw/2026/10/27/liteon-and-delta-lead-push-into-ai-server-power-racks/"
+    }
+   ]
+  },
+  {
+   "id": "i7",
+   "icon": "🧊",
+   "headline": "多租戶推理也會外洩：Cloudflare 的 KV cache 事件",
+   "analysis": "Cloudflare 說明一項設定錯誤觸發了 SGLang 既有 bug，讓 Workers AI 上 GLM-5.3 的 KV cache 頁面被跨請求重複使用，理論上後一位使用者可能讀到前一位 prompt 殘留的資料。修補包括隔離受影響節點、修正 cache 配置邏輯、加入額外的請求隔離檢查。",
+   "view": "我覺得這和 10/26 OpenAI 的 CPU 快取側通道是同一類問題：為了效能共用的資源，就是隔離最容易破的地方。之後選 AI 推理服務時，「怎麼隔離不同客戶」應該和價格一樣被拿出來問。",
+   "lesson": "快取是效能的朋友、隔離的敵人；凡是共用，就要問會不會串到別人的資料。",
+   "threads": [
+    "ai-security"
+   ],
+   "sources": [
+    {
+     "title": "Cloudflare KV cache 外洩與修補",
+     "href": "https://blog.cloudflare.com/kv-cache-exposure-remediation/"
+    }
+   ]
+  }
+ ]
+}
