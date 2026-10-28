@@ -1,0 +1,242 @@
+{
+  "date": "2026-10-28",
+  "label": "10/28（三）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/#2026-10-28",
+  "verdict": "今天的主線是「AI 當研究同事」：Anthropic 公布和 6 家藥廠、生技夥伴的早期成果，NVIDIA 介紹開源的 AI 共同科學家，EDA 論文則把更準的線長做成可微分。三件事都說明，AI 已經能大量又便宜地產生候選方案，難的是選對指標、再用真實實驗驗證。資本面同時出現兩種訊號：Anthropic 的 IPO 熱潮推升費半 3.6%，黃仁勳卻公開示警、博通執行長得親自去拜託銀行；微軟和 Amazon 也繼續縮編。（以上是我的分析觀點。）",
+  "learned": "候選變便宜之後，稀缺的是好的指標和真實的驗證；指標一旦變成目標，就要定期拿真實結果校準。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "🧪",
+      "headline": "AI 當研究同事：一個月 3.5 萬個抗體設計，但還沒進臨床",
+      "analysis": "Anthropic 10/27 公布與 BigHat、BMS、Divergence、Enveda、Generate、The Column Group 等 6 家夥伴的早期成果：一個月約 3.5 萬個抗體設計，1,061 頁法規文件的審閱時間降 89%。NVIDIA 同日介紹 C-BRAIN 失智症研究聯盟使用的開源「AI 共同科學家」OpenScientist。這些結果都是前臨床、公司自己發布，還沒經過同儕審查。接下來要看哪些候選真的進入實驗與臨床。",
+      "view": "我覺得最值得注意的是分工變了：AI 負責大量產生候選，人負責決定要優化什麼、再用實驗確認。這延續 10/25 非科學家團隊用 Claude 設計抗蠍毒蛋白，也和 10/27 OpenAI 數學證明靠 Lean 與專家複閱是同一個邏輯。另外，Anthropic 正在 IPO，這類成果敘事之後要面對市場檢驗，數字要等第三方驗證才算數。",
+      "lesson": "「設計了 3.5 萬個」說的是產能，不是成功率；要問的是有幾個通過實驗。",
+      "threads": [
+        "ai-research",
+        "ai-verification",
+        "anthropic"
+      ],
+      "sources": [
+        {
+          "title": "Anthropic：藥物開發早期進展",
+          "href": "https://www.anthropic.com/research/early-progress-drug-development"
+        },
+        {
+          "title": "NVIDIA：C-BRAIN 開源 AI 工具",
+          "href": "https://blogs.nvidia.com/blog/open-source-ai-tools-cbrain-dementia/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-10-27",
+          "id": "i1"
+        },
+        {
+          "date": "2026-10-25",
+          "title": "非科學家團隊靠 Claude 64 小時設計抗蠍毒蛋白（新聞）",
+          "href": "https://penguin-yeh.github.io/daily-news/#2026-10-25"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "📏",
+      "headline": "HPWL 只是代理指標：DiffRMST 把更準的線長變成可微分",
+      "analysis": "DiffRMST（arXiv 10/20）用 log-sum-exp 平滑和 Kirchhoff 矩陣樹定理，讓比 HPWL 更準的 RMST 線長可以微分。在 ISPD2019 上，繞線後線長少 3.5%，GPU 版比八執行緒 CPU 快 14.7 倍。EGGPlacer（10/22）則用擴散模型做巨集擺置，並加入熱模型的能量引導。兩篇都是未經同儕審查的 arXiv v1。今日概念「古德哈特定律」剛好可以拿來解釋：placement 一路壓低 HPWL，繞線後反而可能更壅塞。",
+      "view": "這張卡和我的工作最相關。我覺得重點不在快 14.7 倍，而是承認「優化器拚命壓的那個數字」和真正要的結果之間有落差，於是換一個更貼近真實的可微分指標。AI 優化器越強，越會鑽代理指標的漏洞，所以和 i1 一樣，最後還是要看繞線後的真實結果。",
+      "lesson": "古德哈特定律：指標一旦變成目標，就不再是好指標；解法是換更貼近真實的指標，並定期用真實結果校準。",
+      "threads": [
+        "ai-research",
+        "ai-verification"
+      ],
+      "sources": [
+        {
+          "title": "arXiv：DiffRMST",
+          "href": "https://arxiv.org/abs/2610.28246"
+        },
+        {
+          "title": "arXiv：EGGPlacer",
+          "href": "https://arxiv.org/abs/2610.33099"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-10-27",
+          "id": "i1"
+        },
+        {
+          "date": "2026-10-27",
+          "title": "半導體 AI 專區：晶圓缺陷自動分類（新聞）",
+          "href": "https://penguin-yeh.github.io/daily-news/#2026-10-27"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "📄",
+      "headline": "Anthropic S-1 後續：有代號和承銷商，還沒有財務數字",
+      "analysis": "Anthropic 官方說明，公司 10/26 向美國證管會遞交 Form S-1，擬在 Nasdaq Global Select Market 掛牌、代號 ANT。股數與價格區間還沒定，承銷商是 Goldman Sachs 與 Morgan Stanley。商業周刊說它目標市值上看 2 兆美元，可能是史上最大的 IPO 之一。IPO 熱潮讓費半單日大漲 3.6%。今天的新聞沒有列出 S-1 裡的營收、虧損或算力承諾數字。",
+      "view": "10/27 我說等拿到 S-1 的數字再補比較，但今天的資料還是只有代號、承銷商和「2 兆美元」這個媒體說法，沒有營收和虧損，所以先不硬比。我會把 2 兆美元看成市場情緒的溫度計，而不是估值結論：光是傳出 IPO 就能推動整個半導體指數，代表 AI 敘事的定價權有多大。等價格區間公布，才有真正能比較的數字。",
+      "lesson": "媒體寫的市值目標不是 S-1 數字；先分清楚「公司揭露的」和「市場猜的」。",
+      "threads": [
+        "anthropic",
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "Anthropic：S-1 公告",
+          "href": "https://www.anthropic.com/news/s1-sec"
+        },
+        {
+          "title": "商業周刊：Anthropic 拚 2 兆美元市值",
+          "href": "https://www.businessweekly.com.tw/international/blog/3023486"
+        },
+        {
+          "title": "美股盤後：Anthropic IPO 熱潮，費半漲 3.6%",
+          "href": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E8%82%A1%E7%9B%A4%E5%BE%8C-anthropic-ipo%E7%86%B1%E6%BD%AE%E5%BB%B6%E7%87%92-%E8%B2%BB%E5%8D%8A%E6%BC%B23-6-212649535.html"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-10-27",
+          "id": "i4"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "🏦",
+      "headline": "股市狂歡、融資喊累：黃仁勳示警，博通執行長親自拜託銀行",
+      "analysis": "天下雜誌報導，NVIDIA 執行長黃仁勳公開示警，博通執行長也親自向銀行團求援，顯示支撐 AI 資本支出的融資管道出現緊張訊號，市場對 AI 過度槓桿、過度投資的疑慮升溫。同一天，費半因 Anthropic IPO 熱潮大漲 3.6%，台積電 ADR 也漲近 2%。",
+      "view": "我覺得這是 10/25 循環融資那條線的第三步：10/25 市場先懷疑 NVIDIA 金援客戶，10/27 NVIDIA、Broadcom 又出現在 Meta 增資的認購名單，今天換成供應商自己公開談融資壓力。股價和融資講的是兩個不同的故事，我會更相信融資端，因為錢借不借得到，比情緒更早反映真實壓力。11 月初 neocloud 財報是下一個檢驗點。",
+      "lesson": "股價反映情緒，信用反映能不能付帳；兩者分歧時，先看信用。",
+      "threads": [
+        "nvidia-financing",
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "天下雜誌：AI 融資市場怎麼了？",
+          "href": "https://www.cw.com.tw/article/5143461"
+        },
+        {
+          "title": "美股盤後：費半漲 3.6%",
+          "href": "https://tw.stock.yahoo.com/news/%E7%BE%8E%E8%82%A1%E7%9B%A4%E5%BE%8C-anthropic-ipo%E7%86%B1%E6%BD%AE%E5%BB%B6%E7%87%92-%E8%B2%BB%E5%8D%8A%E6%BC%B23-6-212649535.html"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-10-25",
+          "id": "i1"
+        },
+        {
+          "date": "2026-10-27",
+          "id": "i5"
+        }
+      ]
+    },
+    {
+      "id": "i5",
+      "icon": "✂️",
+      "headline": "縮編有兩種：微軟為了衝 AI，Amazon 因為 AI 沒做起來",
+      "analysis": "天下雜誌報導，微軟向多達 6 萬名員工提出「自願離職」方案（10/27 的報導說是約四分之一員工），被視為「裁員衝 AI」的最新案例。Futurism 則報導，Amazon 因為以 Nova 系列為代表的 AI 產品線「持續失利」，正大幅縮編 AI 部門。Amazon 這則目前只有單一媒體報導。",
+      "view": "我覺得把這兩則放在一起看很有意思。微軟是把人力預算挪去買算力；Amazon 被報導的原因卻是 AI 產品沒打贏，連 AI 部門本身都被砍。「AI 取代人」只是其中一種解釋，另一種是 AI 策略本身失利。10/27 商周還在寫 Amazon 的企業 AI 代理新賽局，隔天就傳出縮編，可見同一家公司在不同戰線的成績差很多。",
+      "lesson": "看到「AI 裁員」時，先分清楚是錢挪去 AI，還是 AI 本身失利；兩種對員工和投資人的意義完全不同。",
+      "threads": [
+        "tech-layoffs",
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "天下雜誌：微軟請 6 萬員工自願離職",
+          "href": "https://www.cw.com.tw/article/5143452"
+        },
+        {
+          "title": "Amazon 大砍 AI 部門（HN 討論）",
+          "href": "https://news.ycombinator.com/item?id=50261589"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-10-27",
+          "id": "i5"
+        },
+        {
+          "date": "2026-10-27",
+          "title": "商周：亞馬遜揭示企業 AI 代理新賽局（新聞）",
+          "href": "https://penguin-yeh.github.io/daily-news/#2026-10-27"
+        }
+      ]
+    },
+    {
+      "id": "i6",
+      "icon": "🪪",
+      "headline": "管 agent 進入企業模式：權限、身分、帳本一起上線",
+      "analysis": "GitHub Copilot 的「輔助權限」10/26 正式 GA：agent 要執行指令、讀路徑或開網址時，先由另一個 LLM 判斷，明顯安全的自動放行，其餘仍要人工核准。Alibaba 雲 900 次測試顯示，只靠提示詞規則，越權率仍有 13.3%／20%；在工具呼叫層用程式碼檢查後降到 0%。同期還有 Copilot server-to-server 驗證（短效權杖、用量記在組織帳上、可一鍵撤銷）、Claude Code 支援用 OIDC 識別使用者、Codex 0.165.0 內建 Vertex AI 並加入 GPT-6.1 Terra，以及 Alibaba 開源 AgentTeams 控制台。",
+      "view": "我覺得 Alibaba 那組數字是今天最實用的：叫 agent「不要做」沒有用，要在工具呼叫層直接擋。這和 10/26 的結論一樣，管 agent 要靠邊界，不能靠信任。用 LLM 審 LLM 適合過濾大量明顯安全的請求，但真正的底線還是要寫成程式碼。另外，10/27 進了 Copilot 的 Terra 今天也進了 Codex，便宜的電腦操作模型擴散得很快，權限管理會更急迫。",
+      "lesson": "提示詞是建議，程式碼檢查才是規則；要擋的東西，就放在工具呼叫層擋。",
+      "threads": [
+        "ai-security",
+        "agent-infra",
+        "model-price"
+      ],
+      "sources": [
+        {
+          "title": "GitHub Changelog：輔助權限 GA",
+          "href": "https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available"
+        },
+        {
+          "title": "Alibaba Cloud：900 次測試",
+          "href": "https://www.alibabacloud.com/blog/does-do-not-work-on-ai-agents-900-tests-with-agentrun-mcp-tool-hooks_603668"
+        },
+        {
+          "title": "GitHub Changelog：server-to-server 驗證",
+          "href": "https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication"
+        },
+        {
+          "title": "OpenAI Codex Releases",
+          "href": "https://github.com/openai/codex/releases"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-10-26",
+          "id": "i2"
+        },
+        {
+          "date": "2026-10-27",
+          "id": "i3"
+        }
+      ]
+    },
+    {
+      "id": "i7",
+      "icon": "⚖️",
+      "headline": "上市前夕的版權指控：Anthropic 被指用盜版教授著作訓練 Claude",
+      "analysis": "《史丹佛日報》指控 Anthropic 訓練 Claude 時，用了非法取得的史丹佛教授著作（HN 425 讚）。報導把這件事放在生成式 AI 公司版權訴訟潮的脈絡下，爭議點是學術著作有沒有在未經授權的情況下進了商業模型的訓練集。目前還在指控階段。",
+      "view": "我會把這則和 i3 放在一起看。公司還沒上市時，訓練資料的爭議是名聲問題；遞交 S-1 之後，就變成要向投資人揭露的法律與財務風險。今天的資料沒有說明 S-1 有沒有提到這件事，我會繼續追 Anthropic 的回應，以及會不會發展成訴訟。",
+      "lesson": "訓練資料的來源，最後會變成資產負債表上的風險。",
+      "threads": [
+        "ai-copyright",
+        "anthropic"
+      ],
+      "sources": [
+        {
+          "title": "HN 討論：Anthropic 史丹佛著作爭議",
+          "href": "https://news.ycombinator.com/item?id=50260814"
+        },
+        {
+          "title": "原文出處：Stanford Daily",
+          "href": "http://stanforddaily.com"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-10-28",
+          "id": "i3"
+        }
+      ]
+    }
+  ]
+}
