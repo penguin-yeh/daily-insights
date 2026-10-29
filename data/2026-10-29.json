@@ -1,0 +1,251 @@
+{
+ "date": "2026-10-29",
+ "label": "10/29（四）",
+ "news_url": "https://penguin-yeh.github.io/daily-news/#2026-10-29",
+ "verdict": "今天的主線是 AI 的收費單位從「座位」變成「預算」：GitHub 企業版全員內含 Copilot，但用量從第一個請求就記企業預算，Automations 可以設單次到每月的上限，Fusion 先用便宜模型、品質不過才升級；Anthropic 則給美國政府 40% 折扣、無最低消費。資本與產能面，AMD 出資 10 億美元參與 Meta 股權發行，聯電營收創新高、產能利用率 92%，日本卻因成熟製程缺料讓遊戲機漲價。市場對 AI 變現開始分化：Google 盤後跌 11%、微軟漲 4%。（以上是我的分析觀點。）",
+ "learned": "單價下降不等於總支出下降；真正能控成本的是預算、上限和「先便宜再升級」的路由，而路由的前提是有一組能量出品質的回歸測試。",
+ "insights": [
+  {
+   "id": "i1",
+   "icon": "💳",
+   "headline": "從買座位到管預算：GitHub Copilot 用量從第一個請求就記帳",
+   "analysis": "GitHub Enterprise 可讓每位授權用戶都含 Copilot，但不再附每座位的月度 AI 額度，改由管理者用預算、警示與歸屬來管；程式補全不受預算耗盡影響，Chat、程式碼審查與雲端 agent 則需要預算，自助客戶「未來幾週」才公布日期。同日 Copilot Automations 可組合設定單次／日／週／月 AI credit 上限：單次碰頂就停，週期碰頂則排隊等下一期。Agent Merge 會在雲端自動修失敗的 CI 與合併衝突，但官方沒寫用量上限與計費細節。",
+   "view": "我覺得這是 10/28「權限、身分、帳本」的下一步：agent 有了組織身分之後，下一件事就是用組織的錢包付費。座位制下多用不會多付，預算制下每個無人值守的流程都在花錢，所以上限要在上線第一天就設，而不是收到帳單才補。Agent Merge 沒寫計費細節，這種會自己反覆重試的功能最需要上限。",
+   "lesson": "收費單位改了，治理方式就要跟著改：從「誰有座位」變成「哪個流程花了多少、碰頂時怎麼辦」。",
+   "threads": [
+    "ai-pricing",
+    "agent-infra"
+   ],
+   "sources": [
+    {
+     "title": "GitHub：Enterprise 內含 Copilot",
+     "href": "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot"
+    },
+    {
+     "title": "GitHub：Copilot Automations 成本控制",
+     "href": "https://github.blog/changelog/2026-10-28-new-tools-triggers-and-cost-controls-for-copilot-automations"
+    },
+    {
+     "title": "GitHub：Agent Merge",
+     "href": "https://github.blog/changelog/2026-10-28-agent-merge-watches-and-fixes-pull-requests-in-the-cloud"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-28",
+     "id": "i6"
+    },
+    {
+     "date": "2026-10-27",
+     "id": "i3"
+    }
+   ]
+  },
+  {
+   "id": "i2",
+   "icon": "🔀",
+   "headline": "Copilot Fusion 先便宜後升級，但路由的前提是量得出品質",
+   "analysis": "Copilot Fusion 由系統替每個提示挑模型，Cascade 模式先讓較省的模型起草，品質檢查沒過才升級；各模型按標準價計費、限時 30% 折扣。GitHub 自報 Fusion Max 在 Coding Agent Index 拿 60 分，和 Claude Code＋Opus 5.5 Max 差不到兩分、每任務成本約一半，但這是廠商自評、只限寫程式評測。Google 同日用 Agents CLI 示範：一段意外加入的「廚師口吻」提示讓平均評分從 4.0 掉到 2.75，單元測試和 lint 都沒抓到（範例只有 4 筆資料）。",
+   "view": "我把這兩則放在一起看：Fusion 省錢靠的是「品質檢查沒過才升級」，所以省多少取決於那個檢查準不準。Google 的例子說明傳統測試抓不到品質退化，需要專門的評測集。10/26 前沿模型降價最多 80% 時，我就覺得單價下降不代表總支出下降；今天廠商開始用路由壓總成本，但沒有評測就換便宜模型，等於把風險藏起來。",
+   "lesson": "想安全地換便宜模型，先建一組小而準的回歸評測；「約一半成本」要在自己的任務上重測才算數。",
+   "threads": [
+    "ai-pricing",
+    "model-price",
+    "ai-verification"
+   ],
+   "sources": [
+    {
+     "title": "GitHub：Copilot Fusion",
+     "href": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion"
+    },
+    {
+     "title": "Google Developers Blog：Agents CLI 評測",
+     "href": "https://developers.googleblog.com/hill-climbing-agent-quality-with-agents-cli-evaluation/"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-26",
+     "id": "i5"
+    },
+    {
+     "date": "2026-10-27",
+     "id": "i3"
+    }
+   ]
+  },
+  {
+   "id": "i3",
+   "icon": "🏛️",
+   "headline": "Anthropic 給美國政府 40% 折扣、無最低消費，同時擴大 AI for Science",
+   "analysis": "Anthropic 與美國 GSA 的新協議：政府夥伴在所有產品介面享 40% 折扣、沒有最低消費、用多少付多少，Anthropic 稱預估替政府省下約 10 億美元（這是公司自己的估計）；折扣只適用政府客戶。AI for Science 則擴到 20 個夥伴，新增 Sloan、Simons、Schmidt Sciences、NSF 等資助機構與 Sanger、Crick、EMBL 等研究機構，提供免費 Claude 額度，額度與金額官方未公布。",
+   "view": "我覺得這兩件事都在買「用量」：政府用折扣加無最低消費降低採用門檻，研究機構用免費額度培養使用習慣。這延續 10/28 Anthropic 與藥廠的研究合作，也發生在 S-1 公開之後。S-1 還沒有財務數字，所以折扣對營收與毛利的影響目前看不出來，這點我只是推測要注意，資料沒有直接連結兩者。",
+   "lesson": "「預估省 10 億」是賣方算的；看定價策略要同時看誰付錢、有沒有最低承諾、折扣適用誰。",
+   "threads": [
+    "anthropic",
+    "ai-pricing",
+    "ai-research"
+   ],
+   "sources": [
+    {
+     "title": "Anthropic：擴大與 GSA 合作",
+     "href": "https://www.anthropic.com/news/expanding-partnership-gsa"
+    },
+    {
+     "title": "Anthropic：AI for Science 擴大",
+     "href": "https://www.anthropic.com/news/ai-for-science-expands-foundations-research-institutions"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-28",
+     "id": "i3"
+    },
+    {
+     "date": "2026-10-28",
+     "id": "i1"
+    }
+   ]
+  },
+  {
+   "id": "i4",
+   "icon": "🤝",
+   "headline": "AMD 10 億美元入股 Meta：供應商出錢給客戶的模式又一例",
+   "analysis": "AMD 出資 10 億美元參與 Meta 股權發行，雙方共同建置 GW 等級 AI 運算基礎設施。10/27 的新聞已報導 NVIDIA、AMD、博通有意認購 Meta 這次募資（當時為非約束性意向），今天 AMD 的部分落地。Meta 同日也公開新一代 Andromeda 廣告檢索，用模型、系統與 GPU 協同設計壓低推理成本。",
+   "view": "我覺得這是 10/25 起追的「NVIDIA 金援客戶」模式擴散到 AMD：晶片廠出資，客戶用這筆錢蓋算力、買晶片。好處是綁定供應，風險是需求與資金互相支撐，一旦一邊鬆動會一起受影響。10/28 黃仁勳示警、博通執行長得親自去拜託銀行，代表資金面已經在喊累，這類交易要看後續有沒有更多供應商跟進。",
+   "lesson": "看到「晶片廠入股客戶」，要問錢最後流回哪裡：是新增需求，還是供應商自己墊出來的需求。",
+   "threads": [
+    "nvidia-financing",
+    "ai-capital"
+   ],
+   "sources": [
+    {
+     "title": "TechNews：AMD 參與 Meta 股權發行",
+     "href": "https://technews.tw/2026/10/28/amd-invests-1-billion-in-meta-equity-offering/"
+    },
+    {
+     "title": "Meta Engineering：Andromeda",
+     "href": "https://engineering.fb.com/2026/10/28/ml-applications/meta-andromeda-next-gen-ads-retrieval-gpu-co-design/"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-27",
+     "id": "i5"
+    },
+    {
+     "date": "2026-10-28",
+     "id": "i4"
+    },
+    {
+     "date": "2026-10-25",
+     "id": "i1"
+    }
+   ]
+  },
+  {
+   "id": "i5",
+   "icon": "🔧",
+   "headline": "RTL 除錯：LLM 寫補丁，model checker 決定收不收",
+   "analysis": "arXiv 預印本（Das 等人，2610.32597）用失敗的斷言引導 LLM 產生多行補丁，每個候選都交給 JasperGold 做形式驗證，只收通過的；在 BRISC-V 核心的突變測試上，單行修復率最高 98%、多行最高 93%。限制是只測一顆核心、錯誤是人工植入的，而且斷言不完整時就可能放過錯誤的補丁。",
+   "view": "這張和我的工作最相關。我覺得架構很清楚：LLM 便宜地產生候選，形式驗證決定能不能收，和 10/27 OpenAI 數學證明靠 Lean 驗證是同一個邏輯。但 10/28 DiffRMST 提到的古德哈特定律在這裡也成立：model checker 只能證明「斷言沒被違反」，斷言寫得不完整，98% 也可能是在鑽漏洞。真正的瓶頸會變成斷言品質。",
+   "lesson": "驗證器只能驗證你寫下的規格；把 AI 接上形式驗證之後，要投資的是規格（斷言）的完整度。",
+   "threads": [
+    "ai-verification",
+    "ai-research"
+   ],
+   "sources": [
+    {
+     "title": "arXiv：RTL 除錯自動修復",
+     "href": "https://arxiv.org/abs/2610.32597"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-28",
+     "id": "i2"
+    },
+    {
+     "date": "2026-10-27",
+     "id": "i1"
+    }
+   ]
+  },
+  {
+   "id": "i6",
+   "icon": "🏭",
+   "headline": "成熟製程兩面：聯電利用率 92% 創高，日本中小企業缺料",
+   "analysis": "聯電第三季合併營收新台幣 742.4 億元創單季新高，產能利用率升到 92%，並追加 32 億美元資本支出。同時日本面臨晶片供應危機，遊戲機等消費電子漲價、大量中小企業缺料，報導認為是 AI 需求排擠成熟製程的連鎖衝擊。日本政府累計投入約 150 億美元扶植 Rapidus 切入 2 奈米，但報導認為短期難挑戰台積電。英飛凌則要在歐洲建全球首座 12 吋 GaN 功率半導體廠，鎖定電動車與資料中心。",
+   "view": "我覺得聯電創高和日本缺料是同一個供需的兩面：成熟製程也被 AI 帶動吃緊，供應方賺錢、下游缺料。日本的錢押在 2 奈米，但眼前的痛點在成熟製程，這是我的推測性對照，資料沒有直接評論補貼方向。英飛凌 12 吋 GaN 鎖定資料中心，可以和 10/27 機房 800V 高壓直流放在一起看：機房瓶頸往供電移，功率元件也跟著升級。",
+   "lesson": "AI 熱不只拉先進製程；看產能要連成熟製程與功率元件一起看，缺貨常出現在最不起眼的地方。",
+   "threads": [
+    "semi-capacity",
+    "dc-power"
+   ],
+   "sources": [
+    {
+     "title": "TechNews：聯電第三季營收",
+     "href": "https://finance.technews.tw/2026/10/28/umcs-third-quarter-revenue-hit-a-record-high-of-nt74-24-billion/"
+    },
+    {
+     "title": "商周：日本晶片危機",
+     "href": "https://www.businessweekly.com.tw/archive/article?strid=7015109"
+    },
+    {
+     "title": "TechNews：Rapidus",
+     "href": "https://technews.tw/2026/10/29/can-rapidus-successfully-challenge-tsmc/"
+    },
+    {
+     "title": "TechNews：英飛凌 12 吋 GaN",
+     "href": "https://technews.tw/2026/10/28/infineon-will-establish-the-worlds-first-12-inch-gallium-nitride-power-semiconductor-wafer-fab-in-europe/"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-27",
+     "id": "i6"
+    },
+    {
+     "date": "2026-10-27",
+     "title": "越南首座晶片廠難達試產目標（新聞）",
+     "href": "https://penguin-yeh.github.io/daily-news/#2026-10-27"
+    }
+   ]
+  },
+  {
+   "id": "i7",
+   "icon": "📉",
+   "headline": "AI 變現開始分化：Google 盤後跌 11%、微軟漲 4%，Fed 偏鷹",
+   "analysis": "兩大科技巨頭財報後股價兩極：Google 盤後重挫 11%，微軟逆勢漲 4%，報導認為市場對雲端與 AI 成長預期出現分歧、較青睞微軟的 AI 變現路徑。聯準會最新決策會出現 2 張反對票，並決定減少利率決策次數、以物價穩定為優先。",
+   "view": "我覺得市場已經不是「有 AI 就漲」，而是開始分辨誰把 AI 變成營收。這和今天的定價主線呼應：微軟旗下的 GitHub 正把 Copilot 改成按用量收費（這是我的對照，報導沒有直接連結兩者）。資金面上，10/25–10/26 美債殖利率已經到 5%，Fed 以物價為優先，代表資金成本短期不太會鬆，AI 投資的回報要更快被看見。",
+   "lesson": "一則財報後的盤後漲跌只代表預期分歧，要看接下來的營收結構；同時記住利率決定市場有多少耐心等回報。",
+   "threads": [
+    "ai-capital"
+   ],
+   "sources": [
+    {
+     "title": "天下：Google 跌、微軟漲",
+     "href": "https://www.cw.com.tw/article/5143473"
+    },
+    {
+     "title": "鉅亨：Fed 利率決策重點",
+     "href": "https://news.cnyes.com/news/id/6639562"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-26",
+     "id": "i6"
+    },
+    {
+     "date": "2026-10-25",
+     "id": "i3"
+    },
+    {
+     "date": "2026-10-28",
+     "id": "i5"
+    }
+   ]
+  }
+ ]
+}
