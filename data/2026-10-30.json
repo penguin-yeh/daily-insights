@@ -1,0 +1,239 @@
+{
+ "date": "2026-10-30",
+ "label": "10/30（五）",
+ "news_url": "https://penguin-yeh.github.io/daily-news/#2026-10-30",
+ "verdict": "今天的主線是瓶頸搬家：據 GitHub Octoverse，9 月起超過 40% 的 PR 由 agent 起草（3 月才 17%），寫程式變便宜之後，稀缺的是審查與合併。GitHub 同日推出 Code Review Max、Copilot 核准 GA，Agent Merge 也被放進「合併自動化」脈絡；Meta JiTTesting、obra/superpowers 則把 agent 工作流程變成可共享的技能與落地前測試。Gemini 4 Carbon 補上細節，是只開放給受信任防守者的資安模型。產業面持續分化：日月光靠 CoWoS 創新高，英特爾因 PC 放緩盤後一度跌逾 20%；台灣景氣連十紅，新台幣卻是區域最弱之一，91APP 外洩波及 480 萬人。（以上是我的分析觀點。）",
+ "learned": "產出變便宜，瓶頸就移到驗收；多開幾個審查者不等於更安全，關鍵是審查者之間要夠獨立，人要留在能真正否決的那一步。",
+ "insights": [
+  {
+   "id": "i1",
+   "icon": "🚦",
+   "headline": "40% 的 PR 由 agent 起草：寫不再是瓶頸，審查與合併才是",
+   "analysis": "GitHub Octoverse（TNW 轉述）指出，9 月起超過 40% 的 PR 由 agent 起草，3 月時只有 17%，單月約 1.1 億個，GitHub 說這還是下限。但這個數字是「起草」，不是「合併」，沒有合併率或缺陷率資料。GitHub 同日推出 Code Review Max、Copilot 核准 GA，Agent Merge（10/29 已記）也被定位成補上「合併」自動化的一環。",
+   "view": "我覺得這是這幾天 Copilot 新聞的總結：10/28 管權限、10/29 管錢、10/30 管驗收。agent 寫得越多，人的審查時間就越稀缺，GitHub 的答案是讓 AI 也去審、去核准、去合併。我比較在意的是 40% 這個數字只說了產量，沒有說品質；在看到合併率和缺陷率之前，我不會把它解讀成「agent 寫的程式已經可用」。",
+   "lesson": "看 AI 產量數字時，先問分母和終點：是「起草」還是「合併並上線」，有沒有缺陷率。",
+   "threads": [
+    "review-merge",
+    "agent-infra"
+   ],
+   "sources": [
+    {
+     "title": "TNW：GitHub Universe 與 Octoverse",
+     "href": "https://thenextweb.com/news/github-universe-copilot-fusion-octoverse-agents"
+    },
+    {
+     "title": "GitHub：Agent Merge",
+     "href": "https://github.blog/changelog/2026-10-28-agent-merge-watches-and-fixes-pull-requests-in-the-cloud"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-29",
+     "id": "i1"
+    },
+    {
+     "date": "2026-10-28",
+     "id": "i6"
+    }
+   ]
+  },
+  {
+   "id": "i2",
+   "icon": "🧐",
+   "headline": "AI 審 AI：Code Review Max 多開審查者，但盲點相同就沒用",
+   "analysis": "Code Review Max 讓多個跨供應商模型的審查 agent 各自獨立看一遍，再由彙整 agent 合成一份審查，比 Lite、Balanced 慢、耗更多額度，價格未公開。Copilot 核准 GA 後可以計入必要核准數，但預設關閉、可限定路徑，新 push 會讓舊核准失效。AI 報提醒：審查 agent 若盲點相同，多開幾個也不見得更安全。",
+   "view": "我覺得「跨供應商」是這個設計的重點：同一個模型開三份，錯的地方多半也一樣。這和 10/25 Cloudflare 資安稽核的經驗一致，單輪只找到多輪總數的一半左右，所以要靠獨立的驗證者去推翻候選。另外，Max 更耗額度，等於審查也進了 10/29 的預算帳本。核准預設關閉、新 push 讓舊核准失效，這兩個預設我覺得很對：AI 核准應該是可以撤回的，而不是一次蓋章。",
+   "lesson": "冗餘要有效，前提是彼此獨立；多個相同的審查者只會重複同一個錯。",
+   "threads": [
+    "review-merge",
+    "ai-verification",
+    "ai-pricing"
+   ],
+   "sources": [
+    {
+     "title": "GitHub：Code Review Max 與 Copilot 核准",
+     "href": "https://github.blog/changelog/2026-10-28-copilot-code-review-merge-with-confidence-with-max-and-approvals"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-25",
+     "id": "i4"
+    },
+    {
+     "date": "2026-10-29",
+     "id": "i2"
+    }
+   ]
+  },
+  {
+   "id": "i3",
+   "icon": "🧩",
+   "headline": "agent 工作流程變成技能：superpowers、JiTTesting 與「要人點頭」的自我改進",
+   "analysis": "obra/superpowers 登上 GitHub 每日趨勢榜，把散落在 prompt 裡的經驗整理成可組合的技能模組；Cloudflare 的 security-audit-skill 也再度上榜（10/25 首見）。Meta 公布 JiTTesting 一年全公司部署成果：在工程師寫程式的當下用 LLM 生成測試，用 human-on-the-loop 設計避免誤判疲勞。Copilot Automations 則會觀察輸出被怎麼對待，提出修改自身 prompt、工具或觸發條件的提案，必須經人接受才生效。",
+   "view": "我覺得開發者文化正在從「寫好提示詞」轉向「共享工作流程」：一套技能可以被別人直接拿去用，行為也比較可預測。10/29 Smarsh 把 AWS 架構審查寫成 Claude skill，也是同一件事。我注意到這三則都刻意把人留在迴路裡：JiTTesting 讓工程師保有最終判斷，Automations 的自我修改要人點頭。這對我自己的流程也適用，技能化之後更要清楚哪一步由人否決。",
+   "lesson": "把重複的工作流程寫成技能，比每次重寫提示詞更穩；但能自我修改的流程，改動一定要有人審。",
+   "threads": [
+    "agent-infra",
+    "review-merge"
+   ],
+   "sources": [
+    {
+     "title": "GitHub：obra/superpowers",
+     "href": "https://github.com/obra/superpowers"
+    },
+    {
+     "title": "Engineering at Meta：JiTTesting",
+     "href": "https://engineering.fb.com/2026/10/29/security/catching-bugs-before-they-land-jittestings-human-on-the-loop-approach-at-full-scale/"
+    },
+    {
+     "title": "GitHub：Automations 自我改進",
+     "href": "https://github.blog/changelog/2026-10-28-copilot-automations-now-learn-from-outcomes-and-self-improve"
+    },
+    {
+     "title": "GitHub：Cloudflare security-audit-skill",
+     "href": "https://github.com/cloudflare/security-audit-skill"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-26",
+     "id": "i4"
+    },
+    {
+     "date": "2026-10-29",
+     "title": "Smarsh 把 AWS Agentic AI Lens 寫成 Claude skill（新聞）",
+     "href": "https://penguin-yeh.github.io/daily-news/#2026-10-29"
+    }
+   ]
+  },
+  {
+   "id": "i4",
+   "icon": "🛡️",
+   "headline": "Gemini 4 Carbon 是資安模型：修補 71%，但只給受信任防守者",
+   "analysis": "10/29 新聞記到 Gemini 4 Carbon 發布、HN 熱度最高；今天補上細節：這是資安導向模型，SEC-bench Pro 88.2%、CWE-bench（修補）71.0%、Gray Swan 提示注入攻擊成功率 0.0%。導入價每百萬 token $2／$10，之後調到 $4／$20。目前只開放給 Fairwind 計畫的受信任防守者。分數都是 Google 自己公布的。",
+   "view": "我覺得最值得注意的是「只給受信任防守者」：能修漏洞的模型也懂漏洞，所以開放對象被限縮。這是我的推測，資料沒有說明限縮原因。這延續 10/25 AI 開始當資安稽核員的主線，只是從工具和流程走到專門模型。提示注入 0.0% 是廠商評測，我會等第三方測試；10/27 Cloudflare KV cache 事件也提醒，模型本身安全，不代表跑它的服務安全。",
+   "lesson": "資安模型的分數要分清楚是「找到」還是「修好」，也要看誰能用、誰在評測。",
+   "threads": [
+    "ai-security",
+    "model-price"
+   ],
+   "sources": [
+    {
+     "title": "Google：Introducing Gemini 4 Carbon",
+     "href": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-25",
+     "id": "i4"
+    },
+    {
+     "date": "2026-10-27",
+     "id": "i7"
+    }
+   ]
+  },
+  {
+   "id": "i5",
+   "icon": "🏭",
+   "headline": "半導體分化：日月光靠 CoWoS 創高，英特爾因 PC 一度跌逾 20%",
+   "analysis": "日月光投控 Q3 EPS 6.13 元創新高，Q4 營收估季增上看 8%，先進封裝（LEAP）與 EMS 同步放量，CoWoS 全流程訂單吃緊。英特爾 Q3 營收與獲利都優於預期，但 PC 需求放緩讓 Q4 財測保守，盤後一度重挫逾 20%。友達台中廠確定以 388 億元賣給台積電，華亞廠賣給廣達則破局。",
+   "view": "我覺得這延續 10/29 的分化：有接到 AI 需求的（聯電利用率 92%、日月光先進封裝）創新高，靠傳統 PC 的英特爾被市場重罰，即使當季優於預期。市場看的是下一季，不是這一季。友達賣廠給台積電，是面板閒置產能轉給晶圓代工；台積電要怎麼用這座廠，報導沒有說明，我不推測。",
+   "lesson": "財報看「財測」比看「當季」重要；同一個產業裡，有沒有接到 AI 需求的公司走勢可以完全相反。",
+   "threads": [
+    "semi-capacity",
+    "ai-capital"
+   ],
+   "sources": [
+    {
+     "title": "TechNews：日月光 Q3",
+     "href": "https://finance.technews.tw/2026/10/29/ase-technology-holding-co-ltd-reported-a-record-high-third-quarter-profit-with-eps-of-nt6-13/"
+    },
+    {
+     "title": "TechNews：英特爾財測",
+     "href": "https://finance.technews.tw/2026/10/30/intels-fourth-quarter-earnings-forecast-missed-market-expectations-causing-its-stock-price-to-plunge-by-more-than-20-at-one-point/"
+    },
+    {
+     "title": "TechNews：友達賣廠",
+     "href": "https://finance.technews.tw/2026/10/29/auo-tsmc/"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-29",
+     "id": "i6"
+    },
+    {
+     "date": "2026-10-29",
+     "id": "i7"
+    }
+   ]
+  },
+  {
+   "id": "i6",
+   "icon": "🔴",
+   "headline": "景氣連十紅、新台幣卻偏弱：強成長不等於出口商好賺",
+   "analysis": "9 月景氣燈號連續第十顆紅燈，創史上最長，國發會預估紅燈可延續到年底，動能來自出口與半導體相關產業。商周同時分析，台灣經濟成長亞太第一，新台幣卻是區域最弱之一，匯損侵蝕出口商獲利，並提出保底 4% 獲利的資產配置策略。",
+   "view": "我覺得這兩則要一起看：紅燈說的是量（出口、生產熱），匯率影響的是出口商拿回來的錢。景氣的動能集中在半導體，和 i5、10/29 聯電創高是同一條線，所以「全面景氣好」可能比實際感受更樂觀，這是我的推測。商周的「保底 4%」是媒體提出的配置建議，我只當觀點參考。",
+   "lesson": "總體指標是平均值；要看動能集中在哪個產業，以及匯率怎麼分配成果。",
+   "threads": [
+    "tw-macro",
+    "semi-capacity"
+   ],
+   "sources": [
+    {
+     "title": "TechNews：景氣燈號連十紅",
+     "href": "https://finance.technews.tw/2026/10/29/september-business-climate-indicator-shows-10-consecutive-red-lights-setting-new-historical-record/"
+    },
+    {
+     "title": "商業周刊：強成長、弱貨幣",
+     "href": "https://www.businessweekly.com.tw/focus/indep/6024766"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-29",
+     "id": "i6"
+    },
+    {
+     "date": "2026-10-26",
+     "id": "i6"
+    }
+   ]
+  },
+  {
+   "id": "i7",
+   "icon": "🔓",
+   "headline": "91APP 外洩波及 480 萬人：一個平台出事，上千品牌一起扛",
+   "analysis": "91APP 歷時 25 天調查後公布報告：訂單資訊外洩波及上千家品牌、480 萬名消費者，董事長何英圻率團隊公開致歉並承諾全面負責。10/27 天下的報導是公司稱「營運無重大影響」，店家則說扛消費者怒火的是他們；今天才首次有影響規模。",
+   "view": "我覺得這是平台集中風險的典型：品牌把電商後台交給同一家 SaaS，一次外洩就同時傷到上千家。從 10/27「營運無重大影響」到 10/30 公布 480 萬人，也說明影響主要落在下游店家和消費者，而不是平台本身的營運。可以對照 10/26 PHP2Shell 讓多個服務一起下線，都是共用元件出事、下游一起受影響（我的對照，兩案無直接關係）。",
+   "lesson": "選平台時，除了功能，也要問：它出事時我的客戶資料會怎樣、誰來通知、誰負責。",
+   "threads": [
+    "platform-sec"
+   ],
+   "sources": [
+    {
+     "title": "資安新聞：91APP 事件報告",
+     "href": "https://infosecu.technews.tw/2026/10/29/91app-security-incident-20261029/"
+    },
+    {
+     "title": "天下：91APP 遭駭後續",
+     "href": "https://www.cw.com.tw/article/5143354"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-26",
+     "id": "i7"
+    },
+    {
+     "date": "2026-10-27",
+     "title": "91APP 遭駭稱「營運無重大影響」（新聞）",
+     "href": "https://penguin-yeh.github.io/daily-news/#2026-10-27"
+    }
+   ]
+  }
+ ]
+}
