@@ -1,0 +1,228 @@
+{
+ "date": "2026-10-31",
+ "label": "10/31（六）",
+ "news_url": "https://penguin-yeh.github.io/daily-news/#2026-10-31",
+ "verdict": "今天只收到 RSS 每日報報，AI 報沒有來，所以 AI 產品新聞較少。主線是資安事故扎堆：Northflank 證實遭入侵，同日還有 Bunny CDN、Linode 事故，Cloudflare 修補 eMudhra 弱金鑰，幣安遭竊近 1985 億元。另一條線是人的角色：熱門文章指 AI agent 讓 SRE 技能退化，阮一峰週刊呼籲「不要讓 AI 代表你」，台灣選戰則出現 AI 造假音檔。市場面費半單日重挫 7.2%，但聯發科雲端 ASIC 拿下第二家客戶、鴻海 AI 機櫃產能翻倍，AI 供應鏈的基本面和股價走勢出現落差。（以上是我的分析觀點。）",
+ "learned": "自動化會把練習機會一起拿走；把工作交給 AI 時，要刻意留下讓人保持判斷力的部分，也要先想好共用平台出事時自己怎麼辦。",
+ "insights": [
+  {
+   "id": "i1",
+   "icon": "🚨",
+   "headline": "資安事故扎堆：Northflank、Bunny CDN、Linode、幣安同一天出事",
+   "analysis": "開發者雲端平台 Northflank 在狀態頁證實遭未經授權存取，同日 HN 上還有 Bunny CDN、Linode 事故（細節資料未提供）。Cloudflare 說明 eMudhra 發行的憑證金鑰強度有缺陷、極少運算即可破解未修補的連線，並追蹤實際攻擊與仍暴露的端點。天下報導幣安遭竊近 1985 億元，據稱攻擊者只靠一台筆電。The Pragmatic Engineer 的 Gergely Orosz 觀察到，一天的事故量相當於過去數週到一個月，質疑 AI 加速寫程式之際安全防線是否跟不上。",
+   "view": "我覺得這幾件事的共同點是「共用基礎設施」：平台、CDN、憑證、交易所一出事，下游一起受影響，和 10/30 91APP、10/26 PHP2Shell 是同一種風險（彼此沒有已知關聯）。Orosz 把事故增加和 AI 寫程式連起來，是作者推測，沒有因果證據；但它剛好接上 10/30 的觀察：40% PR 由 agent 起草，審查才是瓶頸。寫得越快，漏洞也可能越快進到線上。",
+   "lesson": "用共用平台時，要假設它會出事：secret 定期輪替、知道怎麼快速撤換，比相信平台不會被駭實際。",
+   "threads": [
+    "platform-sec",
+    "ai-security",
+    "review-merge"
+   ],
+   "sources": [
+    {
+     "title": "HN：Northflank 遭入侵",
+     "href": "https://news.ycombinator.com/item?id=50305025"
+    },
+    {
+     "title": "Cloudflare：eMudhra 弱金鑰修補",
+     "href": "https://blog.cloudflare.com/emudhra-patching/"
+    },
+    {
+     "title": "天下：幣安遭竊",
+     "href": "https://www.cw.com.tw/article/5143513"
+    },
+    {
+     "title": "The Pragmatic Engineer：重新思考軟體安全",
+     "href": "https://blog.pragmaticengineer.com/the-pulse-time-to-rethink-software-security-because-of-ai/"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-30",
+     "id": "i7"
+    },
+    {
+     "date": "2026-10-26",
+     "id": "i7"
+    },
+    {
+     "date": "2026-10-30",
+     "id": "i1"
+    }
+   ]
+  },
+  {
+   "id": "i2",
+   "icon": "🧯",
+   "headline": "AI 不是取代 SRE，而是讓他們技能退化",
+   "analysis": "HN 熱門文章（488 讚、356 留言）指出，AI agent 自動處理告警分級、日誌彙整，卻讓第一線 SRE 失去親手排查複雜事故的機會，真正大故障時可能缺乏判斷根因的經驗。阮一峰週刊第 417 期則提醒，別把溝通、決策甚至身份表達都交給 AI agent。上一期（416，10/26）談的是「程式設計已經面目全非」，包括 code review 可能消失的預測。",
+   "view": "我覺得這是 10/30 審查瓶頸的另一面：那天的重點是人要留在能否決的那一步，但如果平常都交給 AI，人到需要否決的時候可能已經沒有判斷力了。這也提醒我自己：讓 AI 整理筆記和新聞很省時間，但判斷「哪個連結成立」這件事，我想留在自己手上練。",
+   "lesson": "自動化拿走的不只是工作量，還有練習機會；要刻意保留一部分親手做的機會，才能在 AI 失靈時接手。",
+   "threads": [
+    "human-role",
+    "review-merge"
+   ],
+   "sources": [
+    {
+     "title": "HN：AI 讓 SRE 技能退化",
+     "href": "https://news.ycombinator.com/item?id=50305693"
+    },
+    {
+     "title": "阮一峰週刊第 417 期",
+     "href": "http://www.ruanyifeng.com/blog/2026/10/weekly-issue-417.html"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-30",
+     "id": "i3"
+    },
+    {
+     "date": "2026-10-30",
+     "id": "i2"
+    },
+    {
+     "date": "2026-10-26",
+     "title": "阮一峰週刊 416：程式設計已經面目全非（新聞）",
+     "href": "https://penguin-yeh.github.io/daily-news/#2026-10-26"
+    }
+   ]
+  },
+  {
+   "id": "i3",
+   "icon": "🎭",
+   "headline": "選戰出現 AI 造假音檔：沈伯洋遭抹黑，調查局證實偽造",
+   "analysis": "網傳 AI 合成音檔捏造沈伯洋涉軍購回扣，調查局鑑識證實造假，造謠者 10 萬元交保候傳。距九合一投票不到一個月，北市長首場電視辯論前哨、高雄市長首場辯論也同日登場。",
+   "view": "我覺得這把 AI 資安從「模型和 agent 的漏洞」拉到「生成內容被拿來攻擊人」。這次是調查局鑑識後才證實造假，代表一般人很難當場分辨，而澄清通常比造謠慢。選戰從 10/29 民調、10/30 賄選案到今天的 deepfake，最後一個月的資訊環境會越來越亂。",
+   "lesson": "看到「錄音證據」先問來源和鑑識結果；可以合成的東西，不能只靠聽起來像就相信。",
+   "threads": [
+    "ai-security"
+   ],
+   "sources": [
+    {
+     "title": "ETtoday：AI 造假音檔",
+     "href": "https://www.ettoday.net/news/20261030/3263669.htm"
+    },
+    {
+     "title": "自由時報：北市長辯論前哨",
+     "href": "https://news.ltn.com.tw/news/politics/breakingnews/5623623"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-30",
+     "title": "北市賄選案連環爆（新聞）",
+     "href": "https://penguin-yeh.github.io/daily-news/#2026-10-30"
+    },
+    {
+     "date": "2026-10-29",
+     "title": "聯合報民調：沈伯洋領先 4 個百分點（新聞）",
+     "href": "https://penguin-yeh.github.io/daily-news/#2026-10-29"
+    }
+   ]
+  },
+  {
+   "id": "i4",
+   "icon": "📉",
+   "headline": "費半單日重挫 7.2%：一週從 IPO 狂歡到評價過高",
+   "analysis": "天下整理費半單日重挫 7.2% 的三大原因：半導體與科技股評價過高、資金獲利了結，以及市場重新評估利率與需求前景。天下財經一週則彙整：黃仁勳身邊疑遭北京情報人員滲透一事持續發燒、Alphabet 單日市值蒸發創紀錄，Fed 與歐洲央行同步維持利率不變。",
+   "view": "我覺得這週的波動很能說明情緒的速度：10/27 美銀示警 11 月中旬前避險，10/28 Anthropic IPO 熱潮讓費半漲 3.6%，10/31 單日跌 7.2%。黃仁勳的情報疑雲只有 10/30 的紐時報導和輝達否認，今天沒有新事實，我不把它當成下跌原因。利率按兵不動，代表資金成本短期不會變便宜，評價只能靠獲利支撐。",
+   "lesson": "一週內的大漲大跌多半是情緒和評價在調整；判斷 AI 供應鏈要回到訂單和財測。",
+   "threads": [
+    "ai-capital"
+   ],
+   "sources": [
+    {
+     "title": "天下：費半重挫 7.2%",
+     "href": "https://www.cw.com.tw/article/5143514"
+    },
+    {
+     "title": "天下：財經一週",
+     "href": "https://www.cw.com.tw/article/5143497"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-28",
+     "id": "i4"
+    },
+    {
+     "date": "2026-10-29",
+     "id": "i7"
+    },
+    {
+     "date": "2026-10-30",
+     "id": "i5"
+    }
+   ]
+  },
+  {
+   "id": "i5",
+   "icon": "🧱",
+   "headline": "股價跌、訂單沒停：聯發科 ASIC 第二家客戶、鴻海 AI 機櫃產能翻倍",
+   "analysis": "聯發科法說會上修 2026 雲端 ASIC 營收目標至 25 億美元，蔡力行確認拿下第二家雲端 ASIC 客戶，Q4 ASIC 營收占比將明顯提升；Q3 EPS 17.5 元、毛利率 46.3%，Q4 營收季增中位數近三成。鴻海科技日宣布 AI 機櫃產能翻倍，並發表三款電動車；另有單一報導指 Sam Altman 當日低調訪台、與劉揚偉會面。",
+   "view": "我覺得和 i4 放在一起看最有意思：同一天費半重挫，供應鏈的訂單和產能卻還在擴。這延續 10/29 聯電、10/30 日月光創高，以及 10/29 鴻海、廣達、緯創調整全球布局。Altman 訪台只有單一報導，我不推測背後原因。股價反映的是預期，訂單反映的是當下，兩者會分開走。",
+   "lesson": "市場重挫時，分開看「價格」和「基本面」：訂單、產能、財測有沒有改變。",
+   "threads": [
+    "semi-capacity",
+    "dc-power"
+   ],
+   "sources": [
+    {
+     "title": "TechNews：聯發科 ASIC 目標",
+     "href": "https://finance.technews.tw/2026/10/30/mediateks-asic-revenue-will-reach-2-5-billion-in-2026/"
+    },
+    {
+     "title": "電獺少女：鴻海科技日",
+     "href": "https://agirls.aotter.net/post/65370"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-30",
+     "id": "i5"
+    },
+    {
+     "date": "2026-10-29",
+     "id": "i6"
+    },
+    {
+     "date": "2026-10-27",
+     "id": "i6"
+    }
+   ]
+  },
+  {
+   "id": "i6",
+   "icon": "💾",
+   "headline": "DRAM 漲價預期延續到明年 Q1，台積電：延長工時沒改善研發",
+   "analysis": "vivo 在台推出 X500 系列與摺疊機，報導指 DRAM 報價上漲預期延續到明年第一季、推升手機成本，但 X 系列在台銷量仍成長兩成。台積電共同營運長秦永沛則揭露「夜鷹計畫」半年就喊停，因為延長工時並沒有改善研發成果。",
+   "view": "記憶體這條線，10/25–10/27 法人說庫存不到 10 天、看 Q4 評價修復，今天變成漲價推升終端成本，代表供需偏緊從上游傳到手機。秦永沛的說法我覺得很值得記：連台積電都承認研發靠的是腦力而不是工時。這和 i2 是同一件事的兩面，重要的是判斷的品質，不是投入的時數。",
+   "lesson": "上游缺貨會一路傳到終端價格；研發和判斷型工作，多花時間不等於更好的結果。",
+   "threads": [
+    "semi-capacity",
+    "human-role"
+   ],
+   "sources": [
+    {
+     "title": "TechNews：vivo X500 與 DRAM 漲勢",
+     "href": "https://technews.tw/2026/10/30/vivo-x500-series-taiwan/"
+    },
+    {
+     "title": "TechNews：秦永沛談夜鷹計畫",
+     "href": "https://technews.tw/2026/10/30/tsmc-co-coo-y-p-chyn-says-longer-hours-do-not-improve-rd/"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-10-26",
+     "id": "i6"
+    },
+    {
+     "date": "2026-10-25",
+     "title": "韓股 10 月重挫逾 2 成、記憶體庫存不到 10 天（新聞）",
+     "href": "https://penguin-yeh.github.io/daily-news/#2026-10-25"
+    }
+   ]
+  }
+ ]
+}
