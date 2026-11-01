@@ -1,0 +1,244 @@
+{
+  "date": "2026-11-01",
+  "label": "11/1（日）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/#2026-11-01",
+  "verdict": "今天 AI 報回來了，主軸很清楚：模型正在變成「會過期的相依套件」。Anthropic 宣布 Opus 4.8 fast mode 和 Sonnet 4.5 都在 11/30 退場，同時推出可以按模型拆帳的用量 API；IBM 用 patch 版號更新模型，Mistral Large 4 開放權重。agent 也從寫程式擴散到望遠鏡和資料庫：Alibaba Cloud 說約 8 成新建 PostgreSQL 是 agent 建的。資安延續昨天的扎堆：Linux 核心 TCP 漏洞 CVSS 9.8、ChatGPT 帳號接管攻擊鏈公開、Molly 因為沒更新出包，幣安損失確認為 63 億美元。市場面英特爾單日 −30%，北高選戰在辯論後進入膠著。（以上是我的分析觀點。）",
+  "learned": "用 AI 也要做相依管理：釘版本、知道誰在呼叫哪一版、換版前先跑測試；不維護的東西，不管是模型還是 App，遲早變成風險。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "⏳",
+      "headline": "模型是會過期的相依套件：Anthropic 11/30 兩個模型退場",
+      "analysis": "Anthropic 宣布 claude-opus-4-8 的 fast mode 11/30 移除（改用 Opus 5.5），Sonnet 4.5 也在 11/30 退役；10/29 上線的 Usage and Cost Analytics API（beta）可依模型、workspace、API key、使用者或服務帳號拆解用量與成本。IBM Granite Switch 4.1.1 只重訓語音模型與 adapter、基底不動，官方稱完全向後相容；DeepSeek 的 deepseek-flash 別名則悄悄換了底層模型。AI 報的建議是版本釘選、換版前跑回歸測試、盤點用量、保留開放權重退路。",
+      "view": "我覺得這是把 AI 從「買一個產品」改成「管一個依賴」的轉折。別名換底層最危險，因為程式碼一行沒改，行為卻可能變了。Usage API 和 10/29 的預算制是同一個方向：先量得到誰在用哪一版、花多少錢，才談得上換版和控成本（這是我的對照，不是官方說法）。",
+      "lesson": "呼叫模型時寫死完整版本號、不要靠別名；每個用到模型的地方都要有一組回歸測試，退場公告出來時才知道換版會壞什麼。",
+      "threads": [
+        "model-lifecycle",
+        "anthropic",
+        "ai-pricing"
+      ],
+      "sources": [
+        {
+          "title": "Anthropic 模型停用頁",
+          "href": "https://platform.claude.com/docs/en/about-claude/model-deprecations"
+        },
+        {
+          "title": "Claude Platform 更新紀錄",
+          "href": "https://platform.claude.com/docs/en/release-notes/overview"
+        },
+        {
+          "title": "IBM Granite Switch 4.1.1",
+          "href": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1"
+        },
+        {
+          "title": "DeepSeek 更新紀錄",
+          "href": "https://api-docs.deepseek.com/updates"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-10-29",
+          "id": "i1"
+        },
+        {
+          "date": "2026-10-26",
+          "id": "i5"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "🔓",
+      "headline": "Mistral Large 4 開放權重：退場時的退路，也是小模型組隊的對照",
+      "analysis": "Mistral 10/29 釋出 Large 4（Le Chonk），約 1 兆參數 MoE、修改版 MIT 授權，API 每百萬 token 輸入 0.70／輸出 2.10 美元，官方稱 Terminal-Bench 4.0 為 41%；做 MaaS 的業者需另取商業授權。另一個 open source 專案 Memdoor 讓 5 個 Qwen3.8-27B 分工解題，在 LiveCodeBench Hard 上贏過單一大模型 Fable 5（專案自述）。",
+      "view": "10/25 Mistral 預告「月底開源權重」，這次準時兌現。我覺得開放權重最大的價值，在 i1 的脈絡下更清楚：模型不會被別人退役，權重在自己手上就能一直跑。分數方面，同一個 Terminal-Bench 4.0，10/27 GPT-6.1 Terra 最高檔是 50.3%，Large 4 是 41%，兩個都是廠商自評，只能當參考。Memdoor 說明「多個小模型分工」也是一條路，但目前只有專案自己的數字。",
+      "lesson": "選模型時把「能不能自己留一份」列入考量；benchmark 看同一指標比較，並記得標明誰測的。",
+      "threads": [
+        "model-price",
+        "model-lifecycle"
+      ],
+      "sources": [
+        {
+          "title": "Mistral Large 4 開放權重",
+          "href": "https://mistral.ai/news/mistral-large-4-oss/"
+        },
+        {
+          "title": "Memdoor（GitHub）",
+          "href": "https://github.com/guregodevo/memdoor"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-10-25",
+          "id": "i6"
+        },
+        {
+          "date": "2026-10-27",
+          "id": "i3"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "🔭",
+      "headline": "agent 變成基礎設施的主要使用者：從望遠鏡到 PostgreSQL",
+      "analysis": "NVIDIA 與 SETI Institute、Breakthrough Listen 在 Allen Telescope Array 讓 agent 以自然語言調度望遠鏡、校正資料並套用模型，資料流約 2.4 Tbps，在 Crab 星雲達成首次即時 AI 脈衝星偵測（NVIDIA 官方說法）。Alibaba Cloud 稱過去一年新建 RDS PostgreSQL 實例成長逾 400%、約 8 成由 agent 建立（廠商自家數據），推出 Agent Data Gateway 與 DataGuard for Agent，重點是給 agent 獨立身分與列級權限。Meta JiTTesting 全面上線（10/30 已記）。Hugging Face 也發起 Project ProtoStar，讓公費科學資料 AI-ready。",
+      "view": "我覺得最值得注意的是 Alibaba 那個數字：如果資料庫的主要建立者是 agent，權限設計就不能再假設「使用者是人」。這接上 10/28 的觀察：只靠提示詞規則擋不住越權，要在工具呼叫層檢查；現在連資料層都要幫 agent 發身分證。8 成是廠商自己的數據，方向可信、數字要保留。",
+      "lesson": "讓 agent 碰資料時，給它獨立帳號和最小權限，不要共用人的帳號；出事時才查得到是誰做的。",
+      "threads": [
+        "agent-infra",
+        "ai-security",
+        "ai-research"
+      ],
+      "sources": [
+        {
+          "title": "NVIDIA × SETI",
+          "href": "https://blogs.nvidia.com/blog/ai-joins-the-search-for-extraterrestrial-signals/"
+        },
+        {
+          "title": "Alibaba Cloud：資料庫最大用戶是 agent",
+          "href": "https://www.alibabacloud.com/blog/your-databases-biggest-user-is-now-an-agent-%E2%80%94-and-that-changes-security_603709"
+        },
+        {
+          "title": "Meta JiTTesting 全面上線",
+          "href": "https://engineering.fb.com/2026/10/29/security/catching-bugs-before-they-land-jittestings-human-on-the-loop-approach-at-full-scale/"
+        },
+        {
+          "title": "Hugging Face Project ProtoStar",
+          "href": "https://huggingface.co/blog/announcing-project-protostar"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-10-28",
+          "id": "i6"
+        },
+        {
+          "date": "2026-10-30",
+          "id": "i3"
+        },
+        {
+          "date": "2026-10-28",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "🛡️",
+      "headline": "三則漏洞同上 HN，幣安損失確認 63 億美元",
+      "analysis": "研究者公開 Linux 核心 IPv4 TCP 堆疊的 use-after-free 漏洞 CVE-2026-98432（CVSS 9.8）；Parameter.ai 拆解 ChatGPT 帳號系統的缺口，串接多步完成帳號劫持；Signal 分支 Molly 因依賴元件有已知漏洞卻三個月未更新，使用者呼籲改回官方 Signal。幣安遭駭後續：損失 63 億美元，暫停提款並承諾全額賠償，比特幣一度跌破 7.7 萬美元。Cloudflare 的 eMudhra 文章補上機制：部分憑證私鑰只落在極少數可能值中，可被暴力破解，仍有不少服務未修補。",
+      "view": "昨天是共用平台出事，今天換成共用元件：核心、帳號系統、依賴套件。我覺得 Molly 最有教育意義：它主打「比官方更安全」，卻因為沒跟上更新反而變成風險，和 i1 講的模型是同一件事，不維護的依賴就是負債（這是類比，不是同一事件）。幣安 63 億美元和 10/31 天下說的近 1985 億元台幣口徑相近，今天多了暫停提款與全額賠償的承諾。",
+      "lesson": "選工具時看維護頻率，不只看功能；「加強版」分支如果沒人維護，比官方版更危險。",
+      "threads": [
+        "platform-sec",
+        "ai-security",
+        "model-lifecycle"
+      ],
+      "sources": [
+        {
+          "title": "CVE-2026-98432 分析",
+          "href": "https://atlasum.net/blog/cve-2026-98432-linux-ipv4-tcp-uaf"
+        },
+        {
+          "title": "Parameter.ai：ChatGPT 帳號接管",
+          "href": "https://www.parameter.ai/labs/we-found-a-gap-at-openai"
+        },
+        {
+          "title": "Molly 漏洞討論",
+          "href": "https://piefed.world/post/1503394"
+        },
+        {
+          "title": "TechNews：幣安遭駭 63 億美元",
+          "href": "https://technews.tw/2026/10/31/binance-6-3bn-hack/"
+        },
+        {
+          "title": "Cloudflare：eMudhra 弱金鑰",
+          "href": "https://blog.cloudflare.com/emudhra-patching/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-10-31",
+          "id": "i1"
+        },
+        {
+          "date": "2026-10-30",
+          "id": "i7"
+        }
+      ]
+    },
+    {
+      "id": "i5",
+      "icon": "📉",
+      "headline": "英特爾單日 −30%：同一波費半重挫，換一個角度解釋",
+      "analysis": "TechNews 報導英特爾 10/30 股價單日重挫 30%，恐創史上最大單日跌幅，主因 PC 需求疲軟與第四季展望保守，費半同步重挫逾 7%、全球晶片股跟著下殺。同日另一則大消息：SpaceX 與特斯拉證實各自成立特別委員會研議合併，市值上看 3.5 兆美元，仍需過公司治理與監管審查。",
+      "view": "10/30 財報後英特爾盤後一度跌逾 20%，正式交易日變成 −30%。我覺得要注意：10/31 天下把費半 −7.2% 歸因於評價過高、獲利了結和利率，今天 TechNews 把英特爾列為主因，應該是同一波下跌的不同解釋（這是我的推測）。對照 10/30 日月光靠 CoWoS 創高，半導體的分化很明顯：吃到 AI 的和靠 PC 的是兩種公司。SpaceX–特斯拉 10/27 財經一週就提過，今天才有特別委員會的具體進展。",
+      "lesson": "同一個跌幅，不同媒體會給不同原因；看的時候要分清是公司自己的財測問題，還是整個板塊的評價調整。",
+      "threads": [
+        "ai-capital",
+        "semi-capacity"
+      ],
+      "sources": [
+        {
+          "title": "TechNews：英特爾重挫 30%",
+          "href": "https://finance.technews.tw/2026/10/31/intel-stock-chip/"
+        },
+        {
+          "title": "TechNews：SpaceX 與特斯拉研議合併",
+          "href": "https://finance.technews.tw/2026/10/31/spacex-tesla-merger-largest-earth-who-benefits-who-pays/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-10-30",
+          "id": "i5"
+        },
+        {
+          "date": "2026-10-31",
+          "id": "i4"
+        }
+      ]
+    },
+    {
+      "id": "i6",
+      "icon": "🗳️",
+      "headline": "北市長辯論後：辯論沈伯洋贏、支持度蔣萬安領先；高雄只差 0.1",
+      "analysis": "10/31 台北市長電視辯論登場，天下分析雙方交叉詰問激烈、但對中間選民說服力有限。TVBS 民調顯示多數受訪者認為沈伯洋辯論較佳，支持度仍由蔣萬安領先，台灣事實查核中心同步發布辯論查核。蔣萬安現身同志遊行遭嗆聲並再度致歉；高雄市長民調柯志恩、賴瑞隆僅差 0.1 個百分點。辯論同日，國防部偵獲中共 22 架次軍機「警巡」擾台。",
+      "view": "10/29 聯合報民調是沈伯洋領先 4 個百分點，今天 TVBS 是蔣萬安領先；我覺得不能把這解讀成「翻盤」，因為是不同機構、不同問法。辯論贏和投票支持是兩回事，這點也提醒我：表現好不一定改變決定。軍機擾台和辯論同日，資料沒有說兩者有關，我不推測。",
+      "lesson": "比較民調要看同一家機構的前後變化；不同機構的數字放在一起，只能看大方向。",
+      "threads": [
+        "tw-election"
+      ],
+      "sources": [
+        {
+          "title": "天下：台北市長辯論分析",
+          "href": "https://www.cw.com.tw/article/5143517"
+        },
+        {
+          "title": "風傳媒：TVBS 民調",
+          "href": "https://www.storm.mg/article/11177412"
+        },
+        {
+          "title": "風傳媒：高雄市長民調",
+          "href": "https://www.storm.mg/article/11177382"
+        },
+        {
+          "title": "自由時報：中共軍機擾台",
+          "href": "https://news.ltn.com.tw/news/politics/breakingnews/5625077"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-10-31",
+          "id": "i3"
+        },
+        {
+          "date": "2026-10-29",
+          "title": "聯合報民調：沈伯洋領先 4 個百分點（新聞）",
+          "href": "https://penguin-yeh.github.io/daily-news/#2026-10-29"
+        }
+      ]
+    }
+  ]
+}
