@@ -1,0 +1,218 @@
+{
+  "date": "2026-11-03",
+  "label": "11/3（二）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/#2026-11-03",
+  "verdict": "今天的 AI 主軸是「agent 變快變省，靠的是模型外層少做重工」：Anthropic 的 Message threads 讓對話留在伺服器、只送新訊息；Alibaba Qoder 不動模型、重寫執行層，並主張 agent 上線要靠持續評估而不是試跑幾次。資安面 GitHub 12/2 起公開 repo 預設封鎖 pull_request_target；11/1 那個 Linux 核心漏洞在 Ubuntu LTS 上近三週沒修；幣安竊案 FBI 指向北韓，同日也有北韓用 AI 偽造履歷求職的報導。半導體版圖在調整：三星 2030 年退出 8 吋代工、Marvell 收購 Lumentum、SK 海力士 Q4 營益估破 100 兆韓圜。Anthropic 赴美 IPO 之際擬向日本募資 1,144 億日圓，美國期中選舉今天投票。（以上是我的分析觀點。）",
+  "learned": "效能常常不在模型本身，而在外面那層有沒有重複做白工；安全也一樣，預設值改對，比事後補救有效。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "⚡",
+      "headline": "agent 變快靠少做重工：Message threads 與 Qoder 重寫執行層",
+      "analysis": "Claude API 11/2 推出 Message threads（beta）：對話存於伺服器，後續請求只送新訊息，可降低請求大小與 TTFT；但閒置 5 分鐘即過期、最長保留不超過 1 小時，release notes 未公布改善幅度。Alibaba Qoder〈Making Fast Mode Faster〉不動模型，改用預編譯、背景預熱、穩定請求前綴重用快取、大型工具輸出存硬碟加速；中斷後依 call ID 對帳，結果未知的呼叫不自動重放，以免副作用重複（未公布加速數字）。Claude Code v2.1.314 也加了 idle compaction：超過 20 萬 token 的閒置對話先壓成摘要。",
+      "view": "我覺得這延續 11/2 的觀察：可靠和效率都在模型外面那層做。Qoder「結果未知不重放」和 10/29 Alibaba Cloud Agent as a Service「用原執行 ID 避免重複副作用」是同一個設計原則。兩家都沒公布加速數字，所以我只把它當方向，不當成效。Message threads 5 分鐘就過期，比較適合連續的短對話，不是長期記憶。",
+      "lesson": "agent 慢或貴的時候，先檢查有沒有重送整段對話、重跑工具或重複副作用，再考慮換模型。",
+      "threads": [
+        "agent-infra",
+        "anthropic"
+      ],
+      "sources": [
+        {
+          "title": "Claude Platform 更新紀錄",
+          "href": "https://platform.claude.com/docs/en/release-notes/overview"
+        },
+        {
+          "title": "Qoder：Making Fast Mode Faster",
+          "href": "https://www.alibabacloud.com/blog/making-fast-mode-faster_603714"
+        },
+        {
+          "title": "Claude Code idle compaction",
+          "href": "https://github.com/anthropics/claude-code/releases"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-02",
+          "id": "i3"
+        },
+        {
+          "date": "2026-10-26",
+          "id": "i4"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "🎯",
+      "headline": "「試跑幾次都成功」不夠：Qoder 與 Momentic 都在量 agent 的可靠度",
+      "analysis": "Qoder 主張 agent 上線前要有持續評估迴圈：案例取自自家任務與失敗、每案獨立沙盒、多跑看 pass@k／pass^k，改完要對基線做回歸測試。Momentic 公布 QA-Bench：在 1,396 個人工標註 bug 上，Mo 60 分鐘找出 269 個（recall 19.3%、每 bug 2.67 美元），Codex 86 個（6.2%、0.80 美元），Claude Code 59、Devin 27（自家 benchmark）。",
+      "view": "pass^k 是我覺得最值得記的概念：不是「k 次裡有一次成功」，而是「k 次都成功」，上線看的是後者。這和 11/1 的回歸測試、11/2 的「裁判也要驗證」接起來。Momentic 的數字是自家 benchmark，而且 recall 最高也才 19.3%，代表 QA agent 目前只能抓到一小部分 bug。",
+      "lesson": "評估 agent 時看「每次都對」的比例（pass^k），並固定一組自己的案例做回歸，不要被一次成功的展示說服。",
+      "threads": [
+        "ai-verification",
+        "review-merge",
+        "model-lifecycle"
+      ],
+      "sources": [
+        {
+          "title": "Qoder：持續評估迴圈",
+          "href": "https://www.alibabacloud.com/blog/qoder-cloud-agents-an-evaluation-loop-for-reliable-continuous-agent-improvement_603715"
+        },
+        {
+          "title": "Launch HN：Momentic QA-Bench",
+          "href": "https://news.ycombinator.com/item?id=50341334"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-02",
+          "id": "i2"
+        },
+        {
+          "date": "2026-11-01",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "🔐",
+      "headline": "GitHub 12/2 起預設封鎖 pull_request_target：把危險的預設值改掉",
+      "analysis": "pull_request_target 事件帶 base repo 的密鑰權限，執行 fork 程式碼時可能外洩，GitHub 宣布 12/2 起公開 repo 預設封鎖（除非政策放行）；11/9、11/16 16:00–18:00 UTC（台北 11/10、11/17 00:00–02:00）各有一次演練，私有 repo 與 GHES 不受影響。GitHub 的程式碼與密鑰風險評估也開始標示發現項目所在 repo 是否受保護。",
+      "view": "我覺得這是「預設值就是政策」的好例子：與其教每個維護者怎麼安全使用，不如直接把危險選項預設關掉。這和 11/2 Claude Code 預設禁止寫入工作目錄外是同一種思路。演練時段在台北深夜，有公開 repo 用到這個事件的人，最好在 11/10 前先檢查 workflow。",
+      "lesson": "檢查自己的公開 repo 有沒有用 pull_request_target；設計系統時，讓安全的選項成為預設。",
+      "threads": [
+        "platform-sec",
+        "agent-infra"
+      ],
+      "sources": [
+        {
+          "title": "GitHub：pull_request_target 預設封鎖",
+          "href": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2"
+        },
+        {
+          "title": "GitHub 安全風險評估",
+          "href": "https://github.blog/changelog/2026-11-02-security-risk-assessments-include-repository-protection-status"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-02",
+          "id": "i3"
+        },
+        {
+          "date": "2026-10-28",
+          "id": "i6"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "🕳️",
+      "headline": "Ubuntu 0-day 近三週未修、預訓練投毒、北韓兩條線",
+      "analysis": "CVE-2026-98432 影響 Ubuntu LTS 核心的嚴重 RCE，披露近三週仍無修補；11/1 已有同一 CVE 的 Linux IPv4 TCP use-after-free 分析（CVSS 9.8）。arXiv 論文探討在預訓練資料投毒，使部署後的 agent 帶後門（信中未附手法）。幣安遭竊約 63 億美元，FBI 調查指向北韓駭客組織，幣安稱提領潮趨緩並恢復美元提現；Cool3c 也引述 Microsoft 調查，北韓攻擊者以生成式 AI 偽造履歷與面試回答求職入侵企業。",
+      "view": "11/1 我記這個 CVE 時只知道嚴重度，今天才知道 Ubuntu LTS 還沒修，揭露到修補的空窗才是風險。幣安從 10/31 竊案、11/1 承諾全額賠償，到今天 FBI 指向北韓，這條線越來越清楚。北韓的兩則新聞同日出現，但資料沒說兩者有關，我不連在一起推測。預訓練投毒最讓我在意：如果後門在訓練時就埋進去，部署後的檢查很難發現。",
+      "lesson": "重大漏洞要追「什麼時候修好」，不只看「什麼時候公開」；用開放權重模型時，訓練資料來源也是信任鏈的一環。",
+      "threads": [
+        "platform-sec",
+        "ai-security"
+      ],
+      "sources": [
+        {
+          "title": "Ubuntu LTS 核心 0-day",
+          "href": "http://freenode.net/article/ubuntu-lts-kernels-still-unfixed-for-critical-cve-2026-98432"
+        },
+        {
+          "title": "預訓練投毒植入後門",
+          "href": "http://arxiv.org/abs/2610.37741"
+        },
+        {
+          "title": "幣安竊案指向北韓",
+          "href": "https://cn.nytimes.com/technology/20261102/binance-hack-crypto-north-korea/zh-hant/"
+        },
+        {
+          "title": "北韓用 AI 偽造履歷",
+          "href": "https://www.cool3c.com/article/253692"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-01",
+          "id": "i4"
+        },
+        {
+          "date": "2026-10-31",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i5",
+      "icon": "🔌",
+      "headline": "半導體版圖調整：三星退出 8 吋、Marvell 收購 Lumentum、SK 海力士營益估破百兆",
+      "analysis": "三星已通知客戶 2030 年底前停止 8 吋代工產線，韓國 IC 設計業者須提前尋找替代產能。Marvell 以全股票交易收購 Lumentum，合併後成為 AI connectivity 晶片重量級業者。券商預估 SK 海力士第四季營益首度破 100 兆韓圜（AI 推升記憶體需求加上股東回饋），並喊買進。",
+      "view": "我覺得三則各指一個方向：成熟製程供給在縮（10/29 聯電利用率 92% 時已經很緊，三星退出會讓 8 吋更搶手，這是我的推測）；AI 連線從晶片延伸到光通訊；記憶體延續 10/31 DRAM 漲價的景氣。SK 海力士的數字是券商預估，不是財報。",
+      "lesson": "看半導體不只看先進製程：成熟製程的退場和光通訊的整合，一樣會影響供應鏈誰有議價權。",
+      "threads": [
+        "semi-capacity",
+        "dc-power"
+      ],
+      "sources": [
+        {
+          "title": "三星退出 8 吋代工",
+          "href": "https://technews.tw/2026/11/02/samsung-to-fully-exit-8-inch-foundry-business-by-2030/"
+        },
+        {
+          "title": "Marvell 收購 Lumentum",
+          "href": "https://technews.tw/2026/11/02/marvell-and-lumentum-to-combine-creating-a-category-leader-in-ai-connectivity/"
+        },
+        {
+          "title": "SK 海力士 Q4 營益預估",
+          "href": "https://finance.technews.tw/2026/11/02/sk-hynix-q4-operating-profit-seen-surpassing-100-trillion-won-for-first-time/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-10-29",
+          "id": "i6"
+        },
+        {
+          "date": "2026-10-31",
+          "id": "i6"
+        }
+      ]
+    },
+    {
+      "id": "i6",
+      "icon": "🗾",
+      "headline": "Anthropic 赴美 IPO 同時擬向日本募資 1,144 億日圓",
+      "analysis": "申報文件顯示，Anthropic 在美國 IPO 之際，將同步在日本募資約 1,144 億日圓。同日美國期中選舉投票，川普選前坦言恐難取勝，自嘲選後將當國會的「否決先生」。",
+      "view": "從 10/27 公開 S-1、10/28 有代號 ANT 和承銷商，到今天多了日本募資這一塊，Anthropic IPO 的資金來源開始跨市場。資料沒有說明為什麼選日本，我不推測原因。財務數字和定價仍然沒出來，那才是判斷估值的關鍵。",
+      "lesson": "追 IPO 要分清已確定的事（申報、代號、募資地點）和還沒公布的事（財務、定價），不要用熱度補空白。",
+      "threads": [
+        "anthropic",
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "Anthropic 擬向日本募資",
+          "href": "https://finance.technews.tw/2026/11/02/anthropic-us-ipo-japan-fundraising-114-4-billion-jpy/"
+        },
+        {
+          "title": "美國期中選舉投票",
+          "href": "https://udn.com/news/story/6809/9853013"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-10-28",
+          "id": "i3"
+        },
+        {
+          "date": "2026-10-27",
+          "id": "i4"
+        }
+      ]
+    }
+  ]
+}
