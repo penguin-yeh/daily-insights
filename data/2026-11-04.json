@@ -1,0 +1,244 @@
+{
+ "date": "2026-11-04",
+ "label": "11/4（三）",
+ "news_url": "https://penguin-yeh.github.io/daily-news/#2026-11-04",
+ "verdict": "今天的主軸是「安全改成預設、能力要能驗證」：GitHub 12/2 起封鎖公開 repo 的 pull_request_target（原訂 11/2）、Desktop 改發短命 token，Launchpad 加 FIDO2 硬體金鑰。AI 評測一連串數字說明平均分會騙人：Google PLE 單項 91% 但整份全過只有 41.3%，CWE-bench 約 19% 題每次都錯；11/3 爆紅的 Astra 被指誇大、可在筆電重現。Claude 輸出預設帶浮水印，Postman 被指靜默安裝 AI 外掛。FBI 證實北韓竊走幣安逾 60 億美元；HBM 走私報導點名台灣封裝廠；台股月崩逾 6000 點，美國期中選舉登場。（以上是我的分析觀點。）",
+ "learned": "「預設安全」和「每次都對」是同一種要求：不要相信平均情況，要讓最壞情況也過得去。",
+ "insights": [
+  {
+   "id": "i1",
+   "icon": "🔐",
+   "headline": "安全改成預設：pull_request_target 封鎖、短命 token、FIDO2",
+   "analysis": "GitHub 公開 repo 的 pull_request_target 12/2 起預設封鎖（原訂 11/2 延後），11/9、11/16 台北 00:00–02:00 各演練一次，需要的人得在 Actions event policy 明確允許；私有 repo 與 Enterprise Server 不受影響。同一週 GitHub Desktop 改發短命、自動刷新的 token（未公布壽命、逐步推出），Canonical 的 Launchpad 加入 FIDO2 硬體金鑰，沒有實體金鑰的被竊 token 無法冒用。Dependabot 也開始替 Agent Package Manager 的技能包開依賴更新 PR（只做版本更新）。",
+   "view": "我覺得這幾則是同一個方向：不再期待使用者自己設定好，而是把危險的選項關掉、把憑證壽命縮短，要用的人自己打開。這比事後抓漏洞便宜得多。真正要留意的是演練那兩晚：還依賴 pull_request_target 的 CI 會直接壞掉，等於提前看到 12/2 的影響。Dependabot 管 agent 技能包，代表技能已經被當成供應鏈的一部分。",
+   "lesson": "盤點自己的 workflow 有沒有 pull_request_target，並在 11/9 演練前決定要改寫還是明確放行；長效 token 能換短命的就換。",
+   "threads": [
+    "platform-sec",
+    "agent-infra"
+   ],
+   "sources": [
+    {
+     "title": "GitHub Changelog",
+     "href": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2"
+    },
+    {
+     "title": "GitHub Changelog",
+     "href": "https://github.blog/changelog/2026-11-02-github-desktop-adds-short-lived-authentication-tokens"
+    },
+    {
+     "title": "OMG! Ubuntu!",
+     "href": "https://www.omgubuntu.co.uk/2026/11/launchpad-fido2-hardware-tokens"
+    },
+    {
+     "title": "GitHub Changelog",
+     "href": "https://github.blog/changelog/2026-11-03-dependabot-version-updates-support-agent-package-manager"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-03",
+     "id": "i3"
+    },
+    {
+     "date": "2026-11-02",
+     "id": "i3"
+    }
+   ]
+  },
+  {
+   "id": "i2",
+   "icon": "📏",
+   "headline": "平均分數會騙人：PLE 41.3%、CWE-bench 19% 題每次都錯",
+   "analysis": "Google 的 PLE 有 85 題實體工程題，14 個前沿模型最高平均 48.3 分；個別限制滿足率 91%，但整份交付通過全部硬性檢查只有 41.3%，而且模型選擇的影響遠大於 harness。Collinear CWE-bench v2 涵蓋 91 種弱點類別，Gemini 4 Argon pass@1 67.8%、Opus 5.5 67.3%，仍有約 19% 題目每次都失敗；每次成本從 DeepSeek V4.1 Flash 約 0.04 美元到 Opus 5.5 約 1.83 美元。Ai2 StateBench 顯示前沿模型在最長輸入、最難等級的狀態追蹤準確率跌破 13%。",
+   "view": "我覺得 PLE 那組數字最值得記：91% 和 41.3% 是同一批答案，差別只在「每一項都要對」。這正是 11/2 預印本說的平均表現無法預測穩健度，和 11/3 Qoder 講的 pass^k 是同一件事。CWE-bench 約 19% 題「每次都錯」也提醒我，有些缺口不是多跑幾次能補的。另外 0.04 對 1.83 美元的成本差，代表選模型不能只看榜首。",
+   "lesson": "評估 agent 時看「整份交付全過」和「每次都對」的比例，不要只看平均分或單項通過率。",
+   "threads": [
+    "ai-verification",
+    "model-price"
+   ],
+   "sources": [
+    {
+     "title": "Google Cloud Blog",
+     "href": "https://cloud.google.com/blog/products/ai-machine-learning/introducing-physical-engineerings-last-exam-for-agents"
+    },
+    {
+     "title": "Hugging Face Blog",
+     "href": "https://huggingface.co/blog/cwe-bench"
+    },
+    {
+     "title": "Hugging Face Blog",
+     "href": "https://huggingface.co/blog/allenai/statebench"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-03",
+     "id": "i2"
+    },
+    {
+     "date": "2026-11-02",
+     "id": "i2"
+    }
+   ]
+  },
+  {
+   "id": "i3",
+   "icon": "🔍",
+   "headline": "Astra 被指誇大、HF 抓回歸：宣稱要能重現、檢查要能擋",
+   "analysis": "11/3 HN 最熱的「Astra 可讀寫 Qwen 權重自我改進」，今天被 honnibal.dev 拆解為誇大：機制比宣傳平淡（HN 第 2）。Simon Willison 也在筆電上用 Qwen 3.8 27B 重現類似的權重解讀能力（HN 第 3）。Hugging Face 則提出 Model Integration Contracts，用縮小 fixture 與審核過的基準輸出抓 Transformers 整合回歸；UMT5 的 SDPA bug 讓 decoder 偷看未來 token，在 main 停留近兩個月，而這套檢查目前只警告、不擋 PR。",
+   "view": "我覺得兩件事放在一起看很有意思：一個是外部宣稱被別人用小模型重現後降溫，一個是內部檢查抓得到但還擋不住。兩者都在說，能力或正確性要靠「別人能重現」和「會擋下來的測試」才算數。HF 只警告不擋，代表他們也承認基準輸出本身還需要時間建立信任。",
+   "lesson": "看到驚人的 AI 宣稱，先等獨立重現；自己的專案裡，抓得到的回歸檢查要逐步改成會擋 merge。",
+   "threads": [
+    "ai-verification",
+    "model-lifecycle"
+   ],
+   "sources": [
+    {
+     "title": "Hacker News 討論",
+     "href": "https://news.ycombinator.com/item?id=50351111"
+    },
+    {
+     "title": "Hacker News 討論",
+     "href": "https://news.ycombinator.com/item?id=50355251"
+    },
+    {
+     "title": "Hugging Face Blog",
+     "href": "https://huggingface.co/blog/transformers-mic"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-03",
+     "id": "i2"
+    },
+    {
+     "date": "2026-11-02",
+     "id": "i2"
+    }
+   ]
+  },
+  {
+   "id": "i4",
+   "icon": "🏷️",
+   "headline": "Claude 預設浮水印、Postman 被指靜默裝 AI 外掛：信任靠標記與同意",
+   "analysis": "Anthropic 11/3 平台更新讓 Mythos 5、Opus 4.7、Sonnet 4.6 產生的文字預設帶不可見的機器可讀標記，PNG/JPEG 附 C2PA Content Credentials，對應歐盟 AI Act 第 50(2) 條；偵測到只代表 Claude「可能參與」，偵測能力目前僅私人預覽。同日 HN 第 1（969 讚）是一則 GitHub issue：指 Postman 桌面版未經同意自動安裝 AI 外掛，並嘗試回傳 API 請求、回應與密鑰；目前是單方指控，官方未正式回應。",
+   "view": "我覺得這兩則是 AI 信任問題的兩端：一端是模型商主動標記「這是 AI 產的」，一端是使用者發現工具偷偷加了 AI 功能。浮水印只能說「可能有參與」，偵測又還沒開放，實際用途有限；Postman 這則若屬實，傷害更直接，因為 API 工具裡本來就放滿密鑰。在官方回應前我只把它當警訊，不當定論。",
+   "lesson": "放密鑰的開發工具要盯更新內容與外連行為；AI 標記是合規工具，不要當成內容真偽的證明。",
+   "threads": [
+    "ai-security",
+    "anthropic"
+   ],
+   "sources": [
+    {
+     "title": "How Claude marks AI-generated content",
+     "href": "https://support.claude.com/en/articles/16266773-how-claude-marks-ai-generated-content"
+    },
+    {
+     "title": "Postman issue #14370",
+     "href": "http://github.com/postmanlabs/postman-app-support/issues/14370"
+    },
+    {
+     "title": "HN 討論",
+     "href": "https://news.ycombinator.com/item?id=50354960"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-02",
+     "id": "i3"
+    }
+   ]
+  },
+  {
+   "id": "i5",
+   "icon": "🏦",
+   "headline": "FBI 證實北韓竊幣安逾 60 億美元；永豐銀 419 戶遭盜轉",
+   "analysis": "FBI 證實北韓駭客 10/29 入侵 Binance、竊走逾 60 億美元加密資產（報導稱史上最大），並經 Ethereum、穩定幣轉移與多層洗錢掩蓋金流；11/3 時還只是「調查指向北韓」。台灣永豐銀則有 419 名存戶存款無故被轉出、逾 4 千萬元，集中流向同一帳戶，金管會要求下架新版 APP，焦點在轉出授權機制是否被破解。",
+   "view": "我覺得幣安這條線從 10/31 事件、11/1 後續、11/3 指向北韓到今天證實，已經很完整，接下來該看的是資金能追回多少。永豐銀和它無關，但同樣是「授權那一步出事」：新版 APP 一上線就被要求下架，代表問題可能在新功能本身而非使用者被騙。兩者都指向轉帳授權是最該加固的地方。",
+   "lesson": "金融類系統的新版本，轉出授權要當最高風險面看待；大額轉出最好有硬體金鑰或額外確認。",
+   "threads": [
+    "platform-sec"
+   ],
+   "sources": [
+    {
+     "title": "TechNews 科技新報",
+     "href": "https://infosecu.technews.tw/2026/11/04/fbi-north-korea-stole-6-billion-cryptocurrency-binance-hacker-methods-dissected/"
+    },
+    {
+     "title": "原文",
+     "href": "https://cmnews.com.tw/article/money-24760c3b-d76e-11f1-b653-31fc38ab5be2"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-03",
+     "id": "i4"
+    }
+   ]
+  },
+  {
+   "id": "i6",
+   "icon": "🏭",
+   "headline": "HBM 走私、Marvell 收購 Lumentum、NVIDIA「AI 定義晶圓廠」",
+   "analysis": "The Information 報導中國業者經跨境走私鏈取得 Samsung、SK hynix 的 HBM 規避出口管制，部分台灣封裝廠被點名可能涉入轉運或加工（單一外媒報導）。Marvell 全股票收購 Lumentum，董事會 11/2 通過、報導估約 1,150 億美元，瞄準 CPO 與光互連、挑戰 Broadcom。NVIDIA 描繪 AI 定義晶圓廠：Siemens Calibre 整合 cuLitho 最高 17 倍、Applied ACE+ 最高 35 倍，皆為廠商自述的「最高」值。",
+   "view": "我覺得 HBM 走私是 11/3 SK 海力士營益創高的另一面：需求越強、管制越嚴，灰色通路就越有利可圖，而台灣封裝廠被點名對供應鏈是聲譽風險，但目前只有單一報導。Marvell 這筆把光互連拉成和 HBM 同級的瓶頸。NVIDIA 的倍數我只當上限看，沒有精度與量產數字前不算成果。",
+   "lesson": "看半導體新聞時分清楚「報導指控」「交易金額估計」「廠商最高值」三種可信度，別混在一起當事實。",
+   "threads": [
+    "semi-capacity",
+    "ai-verification"
+   ],
+   "sources": [
+    {
+     "title": "TechNews 科技新報",
+     "href": "https://technews.tw/2026/11/04/foreign-media-reports-reveal-chinas-covert-smuggling-of-hbm-from-south-korea/"
+    },
+    {
+     "title": "TechNews 科技新報",
+     "href": "https://finance.technews.tw/2026/11/03/marvell-acquires-lumentum-optical-electrical-integration-challenge-broadcom-leadership/"
+    },
+    {
+     "title": "NVIDIA Blog",
+     "href": "https://blogs.nvidia.com/blog/ai-semiconductor-fabs/"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-03",
+     "id": "i5"
+    }
+   ]
+  },
+  {
+   "id": "i7",
+   "icon": "📉",
+   "headline": "台股月崩逾 6000 點、蘋果光環鬆動、美國期中選舉登場",
+   "analysis": "台股一個月崩逾 6000 點，外資賣超創史上第 8 大、AI 類股領跌，單日跌點為歷史第 7 大；金管會強調基本面無虞，報導把美國期中選舉與 AI 股評價修正列為主要變數。Apple 營收創新高，市場卻擔憂其 AI 布局進度與硬體後勁，「AI 避風港」光環鬆動。美國期中選舉登場，出口民調 75% 選民不滿現狀，川普私下坦承共和黨恐遭「最慘結果」。",
+   "view": "我覺得這是 AI 評價修正從個股擴散到大盤的一天：連財報創新高的蘋果都被質疑，代表市場現在問的是「AI 何時賺錢」，不是營收數字。選舉是近期變數，但我不會把台股下跌直接歸因給它，報導也只說是變數之一。開票結果出來後再看匯市與台股反應比較實在。",
+   "lesson": "市場修正時分開看「基本面」和「評價」：公司賺錢不等於股價撐得住，要看市場對 AI 回報的預期有沒有變。",
+   "threads": [
+    "ai-capital",
+    "tw-macro"
+   ],
+   "sources": [
+    {
+     "title": "原文",
+     "href": "https://tw.news.yahoo.com/%E5%8F%B0%E8%82%A1%E6%9C%88%E5%B4%A96000%E9%BB%9E%E6%98%AF%E7%A9%BA%E9%A0%AD-%E9%83%AD%E5%93%B2%E6%A6%AE%E5%BC%95%E9%87%8E%E6%9D%91%E6%AC%8A%E5%A8%81%E5%A0%B1%E5%91%8A-%E8%A1%8C%E6%83%85%E7%B5%82%E5%B0%87%E9%82%84%E5%9F%BA%E6%9C%AC%E9%9D%A2%E5%85%AC%E9%81%93-170500908.html"
+    },
+    {
+     "title": "原文",
+     "href": "https://www.businessweekly.com.tw/international/blog/3023518"
+    },
+    {
+     "title": "原文",
+     "href": "https://udn.com/news/story/125060/9855589"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-03",
+     "id": "i6"
+    }
+   ]
+  }
+ ]
+}
