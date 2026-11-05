@@ -1,0 +1,207 @@
+{
+ "date": "2026-11-05",
+ "label": "11/5（四）",
+ "news_url": "https://penguin-yeh.github.io/daily-news/#2026-11-05",
+ "verdict": "今天的主軸是 AI 寫程式的「窗口」和「帳房」分家：Copilot 一週內進駐 JetBrains Air（ACP）與 Xcode，企業則把預算、配額與記帳移到後端閘道與 usage API，而且各家都承認顯示的花費只是下限。驗證仍是瓶頸：LLM 生成的類比電路 90 個有 11 個在 PVT 下隱性失敗。DeepMind 化學 agent、IBM 20B Palette 逼近 NotebookLM、Anthropic 研究 provable inference。半導體面三星傳接受台積電代工 HBM base die，Oracle 取消騰訊晶片租賃；科技巨頭 AI 影子債務 3.2 兆美元、費半重挫；美國民主黨奪回眾院。（以上是我的分析觀點。）",
+ "learned": "看得到的數字常常只是下限：花費、通過率、資產負債表都一樣，要找出藏在外面的那一部分。",
+ "insights": [
+  {
+   "id": "i1",
+   "icon": "🔌",
+   "headline": "Copilot 一週進駐 JetBrains Air 與 Xcode：編輯器變插座",
+   "analysis": "11/3 起 Copilot 可在 JetBrains Air 的 agent 選單經 Agent Client Protocol（ACP）調用，11/4 起又進入 Xcode 27.3 beta 的內建編碼助理（public preview，需 macOS Tahoe 26.6 以上）。同時趨勢榜上 claude-mem（跨 session 記憶層）、worktrunk（平行 agent 的 worktree 管理）、Vercel agent-desktop（computer use CLI）都在補 agent 周邊。",
+   "view": "我覺得重點是 agent 和編輯器正在解耦：編輯器提供插座（ACP、內建助理介面），agent 由誰提供可以換。這對開發者是好事，但也代表治理不能綁在編輯器上，11/4 就看到 Air 管不到 Copilot 用量。周邊工具一直冒出來，說明記憶、平行與隔離還是各自拼湊。",
+   "lesson": "選 AI 開發工具時，看它支不支援 ACP 這類開放協定，避免被單一編輯器綁死；治理規則放在帳號或後端，而不是編輯器。",
+   "threads": [
+    "agent-infra"
+   ],
+   "sources": [
+    {
+     "title": "GitHub Changelog",
+     "href": "https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air"
+    },
+    {
+     "title": "GitHub Changelog",
+     "href": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant"
+    },
+    {
+     "title": "GitHub",
+     "href": "https://github.com/thedotmack/claude-mem"
+    },
+    {
+     "title": "GitHub",
+     "href": "https://github.com/max-sixty/worktrunk"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-04",
+     "id": "i1"
+    }
+   ]
+  },
+  {
+   "id": "i2",
+   "icon": "🧾",
+   "headline": "帳務搬後端：預算不是硬上限、BYOK 用量只是下限",
+   "analysis": "微軟技術社群指南把 Claude Code 經 Azure API Management 接 Microsoft Foundry 的控制拆成預算、token 配額、供應商容量三種，提醒預算不是硬上限、顯示花費應視為下限，閘道還是單一區域部署。GitHub usage API 開始分列 BYOK 與企業自訂模型用量，但 BYOK 靠客戶端遙測、部分本地供應商不回報 token；REST API 也能查資源屬於哪個 cost center。",
+   "view": "我覺得這延續 10/29 的「從座位到預算」：計價變成按用量後，最難的是看得到。今天三則都在承認同一件事——帳上的數字是下限，真正的花費可能更高。對個人或小團隊來說，靠儀表板設預算並不安全，需要有自己能擋住的硬限制。",
+   "lesson": "用量計費的 AI 服務，把顯示花費當下限，另外設真正會擋請求的配額；閘道別只放單一區域。",
+   "threads": [
+    "ai-pricing"
+   ],
+   "sources": [
+    {
+     "title": "Microsoft Tech Community",
+     "href": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/an-engineering-guide-to-claude-code-on-microsoft-foundry-with-azure-api-manageme/4569334"
+    },
+    {
+     "title": "GitHub Changelog",
+     "href": "https://github.blog/changelog/2026-11-03-byok-and-enterprise-custom-models-in-the-copilot-usage-api"
+    },
+    {
+     "title": "GitHub Changelog",
+     "href": "https://github.blog/changelog/2026-11-03-look-up-a-resources-cost-center-with-the-github-rest-api"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-04",
+     "id": "i1"
+    }
+   ]
+  },
+  {
+   "id": "i3",
+   "icon": "⚡",
+   "headline": "CAPER：LLM 畫的類比電路 11/90 在 PVT 下隱性失敗",
+   "analysis": "預印本指出，90 個 LLM 生成、標稱條件下能動的比較器 latch 設計裡，有 11 個在 PVT 變異下失敗；CAPER 在 LoRA 外加小分支讀取各級電路性質，能標出這些隱性失敗，一般 adapter 接近隨機，但旗標仍要回 SPICE corner 模擬確認。另一篇預印本用 GNN 代理模型做 clock mesh 變異分析，比近似法快 18–1706 倍（作者自己的測試設計）。",
+   "view": "我覺得這和 11/4 PLE「單項 91%、全過 41.3%」是同一個教訓搬到 EDA：在標準條件下能動，不代表在所有角落都對。AI 讓生成變便宜，驗證反而成了瓶頸，而 CAPER 本身也只是篩選、不是最終裁判。",
+   "lesson": "AI 產出的東西要用最壞情況（corner、邊界輸入）驗證，快篩可以省時間，但最後仍要回到可信的模擬或測試。",
+   "threads": [
+    "ai-verification",
+    "semi-capacity"
+   ],
+   "sources": [
+    {
+     "title": "arXiv 2611.00187",
+     "href": "https://arxiv.org/abs/2611.00187"
+    },
+    {
+     "title": "arXiv 2611.01473",
+     "href": "https://arxiv.org/abs/2611.01473"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-04",
+     "id": "i2"
+    },
+    {
+     "date": "2026-11-03",
+     "id": "i2"
+    }
+   ]
+  },
+  {
+   "id": "i4",
+   "icon": "🧪",
+   "headline": "DeepMind 化學 agent、IBM Palette、provable inference：能力與可信度",
+   "analysis": "DeepMind 為 Antigravity 推出 Cheminformatics Skills：模型負責調度推理、RDKit 與 ChEMBL／PubChem 負責計算，示範檢索 568 個化合物建效力模型並提新設計，官方稱約 1 小時完成過去數天的工作，設計仍須實驗驗證。IBM Palette 用 LoRA fine-tune 20B 開放權重模型，PresentBench 59.7 分逼近 NotebookLM 60.8。Anthropic 研究 provable inference，用密碼學證明 API 回傳確實來自宣稱的模型與設定。",
+   "view": "我覺得 DeepMind 這個架構最值得學：模型做判斷、確定性工具做計算，錯誤比較好追。IBM 的 20B 接近 NotebookLM 說明專門任務不一定要最大模型。provable inference 則補上另一層信任：你付錢用的模型，是不是真的那個模型。",
+   "lesson": "設計 agent 時讓模型調度、讓確定性工具計算；用雲端 API 時記得「模型是否被偷換」也是需要驗證的事。",
+   "threads": [
+    "ai-research",
+    "ai-verification",
+    "model-price"
+   ],
+   "sources": [
+    {
+     "title": "Google DeepMind",
+     "href": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/"
+    },
+    {
+     "title": "Hugging Face Blog",
+     "href": "https://huggingface.co/blog/ibm-research/palette-deck-building"
+    },
+    {
+     "title": "Hacker News",
+     "href": "https://news.ycombinator.com/item?id=50368626"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-04",
+     "id": "i3"
+    }
+   ]
+  },
+  {
+   "id": "i5",
+   "icon": "🏭",
+   "headline": "三星接受台積電代工 HBM base die；Oracle 取消騰訊晶片租賃",
+   "analysis": "韓媒報導 NVIDIA 要求記憶體廠改用台積電代工的 NVHBM 基礎晶粒，三星讓出部分自主產能；NVIDIA CPO 供應鏈中台積電負責先進封裝、鴻海負責組裝。FT 報導 Oracle 在川普施壓下取消與騰訊約 70 億美元 AI 晶片租賃，美中角力從出口管制延伸到雲端算力。",
+   "view": "我覺得 base die 這則若屬實，代表台積電的位置從邏輯晶片延伸進 HBM 內部，客戶（NVIDIA）的話語權大到能決定記憶體廠的製程選擇；但目前只有單一韓媒。Oracle 這則接著 11/4 的 HBM 走私看：管制不只管晶片出口，也開始管「租給誰用」。",
+   "lesson": "追半導體供應鏈時看「誰決定規格」；評估雲端算力合作時，把地緣政治當成會讓合約作廢的風險。",
+   "threads": [
+    "semi-capacity"
+   ],
+   "sources": [
+    {
+     "title": "TechNews",
+     "href": "https://technews.tw/2026/11/05/samsung-electronics-accepts-tsmc-nvhbm-base-die-production-strategic-retreat-dual-track-capacity-concerns/"
+    },
+    {
+     "title": "商業週刊",
+     "href": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE0wb3UtbUUxNUNacUhqVGp5UzFYb2VWdFdEaUk3dEdpMlZxMjBhTHhCZmdEYWtQeWVZcmE3U1J0RlNxV3NYMzJ0SVBJb0VYUnZpLU9nd2Z3QmRwLWVoTFZaeV9zRkVrQQ?oc=5"
+    },
+    {
+     "title": "TechNews",
+     "href": "https://technews.tw/2026/11/05/oracle-cancels-7bn-tencent-ai-deal-under-trump-pressure/"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-04",
+     "id": "i6"
+    }
+   ]
+  },
+  {
+   "id": "i6",
+   "icon": "💰",
+   "headline": "AI 影子債務 3.2 兆美元、費半重挫；民主黨奪回眾院",
+   "analysis": "報導稱 Alphabet、Meta、Microsoft 等科技五巨頭透過表外融資累積的 AI 承諾達 3.2 兆美元，風險高度集中。美股分裂：道瓊飆 1500 點、費半重挫，資金從 AI、半導體輪動到傳產，專家警告 AI 股可能再跌 15%。美國期中選舉開票，民主黨奪回眾院、首位非裔議長將誕生，民主黨團稱目前無人提彈劾。",
+   "view": "我覺得「影子債務」比股價更值得記：資本支出放在表外，報表看起來健康，壓力卻集中在少數公司，這延續了 AI 循環融資的擔憂。道瓊大漲、費半重挫說明市場不是全面恐慌，而是在重新定價 AI。選舉結果我只記成事實，對市場的影響還要再看幾天。",
+   "lesson": "看 AI 公司財務時把表外承諾一起算；修正期分清「全面下跌」和「板塊輪動」。",
+   "threads": [
+    "ai-capital",
+    "nvidia-financing"
+   ],
+   "sources": [
+    {
+     "title": "TechNews",
+     "href": "https://finance.technews.tw/2026/11/04/tech-giants-off-balance-sheet-ai-commitments-surge/"
+    },
+    {
+     "title": "Google News",
+     "href": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1OR2NnaURqQXlKTjNkSE9XTE5iUG5zbGgwOVprZnBtc25VeFk0ODN4aTdJSTJUOFNLTjkzSlZPODVXTFA2U2xIQ0NNOWZuMldZcUxYU2E2eEc?oc=5"
+    },
+    {
+     "title": "Google News",
+     "href": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBwaWQzMi1EUXEyTXJ3SzcxVHpxZ3BfQ1lqaUhsNHhkaGlrNHNLUFFhb09yZmU0TVI5Z215dzhwekNFVHhSYWlMS0FkcEZCUQ?oc=5"
+    },
+    {
+     "title": "Google News",
+     "href": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5NTDhmNzh3VEdTVFpIaFF0ekQydXZ3ZWxLTFNWMXJSSS1VQkFnZFB1ZFFlZ0o2YWpheV91VDNYcE5Nd2RNRmMtblhEYTlfVDllanR4eGN0c2lwcW8?oc=5"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-04",
+     "id": "i7"
+    }
+   ]
+  }
+ ]
+}
