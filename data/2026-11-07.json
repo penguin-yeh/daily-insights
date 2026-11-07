@@ -1,0 +1,212 @@
+{
+ "date": "2026-11-07",
+ "label": "11/7（六）",
+ "news_url": "https://penguin-yeh.github.io/daily-news/#2026-11-07",
+ "verdict": "今天的主軸是長跑 agent 的新基本功「接得回、查得到、算得清」：阿里雲同日講 Durable Agent、SessionStore 與 AI Gateway FinOps，把運行單位從一次 API 呼叫拉成一個 session；Anthropic message threads 則補上加密記憶體、約 1 小時刪除、不符合 ZDR 的但書。GitHub 開始算 Copilot code review 採納率並標出缺遙測的使用者，分層路由把成本壓到約 1/4。隔離面 Replit 改用 microVM、Firecracker 逃逸研究續燒。市場上台股盤中 −3,737 點、國安基金第十次護盤，AI 紅利分化；BBC 指共和黨失去兩院。（以上是我的分析觀點。）",
+ "learned": "session 是 agent 時代的新單位，但「為了快的 session」和「為了不斷的 session」不是同一件事，要先分清楚再設計。",
+ "insights": [
+  {
+   "id": "i1",
+   "icon": "🧠",
+   "headline": "長跑 agent 要「接得回、查得到、算得清」：阿里雲 Durable Agent、SessionStore、FinOps",
+   "analysis": "阿里雲 11/5–11/6 同日三文：Durable Agent 區分 session recovery（只還原對話）與 durable（任務執行不中斷），用原子提交與分階段 checkpoint，寄信等結果不確定的動作需冪等鍵或外部查詢、不能盲目重播；SLS SessionStore 用 OpenTelemetry 把模型與工具呼叫重組成 trajectory／session／feature 視圖；AI Gateway 把成本拆到 Session→Turn→Model Call，列 token、cache 命中率與首 token 延遲。三篇皆自家產品文，缺獨立可靠度數據。",
+   "view": "我覺得這是把 agent 的運行單位從「一次 API 呼叫」正式拉成「一個 session」。續跑、追查、記帳三件事以前各做各的，現在被同一個前提串起來。最值得學的是「結果不確定的動作不重播」——這和 10/29 Agent as a Service、11/3 Qoder 是同一個設計原則，已經是跨團隊的共識，不是單一廠商口號。但三篇都是產品文，我把它當設計參考，不當可靠度證據。",
+   "lesson": "做長跑 agent 時先定義 checkpoint 粒度與哪些動作必須冪等；觀測與計費的最小單位設成 session/turn，而不是單次呼叫。",
+   "threads": [
+    "agent-infra",
+    "ai-pricing"
+   ],
+   "sources": [
+    {
+     "title": "Durable Agent 原文",
+     "href": "https://www.alibabacloud.com/blog/durable-agent-explained-how-to-keep-an-agent-running-reliably-in-the-cloud-over-the-long-term_603735"
+    },
+    {
+     "title": "SLS 原文",
+     "href": "https://www.alibabacloud.com/blog/alibaba-cloud-sls-unveils-a-major-upgrade-to-build-the-intelligent-data-engine-for-the-agent-era_603736"
+    },
+    {
+     "title": "AI Gateway 原文",
+     "href": "https://www.alibabacloud.com/blog/ai-gateway-launches-finops-session-observability-to-help-enterprises-optimize-agent-costs_603734"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-03",
+     "id": "i1"
+    },
+    {
+     "date": "2026-11-05",
+     "id": "i2"
+    }
+   ]
+  },
+  {
+   "id": "i2",
+   "icon": "🧵",
+   "headline": "Anthropic message threads 的但書：效能向 session，不是存檔點",
+   "analysis": "Claude Platform message threads（beta）讓伺服器保留對話、每回合只送新訊息，長對話首 token 延遲更平穩；今天補上的細節是內容只存加密記憶體、最久約 1 小時刪除，且不符合 ZDR。11/3 已記功能上線。",
+   "view": "我覺得把它和阿里雲 Durable Agent 放一起看最清楚：兩者都叫 session，但一個是為了快（少送重複內容），一個是為了不斷（崩潰後能接回）。把 message threads 當成長期記憶或續跑存檔會出事——1 小時就刪、而且有 ZDR 需求的團隊根本不能用。",
+   "lesson": "看到「伺服器端 session」先問三件事：保留多久、能否滿足資料保留政策、斷線後能不能接回；別把效能功能當可靠性功能。",
+   "threads": [
+    "anthropic",
+    "agent-infra"
+   ],
+   "sources": [
+    {
+     "title": "Claude Platform 文件",
+     "href": "https://platform.claude.com/docs/en/build-with-claude/message-threads"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-03",
+     "id": "i1"
+    }
+   ]
+  },
+  {
+   "id": "i3",
+   "icon": "📊",
+   "headline": "從算成本到算價值：Copilot code review 採納率、缺遙測標記、分層路由省到 1/4",
+   "analysis": "GitHub 11/5 在 usage metrics API 新增 copilot_code_review：可算建議採納率，按嚴重度、留言類型、自訂指示／skills／MCP 分組，並統計審查後無人再要求修改就合併的 PR 數；另一新欄位標出缺遙測、IDE／擴充低於最低版的使用者。Hightouch 在 identity resolution 讓小模型先判、拿不準再升級 Opus，準確率接近、成本約 1/4（HN 285 讚）。",
+   "view": "我覺得這是 11/5「帳務搬後端」的下一步：算清花了多少之後，開始問值不值。GitHub 直接標出缺遙測的人，等於承認採納率和 ROI 報表本身可能失真——這比漂亮數字更誠實。分層路由則是最直接的省錢法，但要先有可靠的「拿不準」判斷，否則只是把錯誤留在便宜那層。",
+   "lesson": "評估 AI 工具 ROI 時先確認遙測覆蓋率；用分層路由前，先量小模型的「自知不確定」是否可靠。",
+   "threads": [
+    "ai-pricing",
+    "review-merge",
+    "model-price"
+   ],
+   "sources": [
+    {
+     "title": "GitHub Changelog",
+     "href": "https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate"
+    },
+    {
+     "title": "GitHub Changelog",
+     "href": "https://github.blog/changelog/2026-11-05-usage-metrics-api-flags-telemetry-and-version-gaps"
+    },
+    {
+     "title": "Hacker News 討論",
+     "href": "https://news.ycombinator.com/item?id=50397429"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-05",
+     "id": "i2"
+    }
+   ]
+  },
+  {
+   "id": "i4",
+   "icon": "🧱",
+   "headline": "隔離加固與邊界探測同時進行：Replit microVM、Firecracker 逃逸、GitHub agent 儲存",
+   "analysis": "Replit 官方說明把執行使用者與 AI agent 程式碼的 sandbox 改用 microVM；同時針對 AWS 開源 Firecracker（Lambda／Fargate 與許多 agent 沙盒底層）的逃逸研究第二篇登上 HN（147 讚）。GitHub 為數千 agent 同 repo 並行推送重寫 Git 儲存（11/6 已記），Cloudflare「Agents aren't humans」也續列。",
+   "view": "我覺得這幾則合起來是「agent 跑的程式碼到底有沒有被關住」的拉鋸：平台往 microVM 遷移，研究者就去打 microVM 的邊界。microVM 比容器強，但不是終點——11/4 JetBrains Air 全新 VM、11/6 Vera CPU 沙盒冷啟動，都說明隔離正變成 agent 產品的基本成本。",
+   "lesson": "選 agent 沙盒時不要只看「是不是 VM」，要追蹤底層 hypervisor 的安全公告，並假設逃逸研究會持續出現。",
+   "threads": [
+    "agent-infra",
+    "ai-security"
+   ],
+   "sources": [
+    {
+     "title": "Replit 原文",
+     "href": "https://frontier.replit.com"
+    },
+    {
+     "title": "Hacker News 討論",
+     "href": "https://news.ycombinator.com/item?id=50397219"
+    },
+    {
+     "title": "GitHub 工程部落格",
+     "href": "https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-06",
+     "id": "i2"
+    },
+    {
+     "date": "2026-11-04",
+     "id": "i1"
+    }
+   ]
+  },
+  {
+   "id": "i5",
+   "icon": "📉",
+   "headline": "台股盤中 −3,737 點、國安基金第十次護盤；AI 紅利分化",
+   "analysis": "11/6 台股早盤一度崩跌 3,737 點，創史上最大盤中跌點，終場重挫約 1,800–1,873 點；國安基金第 10 次進場，金管會升級限空令（借券賣出限額降至 3%、融券保證金成數 130% 等）11/9 上路，一個月累計崩跌逾萬點。同時群聯受惠 AI 儲存需求 Q3 三創新高，富采則預警 Q4 被 AI 排擠；台電稱要與台積電搶人才。BBC 指共和黨失去參眾兩院，德州當選州長表態 AI 資料中心投資需暫停。",
+   "view": "我覺得「紅利分化」比指數跌點更值得記：同一條 AI 供應鏈裡，有人創新高、有人被排擠，電力與人才也開始被搶。政策護盤能穩情緒，但改變不了 AI 評價修正的方向。德州州長表態把 11/6 的「地方拒蓋」變成具體政策訊號，這是我會持續追的。",
+   "lesson": "修正期看個股要分清「直接吃 AI 需求」和「被 AI 排擠產能／人才」兩種；電力與人才是 AI 供應鏈的隱形瓶頸。",
+   "threads": [
+    "ai-capital",
+    "tw-macro",
+    "dc-power"
+   ],
+   "sources": [
+    {
+     "title": "科技新報：崩跌萬點成因",
+     "href": "https://finance.technews.tw/2026/11/06/taiwan-stock-market-falling-10000-point-crash-one-month-reasons/"
+    },
+    {
+     "title": "科技新報",
+     "href": "https://finance.technews.tw/2026/11/06/phison-releases-third-quarter-financial-results-and-october-revenue/"
+    },
+    {
+     "title": "科技新報",
+     "href": "https://finance.technews.tw/2026/11/06/ennostar-q3/"
+    },
+    {
+     "title": "天下雜誌",
+     "href": "https://www.cw.com.tw/article/5143600"
+    },
+    {
+     "title": "BBC 中文",
+     "href": "https://www.bbc.com/zhongwen/articles/cqr7ydkrnpxno/trad"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-06",
+     "id": "i4"
+    },
+    {
+     "date": "2026-11-05",
+     "id": "i6"
+    }
+   ]
+  },
+  {
+   "id": "i6",
+   "icon": "🔧",
+   "headline": "驗證要同時過：MementoHLS 要求 TB＋合成；ToyBlocks 技能描述 24%→63%",
+   "analysis": "MementoHLS（arXiv 2611.07324）用可執行修復合約庫與證偽帳本引導多輪修復，並要求同一候選同時通過 testbench 與合成：HLS-Eval pass@1 41.7%→58.9%、Bench4HLS 15.5%→32.4%（作者自述，基準偏小型模組）。Ai2 ToyBlocks 釋出 85,336 筆長時程機器人示範，技能描述讓 agent 成功率由 24% 升到 63%。",
+   "view": "我覺得 MementoHLS 延續 11/5 CAPER 的教訓：標稱能動不算數，要同時過多道關卡。「證偽帳本」把失敗記下來避免重蹈覆轍，和 agent 的長期記憶是同一思路。ToyBlocks 則說明給 agent 好的技能描述，效果可能大過換模型。",
+   "lesson": "讓 AI 修程式時保留失敗紀錄並要求多重檢查同時通過；先改善技能／工具描述，再考慮換更大的模型。",
+   "threads": [
+    "ai-verification",
+    "semi-capacity",
+    "ai-research"
+   ],
+   "sources": [
+    {
+     "title": "arXiv 2611.07324",
+     "href": "https://arxiv.org/abs/2611.07324"
+    },
+    {
+     "title": "Hugging Face / Ai2",
+     "href": "https://huggingface.co/blog/allenai/toyblocks"
+    }
+   ],
+   "related": [
+    {
+     "date": "2026-11-05",
+     "id": "i3"
+    }
+   ]
+  }
+ ]
+}
