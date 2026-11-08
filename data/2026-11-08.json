@@ -1,0 +1,120 @@
+{
+  "date": "2026-11-08",
+  "label": "11/8（日）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/#2026-11-08",
+  "verdict": "今天我關注 agent 讀到的環境：Google 過期 TODO 的繞路成本、Kitta 的場景差異、聊天室入口與 GPU 分區效率。RSS HTML 缺失、只有無連結摘要；融資、IPO、資安與供應鏈說法均未獨立核實，不當作已確認事實。本日洞察優先採用 JSON 有來源連結的材料，以下為我的分析。",
+  "learned": "agent 不只需要更強模型，也需要更新得動、追得出來源的環境知識；來源不足時，保留不確定比補成故事重要。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "🧹",
+      "headline": "過期 TODO 是會花錢的環境污染",
+      "analysis": "Google 自述：數千工程師、數億步驟紀錄中，約 13% session 遇到帶 bug 編號的 TODO／FIXME，6% 針對該 bug 行動、其中 83% 非使用者要求；41% 指向已完成或作廢的票。每次繞路多花 70% 步驟、77% token、105% 等待時間。這不是所有 agent／任務的通用因果估計。",
+      "view": "我認為重要的不是要求模型忽略所有註解，而是把程式庫 context 當成有生命週期的資料。11/7 我關心 session 能否接回，今天補上：接回來的知識是否還正確。我的觀點是資料衛生也應算進 agent 成本，而非只調模型價格。",
+      "lesson": "先盤點過期引用，釐清使用者任務邊界；以人工審核驗證清理品質，不盲刪 TODO。",
+      "threads": [
+        "agent-infra",
+        "ai-verification"
+      ],
+      "sources": [
+        {
+          "title": "Google Developers Blog",
+          "href": "https://developers.googleblog.com/agent-distraction/"
+        }
+      ],
+      "related": []
+    },
+    {
+      "id": "i2",
+      "icon": "🧑‍🔧",
+      "headline": "Kitta 的數字提醒我：專門場景成功不等於通用能力",
+      "analysis": "阿里雲稱 Kitta 審查逾 7 萬 patch；backport 一致性採納率／準確度 70.4%／99.8%，自研 PR 僅 41.8%／73.6%。15-agent 小隊自報某受限場景由約一個月縮到一週內，但僅兩場景上線。皆為廠商自報，不能當全面研發自動化的證據。",
+      "view": "我覺得指標落差比最佳分數更有價值：有明確規則的 backport 和開放式研發不是同一難題。寫碼只占整段交付的一小部分，架構知識更新與人工關卡仍可能主導成果。",
+      "lesson": "依任務類型分開衡量錯誤率、採納率與人工復核；先穩住窄場景，再談擴張。",
+      "threads": [
+        "review-merge",
+        "ai-verification"
+      ],
+      "sources": [
+        {
+          "title": "Alibaba Cloud Blog",
+          "href": "https://www.alibabacloud.com/blog/kitta-code-review-agent-for-higher-quality-code-reviews_603739"
+        },
+        {
+          "title": "Alibaba Cloud Blog",
+          "href": "https://www.alibabacloud.com/blog/15-agents-form-an-r%26d-squad-an-end-to-end-r%26d-system-built-on-multi-agent-collaboration_603738"
+        }
+      ],
+      "related": []
+    },
+    {
+      "id": "i3",
+      "icon": "💬",
+      "headline": "聊天室成為 agent 入口，權限不應隨便利一起擴張",
+      "analysis": "GitHub 公告 Slack／Teams 整合 GA，可從對話查 bug、開 issue、實作並開 PR，產物標記來源對話；impact dashboard 擴到九項功能，Passive users 改稱 Chat-first users。這描述入口與使用分類，不等於品質／生產力已提升。",
+      "view": "我認為繼 11/5 Copilot 跨編輯器後，這是入口分散的另一個實例，不是同一產品更新。越容易從聊天觸發工作，越需要保留原始請求、授權範圍與稽核紀錄。Chat-first 也提醒我不能只用打碼數量衡量採用。",
+      "lesson": "分開追蹤入口、操作授權、產物與價值；來源對話標記不等於每個動作都已授權。",
+      "threads": [
+        "agent-infra",
+        "ai-pricing"
+      ],
+      "sources": [
+        {
+          "title": "GitHub Changelog",
+          "href": "https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available"
+        },
+        {
+          "title": "GitHub Changelog",
+          "href": "https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage"
+        }
+      ],
+      "related": []
+    },
+    {
+      "id": "i4",
+      "icon": "☁️",
+      "headline": "提高 GPU 利用率，比一味升級硬體更值得先問",
+      "analysis": "AWS SageMaker Inference 支援 Multi-Instance GPU，可將單 GPU 分成硬體隔離分區，各放模型 endpoint，面向多小模型、低單一流量。今日資料未附實際成本改善的獨立測試。",
+      "view": "我覺得這與 11/6 NVIDIA 記憶體分層是可對照的效率工程，不是同一技術或同一事件。先量閒置率、延遲與記憶體需求，才知道切分是否划算；硬體隔離分區也不等於完整端到端安全。",
+      "lesson": "用自己的流量量測吞吐、尾延遲與記憶體占用，再決定切分大小。",
+      "threads": [
+        "agent-infra",
+        "semi-capacity"
+      ],
+      "sources": [
+        {
+          "title": "AWS Machine Learning Blog",
+          "href": "https://aws.amazon.com/blogs/machine-learning/sagemaker-inference-now-supports-multi-instance-gpu-to-maximize-gpu-utilization-for-model-endpoints/"
+        }
+      ],
+      "related": []
+    },
+    {
+      "id": "i5",
+      "icon": "📏",
+      "headline": "有榜單，不代表有現場答案；有相關，不代表有根因",
+      "analysis": "Open ASR Leaderboard 新增埃及與奈及利亞英語口音。半導體背景材料（非今日新聞）介紹設備共同性、ANOVA 與 Gibbs sampler 找可疑機台組合，限制包括資料分散、樣本不均、相關不等於因果。",
+      "view": "我覺得兩者共同提醒的是測試分布與推論邊界：口音覆蓋增加，不能保證廠區噪音下效果；機台共同性也只能縮小候選，不能直接判故障。今日 RSS 的 MaxxBench、融資、密碼外洩等卡片沒有原文，故不把它們充作驗證此觀點的證據。",
+      "lesson": "在自己的分布重測；保留候選假說與反證，分清探索、驗證與因果。",
+      "threads": [
+        "ai-verification",
+        "semi-capacity"
+      ],
+      "sources": [
+        {
+          "title": "Hugging Face Blog",
+          "href": "https://huggingface.co/blog/open-asr-leaderboard-liva"
+        },
+        {
+          "title": "Semiconductor Engineering",
+          "href": "https://semiengineering.com/yield-management-embraces-expanding-role"
+        },
+        {
+          "title": "INFORMS WSC 論文",
+          "href": "https://www.informs-sim.org/wsc12papers/includes/files/inv222.pdf"
+        }
+      ],
+      "related": []
+    }
+  ]
+}
