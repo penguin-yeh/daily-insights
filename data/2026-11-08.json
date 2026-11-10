@@ -2,8 +2,8 @@
   "date": "2026-11-08",
   "label": "11/8（日）",
   "news_url": "https://penguin-yeh.github.io/daily-news/#2026-11-08",
-  "verdict": "今天我關注 agent 讀到的環境：Google 過期 TODO 的繞路成本、Kitta 的場景差異、聊天室入口與 GPU 分區效率。RSS HTML 缺失、只有無連結摘要；融資、IPO、資安與供應鏈說法均未獨立核實，不當作已確認事實。本日洞察優先採用 JSON 有來源連結的材料，以下為我的分析。",
-  "learned": "agent 不只需要更強模型，也需要更新得動、追得出來源的環境知識；來源不足時，保留不確定比補成故事重要。",
+  "verdict": "11/08完整RSS更正版：先前08:31版使用缺失HTML的摘要，08:38完整信到後，依08:46交付的35則新聞修正。主軸仍是agent context衛生與權限邊界；補上Apiiro密碼外洩調查、MaxxBench、永豐供應商設定弱點與退款、資料中心衝擊不同觀點、鴻海財務及資本估值。所列連結來自新版新聞JSON，報導、傳聞與廠商數字不等於我已獨立驗證。",
+  "learned": "過期上下文需要更新，新聞來源也一樣；更正時保留版本與證據鏈，比把舊限制悄悄刪掉重要。",
   "insights": [
     {
       "id": "i1",
@@ -92,29 +92,101 @@
     {
       "id": "i5",
       "icon": "📏",
-      "headline": "有榜單，不代表有現場答案；有相關，不代表有根因",
-      "analysis": "Open ASR Leaderboard 新增埃及與奈及利亞英語口音。半導體背景材料（非今日新聞）介紹設備共同性、ANOVA 與 Gibbs sampler 找可疑機台組合，限制包括資料分散、樣本不均、相關不等於因果。",
-      "view": "我覺得兩者共同提醒的是測試分布與推論邊界：口音覆蓋增加，不能保證廠區噪音下效果；機台共同性也只能縮小候選，不能直接判故障。今日 RSS 的 MaxxBench、融資、密碼外洩等卡片沒有原文，故不把它們充作驗證此觀點的證據。",
-      "lesson": "在自己的分布重測；保留候選假說與反證，分清探索、驗證與因果。",
+      "headline": "MaxxBench：高分要先排除污染，不能只相信排行榜",
+      "analysis": "新版RSS補上unlap.ai團隊MaxxBench與HN來源；團隊質疑DeepSWE等coding agent評測可能受題目外流、訓練污染或寬鬆評分影響。這是該團隊主張，不是我已逐項證實各榜單失真。舊版此卡採用的ASR與良率背景材料已不在更新JSON，不沿用為今日來源。",
+      "view": "我認為重要的是把「會做任務」與「曾見過題目」分開。這延續11/7多重檢查思路，是趨勢對照，不是同事件後續；也不能因一家新評測提出批評，就宣告所有舊分數無效。",
+      "lesson": "保留私有留出集、追蹤題目污染與評分規則；跨榜分數不可直接比較。",
       "threads": [
-        "ai-verification",
-        "semi-capacity"
+        "ai-verification"
       ],
       "sources": [
         {
-          "title": "Hugging Face Blog",
-          "href": "https://huggingface.co/blog/open-asr-leaderboard-liva"
+          "title": "Hacker News 討論",
+          "href": "https://news.ycombinator.com/item?id=50406222"
         },
         {
-          "title": "Semiconductor Engineering",
-          "href": "https://semiengineering.com/yield-management-embraces-expanding-role"
-        },
-        {
-          "title": "INFORMS WSC 論文",
-          "href": "https://www.informs-sim.org/wsc12papers/includes/files/inv222.pdf"
+          "title": "maxxbench.unlap.ai",
+          "href": "http://maxxbench.unlap.ai"
         }
       ],
       "related": []
+    },
+    {
+      "id": "i6",
+      "icon": "🔐",
+      "headline": "公開密碼痕跡與永豐退款：權限和供應商設定都是邊界",
+      "analysis": "新版RSS轉述Apiiro稱，Claude Code「Don’t Ask Again」讓agent不逐次確認即執行，調查於1,122個公開GitHub檔案發現密碼或API金鑰痕跡；提供HN與Apiiro首頁，非完整調查深層連結，本次未獨立驗證。永豐銀報導補充：418戶、427筆、4,176萬元，銀行稱為新版系統供應商安全設定弱點，已返還款項與手續費。",
+      "view": "我覺得值得關注的是責任不能只停在「使用者按了允許」或「供應商的問題」。11/6 email外傳是不同指控，不應與今日密碼調查併成同漏洞。永豐是同事件後續，補上根因說法與補償，而非新一波受害。",
+      "lesson": "把敏感檔案排除出提交與工具輸出，維持secret scanning；供應商變更也要走設定審查。",
+      "threads": [
+        "ai-security",
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論",
+          "href": "https://news.ycombinator.com/item?id=50407882"
+        },
+        {
+          "title": "apiiro.com",
+          "href": "http://apiiro.com"
+        },
+        {
+          "title": "電獺少女",
+          "href": "https://agirls.aotter.net/post/65381"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-06",
+          "id": "i3"
+        }
+      ]
+    },
+    {
+      "id": "i7",
+      "icon": "🏭",
+      "headline": "資本估值與供應鏈現實：同一天也有不同的衝擊判斷",
+      "analysis": "科技新報引知情人士稱OpenAI完成首批110億美元融資、估值1.25兆美元；另一報導稱Anthropic上市估值上看2兆美元，半年虧800億元（摘要未明幣別）。商周認為資料中心放緩使台廠短期承壓，焦佑鈞則稱目前影響尚不顯著；鴻海財報評論關注毛利率下滑、負債比升高。NVIDIA／Apple要求台積電投入3D DRAM仍屬傳聞。",
+      "view": "我覺得估值、機房動工、供應商財務是三種不同時鐘。不能用募資熱度證明短期訂單一定強，也不能把評論分歧硬寫成政策已有單一效果。Anthropic舊筆記已有申報線索，今天報導不據此當成首次或再次申報已確認。",
+      "lesson": "分開追募資完成口徑、實體建設與毛利／負債；未載幣別不換算，傳聞不升格成投產。",
+      "threads": [
+        "ai-capital",
+        "semi-capacity",
+        "dc-power"
+      ],
+      "sources": [
+        {
+          "title": "科技新報",
+          "href": "https://finance.technews.tw/2026/11/07/openai-gets-11-billion/"
+        },
+        {
+          "title": "科技新報",
+          "href": "https://finance.technews.tw/2026/11/07/anthropic-2-trillion-market-cap-biggest-ipo-challenge-wall-street-nervous/"
+        },
+        {
+          "title": "商業周刊",
+          "href": "https://www.businessweekly.com.tw/international/blog/3023528"
+        },
+        {
+          "title": "天下雜誌",
+          "href": "https://www.cw.com.tw/article/5143621"
+        },
+        {
+          "title": "天下雜誌",
+          "href": "https://www.cw.com.tw/article/5143613"
+        },
+        {
+          "title": "科技新報",
+          "href": "https://finance.technews.tw/2026/11/07/3d-dram/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-07",
+          "id": "i5"
+        }
+      ]
     }
   ]
 }
