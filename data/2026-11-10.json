@@ -1,0 +1,187 @@
+{
+  "date": "2026-11-10",
+  "label": "11/10（二）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/#2026-11-10",
+  "verdict": "今天的主軸是 Anthropic 把同一底層模型拆成 Fable（大眾、較少誤擋）與 Mythos（驗證組織）兩檔出貨，並附上 30 天資料保留／ZDR 需授權的條款。隱私與資安面有 Gemini 資料流向爭議（待澄清）、GitHub 掃描 Actions 日誌，以及 Qubole 供應鏈攻擊。工具鏈續朝 agent 併發改寫；財經上輝達因董事調查獨跌，台股限空令上路、台積電 ADR 強、另有矽品 CPO 擴產報導。（以上是我的分析觀點。）",
+  "learned": "模型能力、資料保留與合規檔位正在被一起出售；評測數字之外，先問清楚誰能用、資料留多久、不可逆動作誰核准。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "🧠",
+      "headline": "同一模型、兩種出貨：Fable 給大眾、Mythos 給通過驗證的組織",
+      "analysis": "Anthropic 稱 Claude Fable 5.2 與 Mythos 5.2 是同一底層模型：Fable 內建更強資安／生物分類器且人人可用，分類器比 5.1 少擋約 55%；Mythos 只給通過資安或生命科學驗證的組織，內部 CVE 重現評測 89.6%（對照 Opus 5.5 的 81.3%，皆廠商自報），並稱反蒸餾削減 90%～99%。HN 當日第一。發行說明同時要求兩模型 30 天資料保留，ZDR 需另行授權。",
+      "view": "我覺得這比單純「再推一個更大模型」更重要：能力被拆成合規檔位，而不是只拆價格檔。少擋 55% 聽起來對半導體／研發查詢友善，但 30 天保留與 ZDR 要授權，等於把資料治理成本前移到採購條款。數字是官方自報，我只當方向，不當獨立評測。",
+      "lesson": "選模型時同時問三件事：擋什麼、資料留多久、ZDR／驗證方案能不能接上你的合規需求。",
+      "threads": [
+        "anthropic",
+        "ai-security",
+        "model-price"
+      ],
+      "sources": [
+        {
+          "title": "Anthropic 公告",
+          "href": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+        },
+        {
+          "title": "Hacker News 討論",
+          "href": "https://news.ycombinator.com/item?id=50429906"
+        },
+        {
+          "title": "Claude 發行說明",
+          "href": "https://platform.claude.com/docs/en/release-notes/overview"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-07",
+          "id": "i2"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "👁️",
+      "headline": "Gemini 被指把個人 Drive／郵件交人工標記；GitHub 開始掃 Actions 日誌",
+      "analysis": "HN 熱議一個 GitHub repo 整理的說法：Gemini 會把個人 Drive 檔案與 email 路由給人工 annotator，細節待 Google 澄清。同日 GitHub 把機密掃描延伸到 Actions workflow 日誌（public preview），預設關閉、不回補舊日誌。Sentra 另披露針對 Qubole 客戶的供應鏈攻擊。",
+      "view": "我覺得這兩則一內一外：一邊是「產品是否把私人內容送出邊界」仍待澄清，一邊是平台開始掃 CI 日誌這個長年死角。11/08 Apiiro／Claude Code 密碼外洩是不同產品的不同指控，可對照但不能併成同一漏洞。Qubole 是供應鏈另案。",
+      "lesson": "開 AI 助理前核對資料分享與人工審核選項；CI 日誌納入 secret scanning，供應商異動要有修補追蹤。",
+      "threads": [
+        "ai-security",
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "GitHub 整理",
+          "href": "http://github.com/thisisme6598/gemini_files"
+        },
+        {
+          "title": "Hacker News 討論",
+          "href": "https://news.ycombinator.com/item?id=50429426"
+        },
+        {
+          "title": "GitHub Changelog",
+          "href": "https://github.blog/changelog/2026-11-09-secret-scanning-detects-secrets-in-github-actions-workflow-logs"
+        },
+        {
+          "title": "Sentra Blog",
+          "href": "http://sentra.io/blog/breaches/inside-the-qubole-supply-chain-attack"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-08",
+          "id": "i6"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "🛠️",
+      "headline": "工具鏈繼續為 agent 重做：Git 儲存、跨 CPU／GPU 偵錯、瀏覽器 CLI",
+      "analysis": "GitHub 重建 Git 儲存以支援數千 agent 同 repo 並行 push（11/06 已記，今日續列完整工程文）。Meta 擴充 LLDB，讓 CPU 與 GPU 在同一 debug session。Trending 上的 vercel-labs/agent-browser 是給 agent 逐步操作瀏覽器的 Rust CLI。Amazon HOPE 則稱免訓練剪掉一半 MoE experts 仍接近原成績（作者自報）。",
+      "view": "我覺得主線還是「人類假設不夠用」：儲存、偵錯、瀏覽器操作都被改成可服務大量非人類執行者。HOPE 若可複現，自架模型的記憶體門檻會再降，但目前驗證面窄。續列的 Git 儲存不是新事件，而是同一基建敘事的回聲。",
+      "lesson": "評估 agent 平台時，把併發寫入、跨裝置偵錯與瀏覽器隔離算進基本需求，而不只看模型分數。",
+      "threads": [
+        "agent-infra"
+      ],
+      "sources": [
+        {
+          "title": "GitHub Blog",
+          "href": "https://github.blog/engineering/architecture-optimization/inside-githubs-new-git-storage-architecture/"
+        },
+        {
+          "title": "Engineering at Meta",
+          "href": "https://engineering.fb.com/2026/11/09/developer-tools/extending-lldb-to-debug-applications-that-span-cpus-and-gpus/"
+        },
+        {
+          "title": "GitHub",
+          "href": "https://github.com/vercel-labs/agent-browser"
+        },
+        {
+          "title": "Hugging Face Blog",
+          "href": "https://huggingface.co/blog/amazon/higher-order-pruning-experts"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-06",
+          "id": "i2"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "📉",
+      "headline": "輝達個股風險與半導體景氣脫鉤；台股護盤進入實施周",
+      "analysis": "報導指輝達董事會調查黃仁勳婚外情與疑似遭外國情報機構鎖定，盤後挫跌；同日費半大漲、輝達獨跌約 4%。台灣金管會 11/9 起實施限空令與救市措施，台積電 ADR 漲 6.33%，法人稱出現止跌訊號。供應鏈面另有輝達要矽品 CPO 產能擴 30 倍的報導。",
+      "view": "我覺得要把「執行長個人風險」、「指數景氣」和「封測長單」分開看：同一天可以同時出現個股重挫與 CPO 擴產敘事。限空／國安基金是 11/07 預告的後續實施，不是新一輪崩盤起點的獨立證明。調查細節與職位結果都還未定。",
+      "lesson": "修正期用多條指標：個股治理新聞、同業指數、ADR／護盤政策、長單能見度；不要用單一跌幅下結論。",
+      "threads": [
+        "ai-capital",
+        "semi-capacity",
+        "tw-macro"
+      ],
+      "sources": [
+        {
+          "title": "TechNews：董事會調查",
+          "href": "https://finance.technews.tw/2026/11/09/is-jensen-huangs-job-on-the-line-yales-jeffrey-sonnenfeld-estimates-its-about-a-50-50/"
+        },
+        {
+          "title": "TechNews：盤後挫跌",
+          "href": "https://finance.technews.tw/2026/11/09/jensen-huang-nvidia-investigation-foreign-intelligence-targeting-stock-drops/"
+        },
+        {
+          "title": "天下雜誌",
+          "href": "https://www.cw.com.tw/article/5143660"
+        },
+        {
+          "title": "商業週刊",
+          "href": "https://www.businessweekly.com.tw/business/blog/3023539"
+        },
+        {
+          "title": "商業週刊",
+          "href": "https://www.businessweekly.com.tw/business/blog/3023540"
+        },
+        {
+          "title": "商業週刊",
+          "href": "https://www.businessweekly.com.tw/wealth-memo/article/4003918"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-07",
+          "id": "i5"
+        },
+        {
+          "date": "2026-11-08",
+          "id": "i7"
+        }
+      ]
+    },
+    {
+      "id": "i5",
+      "icon": "🛡️",
+      "headline": "護欄清單把「誤擋」與「不可逆動作」寫進上線第一天",
+      "analysis": "阿里雲文章（Qwen 產品策略負責人）列出 7 項上線控制：輸入過濾、輸出審核、個資遮罩、工具權限、花費上限、人工升級、紀錄與評測；並用「誤擋 2%＝每月 2 萬筆」示意誤擋成本。讀寫工具分離、不可逆動作要核准是可直接借用的設計。數字屬示意假設。",
+      "view": "我覺得這和 Anthropic 雙檔分類器是同一問題的兩面：一邊怕擋太多，一邊怕放太鬆。把不可逆工具從預設自動執行拿掉，比事後加模型還便宜。示意數字不能拿去對自己的流量做外推。",
+      "lesson": "上線前先分開讀／寫工具權限，並為不可逆動作設核准；同時量測誤擋率，避免只看攻擊攔截率。",
+      "threads": [
+        "ai-security",
+        "agent-infra",
+        "ai-pricing"
+      ],
+      "sources": [
+        {
+          "title": "Alibaba Cloud Blog",
+          "href": "https://www.alibabacloud.com/blog/ai-guardrails-checklist-7-controls-every-enterprise-deployment-needs-on-day-one_603750"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-07",
+          "id": "i1"
+        }
+      ]
+    }
+  ]
+}
