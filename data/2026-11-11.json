@@ -1,0 +1,181 @@
+{
+  "date": "2026-11-11",
+  "label": "11/11（三）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/#2026-11-11",
+  "verdict": "今天的主軸是「交作業要附上機器可核對的證明」：DeepMind AlphaProof Code 用 Gemini Carbon 寫出 600 萬行 Lean 證明，驗證 Signal 實際執行碼（Google 自報）。Gemini 4 Carbon 全面開放並進入 Copilot，企業預設自動啟用。NVIDIA 把 OpenShell 捐給 CNCF，用確定性政策管 agent 動作。Anthropic 開始 IPO 路演（ANT，70–78 美元，文件尚未生效）；黃仁勳風波進入坦承報導、輝達再挫。Glasswing 與 Dependabot 則提醒：報告太多或警示太少，都可能讓安全訊號失真。（以上是我的分析觀點。）",
+  "learned": "可核對的結果、越界就擋下的政策，以及資料與帳單上的預設值，比再一個更高的模型分數更決定系統能不能上線。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "🧾",
+      "headline": "AlphaProof Code：600 萬行 Lean 證明，要信的是規格與檢查器",
+      "analysis": "Google DeepMind 發表 AlphaProof Code：人類先與模型把 Signal 協定安全目標寫成形式化規格並逐條審過，再由 Gemini Carbon 驅動的 agent 寫出超過 600 萬行 Lean 證明，人工複審約 1%、耗時 4 週（官方稱過去要專家團隊數年）。證明對象是裝置上實際執行的編譯後程式碼；研究者把兩個已修復漏洞放回隔離版本，系統兩次都產出「這版不安全」的機器可檢證明。限制寫得很清楚：只保證符合規格；1%、4 週為 Google 自報、尚無獨立驗證。",
+      "view": "我覺得這比「又一個更高分的數學模型」更值得記：把可核對性做成交作業格式。TCB 概念也提醒我，600 萬行證明本身不必相信，真正要信的是 Lean 核心檢查器和人審過的規格——規格漏寫就蓋不到。這延續驗證主線，但是新的系統與案例，不是舊工作的版本更新。",
+      "lesson": "看到「AI 已驗證」時先問三件事：規格是誰寫的、檢查器是什麼、證明對應的是設計還是實際執行碼。",
+      "threads": [
+        "ai-verification",
+        "ai-research"
+      ],
+      "sources": [
+        {
+          "title": "Google DeepMind Blog",
+          "href": "https://deepmind.google/blog/introducing-alphaproof-code/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-05",
+          "id": "i4"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "💳",
+      "headline": "Gemini 4 Carbon 全面開放，並在 Copilot 企業預設自動啟用",
+      "analysis": "繼 10/29–10/30 僅限 Fairwind 受信任防守者試用，Gemini 4 Carbon 全面開放。Google 稱它比 Argon 用更多 token、跑更長驗證迴圈；11/30 前每百萬 token 輸入 2 美元、輸出 10 美元，之後為 4 與 20 美元。GitHub 11/10 宣布其在 Copilot Pro+／Max／Business／Enterprise 可用，企業預設自動啟用除非管理員關閉，並依原廠牌價計費。",
+      "view": "我覺得「跑更久的驗證」會直接變成帳單。企業預設自動啟用尤其關鍵：沒設上限的組織，會在不知不覺中用到更貴、更長的迴圈。價格路徑與 10/30 公告一致，這是可用性與通路的後續，不是另一次改價。",
+      "lesson": "Carbon 或同等「長驗證」模型上線前，先檢查企業預設啟用政策與用量上限，再評估是否付得起保證。",
+      "threads": [
+        "model-price",
+        "ai-pricing",
+        "agent-infra"
+      ],
+      "sources": [
+        {
+          "title": "Google Blog",
+          "href": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-carbon-now-available/"
+        },
+        {
+          "title": "GitHub Changelog",
+          "href": "https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot"
+        }
+      ],
+      "related": []
+    },
+    {
+      "id": "i3",
+      "icon": "🛡️",
+      "headline": "OpenShell 捐給 CNCF：不管模型怎麼想，越界動作先擋下",
+      "analysis": "NVIDIA 把 open source runtime OpenShell 捐給 CNCF 成為 Sandbox 專案（KubeCon 期間宣布），對 agent 的工具呼叫、inference 存取與工作負載套確定性政策。官方定位是「不證明程式正確，而是保證越界動作一律擋下」。同日 CNCF 新增 12 家會員、主打在開放與主權基礎設施上跑 agent。Google 談 Agent Substrate 時提到 agent 有 90%–95% 時間在等待（文章延伸解讀）。",
+      "view": "我覺得這和 AlphaProof 是同一句話的兩層：一層用證明檢查結果，一層用政策檢查動作。OpenShell 解決不了規格寫錯，但能把「模型自己決定能不能做」拿掉。等待佔大部分時間的說法若屬實，基礎設施就該圍繞暫停、檢查、再恢復，而不是只加速生成。",
+      "lesson": "設計 agent 權限時，把不可逆動作寫成確定性政策；不要假設模型自己會停在邊界上。",
+      "threads": [
+        "agent-infra",
+        "ai-security"
+      ],
+      "sources": [
+        {
+          "title": "NVIDIA Blog",
+          "href": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/"
+        },
+        {
+          "title": "CNCF 公告",
+          "href": "https://www.cncf.io/announcements/2026/11/10/cncf-welcomes-twelve-new-members-as-organizations-look-to-run-ai-agents-on-open-sovereign-infrastructure/"
+        },
+        {
+          "title": "Google Open Source Blog",
+          "href": "https://opensource.googleblog.com/2026/11/sandboxing-untrusted-ai-agents-at-scale.html"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-10",
+          "id": "i5"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "📈",
+      "headline": "Anthropic IPO 路演：ANT 每股 70–78 美元，文件尚未生效",
+      "analysis": "Anthropic 啟動路演：發行 8.25 億股 Class A，每股 70–78 美元，申請以代號 ANT 在 Nasdaq 掛牌，註冊文件尚未生效。TechNews 引市場預估估值最高可達 1.4 兆美元。這是 10/27–10/28 S-1 與代號之後，首次出現公開價格區間與股數。",
+      "view": "我覺得數字本身會成為產業參考點，但現在還不能當成掛牌事實——文件未生效，1.4 兆是預估，和先前「上看 2 兆」並存、口徑不同。對投資人或觀察者，接下來該追的是生效、定價與實際需求，而不是把路演區間直接乘成市值。",
+      "lesson": "把「申請中的價格區間」「市場估值傳聞」和「已生效定價」分開記，未生效前不當作交易事實。",
+      "threads": [
+        "anthropic",
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "Anthropic",
+          "href": "https://www.anthropic.com/news/roadshow-launch"
+        },
+        {
+          "title": "TechNews",
+          "href": "https://finance.technews.tw/2026/11/11/anthropic-targets-1-4-trillion-ipo/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-08",
+          "id": "i7"
+        }
+      ]
+    },
+    {
+      "id": "i5",
+      "icon": "📉",
+      "headline": "黃仁勳風波後續：坦承報導與輝達再挫 5.47%",
+      "analysis": "繼 11/10 董事會調查與盤後下跌，今天報導稱黃仁勳坦承婚外情，女方涉中國間諜仍屬疑慮／傳聞，職位去留為市場揣測。輝達再挫 5.47%；分析指部分資金可能轉向微軟、Google，但多數華爾街仍看好長期基本面（評論）。同日台股大漲 1,135 點，與輝達走勢並不同步。",
+      "view": "我覺得要把「已見報的坦承與調查」、「尚未證實的國安情節」和「股價／資金流向評論」分開。個股治理風險可以和半導體景氣脫鉤，11/10 已看到一次，今天是連續第二個交易日。不宜把台股上漲讀成風波結束。",
+      "lesson": "追公司治理新聞時，標記哪些是公司或當事人已承認的、哪些仍是傳聞，再看股價，而不要倒過來用跌幅證明情節。",
+      "threads": [
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "天下雜誌",
+          "href": "https://www.cw.com.tw/article/5143622"
+        },
+        {
+          "title": "商業周刊",
+          "href": "https://www.businessweekly.com.tw/international/blog/3023548"
+        },
+        {
+          "title": "報導",
+          "href": "https://ec.ltn.com.tw/article/breakingnews/5636406"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-10",
+          "id": "i4"
+        }
+      ]
+    },
+    {
+      "id": "i6",
+      "icon": "🐞",
+      "headline": "Glasswing 報告洪水與 Dependabot 暫停閒置警示：訊號變少的兩種方式",
+      "analysis": "VulnCheck 追蹤 Anthropic 的 Glasswing 七個月後認為，自動化漏洞報告讓維護者疲於奔命、成果不如預期（HN 106 讚）。GitHub 則宣布 12/8 起，一年未 push 的 repo 將暫停 Dependabot 警示並封存舊警示，再 push 即恢復；提醒線上仍在跑的舊專案：沒有警示不代表沒有漏洞。",
+      "view": "我覺得這是同一問題的兩端：一端是 AI 把報告量放大到人類複審跟不上，一端是平台主動把安靜倉庫的警示關掉。兩者都可能讓「看起來很忙」或「看起來很乾淨」失去參考價值。Glasswing 是單方追蹤，我只當警訊，不當最終判決。",
+      "lesson": "衡量漏洞工具要看維護者能消化的真陽性，而不是開出的工單數；閒置但仍在部署的系統，要把掃描從倉庫活動獨立出來。",
+      "threads": [
+        "ai-security",
+        "platform-sec",
+        "review-merge"
+      ],
+      "sources": [
+        {
+          "title": "VulnCheck Blog",
+          "href": "http://vulncheck.com/blog/anthropic-glasswing-november-update"
+        },
+        {
+          "title": "Hacker News 討論",
+          "href": "https://news.ycombinator.com/item?id=50447074"
+        },
+        {
+          "title": "GitHub Changelog",
+          "href": "https://github.blog/changelog/2026-11-10-dependabot-alerts-will-pause-on-inactive-repositories"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-04",
+          "id": "i1"
+        }
+      ]
+    }
+  ]
+}
