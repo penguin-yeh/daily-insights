@@ -1,0 +1,184 @@
+{
+  "date": "2026-11-12",
+  "label": "11/12（四）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/#2026-11-12",
+  "verdict": "今天的主軸是 AI 開始「入座」：OpenAI 讓商家在 ChatGPT 派 Business Agent 接待顧客，Anthropic 推出協作套件並讓 Claude Meetings 準備進會議，規則都指向身分標示、資料邊界與可稽核的修改；United Airlines 則禁止 agent 代訂機票，說明不是所有場子都承認這種代理人。GitHub 把 Copilot 席位做成可自動開收的資源，Actions 出現 workflow lockfile；AWS 官方釋出 aws-emulator，但寫明不能當資安驗證。黃仁勳風波進入 WSJ「董事會準備撤換」的傳聞與盤後再挫 8%，須與 11/10 獨立董事委任外部律師的官方聲明分開記，不能當成已經撤換。（以上是我的分析觀點。）",
+  "learned": "多人場合裡，agent 的身分、資料邊界和修改紀錄，比模型分數更能決定它能不能坐上那張椅子；傳聞與官方聲明也要用同樣的方法分開記。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "🪑",
+      "headline": "Agent 開始入座：先亮名牌，再談它有多聰明",
+      "analysis": "OpenAI 推出 Businesses in ChatGPT（beta，先限符合資格的美國電商）：商家認領檔案，並可派自家 Business Agent 在另開的對話裡接待顧客。規則是對話要標示、與 ChatGPT 中立回答分開；平台稱不把私人對話交給商家，商家只看彙總數據，「付費不影響推薦」目前只有平台自己的說法。Anthropic 同日產品線是 Sheets／Whiteboards／Data，Claude Meetings 官方列為即將推出（TechCrunch 稱已在 Team／Enterprise beta，以官方為準）：進會議要表明身分，未經授權的外部來賓加入就離開（據 TechCrunch）；互動式 connector 的 session 跑在隔離虛擬機，憑證放在虛擬機之外。AI 報用 10/8 Gemini at Work 的獨立目錄身分與稽核主體做對照，指出三家正在趨同——這是編輯分析，不是今天的新發布。OpenAI 同日據報收購旅遊 agent Odessia 並於當天關站。",
+      "view": "我覺得今天最重要的不是又一個協作套件，而是座位規則被寫進產品：身分要可見、資料不要混、修改要列得出來。模型再強，也補不上「它到底是誰、用了誰的鑰匙、會議裡有外人時該不該還在」。平台一邊讓商家 agent 進場，一邊收編垂直 agent，場子的主人是平台。",
+      "lesson": "在多人場合上線 agent 前，先寫清楚三件事：怎麼表明身分、哪些資料不能交給對方、修改能不能逐筆追回；不要假設換更強的模型就會自動守這些邊界。",
+      "threads": [
+        "agent-infra",
+        "ai-security"
+      ],
+      "sources": [
+        {
+          "title": "OpenAI",
+          "href": "https://openai.com/index/introducing-businesses-chatgpt/"
+        },
+        {
+          "title": "TNW 報導",
+          "href": "https://thenextweb.com/news/openai-businesses-in-chatgpt-business-agents"
+        },
+        {
+          "title": "Claude 官方文章",
+          "href": "https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors"
+        },
+        {
+          "title": "TechCrunch 報導",
+          "href": "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/"
+        },
+        {
+          "title": "claude.com",
+          "href": "https://claude.com/resources/articles/more-ways-to-work-with-claude-sheets-whiteboards-and-interactive-connectors"
+        },
+        {
+          "title": "Google Cloud Blog",
+          "href": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026"
+        },
+        {
+          "title": "創辦人 X 貼文",
+          "href": "https://x.com/FDavidsonT/status/2120214953349263473"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-10",
+          "id": "i5"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "✈️",
+      "headline": "United 禁止 AI agent 代訂機票：不是所有場子都歡迎代客行事",
+      "analysis": "United Airlines 以資安風險與可能違反聯邦規範為由，禁止用 AI agent 代旅客訂機票。這是航空公司政策與 HN 討論（276 讚／252 留言），被當成 agent 落地後的治理反彈，不是與 OpenAI／Anthropic 產品發布同一事件。",
+      "view": "我覺得這剛好把今天的主軸翻到另一面：商家和會議產品在設計「agent 怎麼入座」，航空公司則直接說「你不能代客人進來訂票」。身分規則如果只存在於平台自己的產品裡，一跨出邊界，對方可以整段拒絕。這提醒我，agent 要能代表使用者行動，先決條件是對方承認這個代理人。",
+      "lesson": "設計會替使用者下單或改資料的 agent 時，先查對方的身分與授權規則；不要假設「使用者點了同意」就等於第三方必須受理。",
+      "threads": [
+        "agent-infra",
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News",
+          "href": "https://news.ycombinator.com/item?id=50458900"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-12",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "🎫",
+      "headline": "Copilot 席位變成可自動開收的資源，Actions 則開始有 lockfile",
+      "analysis": "GitHub 讓企業層級 App 透過 API 決定誰拿到 Copilot 授權，並新增細粒度權限「Enterprise Copilot license management」。另有開發者文章介紹 GitHub Actions 新的 workflow lockfile：用鎖定的 commit 搭配 Renovate／Dependabot 與 zizmor 驗證，降低 tag 被改指向惡意程式碼的供應鏈風險（HN 71 讚；此則來源是開發者說明，不是官方 Changelog 原文）。Git 儲存架構那篇仍是 11/6 起已記過的同一連結，今天只續列。",
+      "view": "我覺得這兩則都在講「預設值會變成帳單或漏洞」。席位可以自動發、也應該能自動收回；CI 若只釘版本號，tag 一被改寫，流水線就可能跑到別人的程式。昨天 Copilot 還在討論 Carbon 預設自動啟用，今天是授權本身被當成要稽核的資源，方向是一致的。",
+      "lesson": "把 AI 授權的開通與回收做成可稽核的 API；CI 的 Action 釘完整 commit，並用 lockfile 檢查，而不是只相信浮動的 tag。",
+      "threads": [
+        "ai-pricing",
+        "agent-infra",
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "GitHub Changelog",
+          "href": "https://github.blog/changelog/2026-11-10-github-app-support-for-enterprise-copilot-seat-management"
+        },
+        {
+          "title": "Hacker News",
+          "href": "https://news.ycombinator.com/item?id=50459485"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-11",
+          "id": "i2"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "🧪",
+      "headline": "aws-emulator：官方願意讓你離線測 AWS，但不要拿它當安全證明",
+      "analysis": "AWS 在 GitHub 開源 aws-emulator，可免帳號在本機或 CI 模擬 AWS API（HN 594 讚，當日最高分）。官方示範把 CLI／SDK 指到模擬器，也特別支援讓 AI coding agent 用官方 skill 自動安裝。文件明確警告：只供開發測試，不可用於正式環境或資安驗證。",
+      "view": "我覺得這對 coding agent 很實際：以前要測 AWS 整合，就要開真實帳號、承擔權限風險；現在有一條免費、可重複的路。但官方把「不能當資安驗證」寫死，是因為模擬器過關不等於雲端設定過關。工具越方便，越要把測試範圍講清楚。",
+      "lesson": "給 agent 的雲端測試環境，優先用官方模擬器做功能回歸；涉及權限與資安的結論，還是要在真實帳號與真實控制面取證。",
+      "threads": [
+        "agent-infra"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News",
+          "href": "https://news.ycombinator.com/item?id=50456631"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-11",
+          "id": "i3"
+        }
+      ]
+    },
+    {
+      "id": "i5",
+      "icon": "📉",
+      "headline": "WSJ 傳董事會準備撤換黃仁勳：把傳聞、官方調查和股價分開記",
+      "analysis": "這是 11/10 內部調查、11/11 坦承婚外情與再挫 5.47% 的後續。據《華爾街日報》，Nvidia 董事會正準備撤換黃仁勳，盤後重挫 8%；報導亦提及與直屬部下不當關係的傳聞，截稿前未獲官方證實。天下另報「第二段婚外情」，同樣未經公司證實。同日報導稱國會議員要求請辭與聽證，「間諜」情節仍屬指控；《The Information》傳出接班名單（蘇姿丰、Arm 執行長）亦為傳聞。分析師稱若離職恐挫三成，是意見不是結果。可核對的官方動作是：獨立董事 11/10 已宣布委任 Joon H. Kim 與 Wachtell, Lipton, Rosen & Katz 做獨立調查，聲明未說明範圍——這點 11/10 筆記只寫到啟動調查，今天補上外部律師名單。",
+      "view": "我覺得今天最容易寫錯的是把 WSJ 當成「已經撤換」。盤後跌 8% 只能說明市場在對一則未證實報導定價，不能反過來證明董事會已做成決定。要把官方已公開的獨立調查、尚未證實的撤換與國安傳聞、以及分析師的假設跌幅分成三層看。",
+      "lesson": "追公司治理新聞時，先標哪些是公司已公開的動作、哪些仍是報導或傳聞，再看股價；不要用跌幅當情節的證據。",
+      "threads": [
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News",
+          "href": "https://news.ycombinator.com/item?id=50459703"
+        },
+        {
+          "title": "TechNews",
+          "href": "https://finance.technews.tw/2026/11/12/rumors-suggest-that-nvidias-board-of-directors-is-preparing-to-replace-ceo-jensen-huang/"
+        },
+        {
+          "title": "天下雜誌",
+          "href": "https://www.cw.com.tw/article/5143685"
+        },
+        {
+          "title": "TechNews",
+          "href": "https://technews.tw/2026/11/12/several-members-of-the-u-s-congress-have-called-for-huang-jen-hsun-to-resign/"
+        },
+        {
+          "title": "TechNews",
+          "href": "https://finance.technews.tw/2026/11/11/jensen-huang-affair-succession-lisa-su-arm-ceo-candidates/"
+        },
+        {
+          "title": "工商時報",
+          "href": "https://www.ctee.com.tw/news/20261111701325-430702"
+        },
+        {
+          "title": "NVIDIA Newsroom",
+          "href": "https://nvidianews.nvidia.com/news/statement-from-the-independent-members-of-the-nvidia-board"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-11",
+          "id": "i5"
+        },
+        {
+          "date": "2026-11-10",
+          "id": "i4"
+        }
+      ]
+    }
+  ]
+}
