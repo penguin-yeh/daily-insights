@@ -1,0 +1,206 @@
+{
+  "date": "2026-11-13",
+  "label": "11/13（五）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/#2026-11-13",
+  "verdict": "今天有兩條並行的主線。一是 AI agent 開始按產業裝箱出貨：Anthropic 的製造工作包、Databricks 常駐 Genie、Google 的 Agent Plugins，賣點是流程、權限與簽核；Genpact 調查卻顯示多數大企業還沒把投資連到損益。Gemini 4 Hydrogen 取代 Flash，要當便宜的日常引擎；aws-emulator 的後續則說模擬器由數百個 agent 寫成、人類只設閘門（官方自述）。二是 NVIDIA 官方宣布黃仁勳即刻卸任，結束 11/10 起的傳聞階段，聲明未寫原因，股價單日重挫逾 14%。同日還有 PostgreSQL CVE-2026-6460 與 Microsoft 365 全球降級。（以上是我的分析觀點。）",
+  "learned": "工作包能不能上線，取決於權限和簽核，以及能不能對上損益；官方人事公告要和尚未證實的原因分開記。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "📦",
+      "headline": "Agent 開始按產業裝箱：流程、權限和簽核點比模型本身好賣",
+      "analysis": "Anthropic 推出 Claude for Manufacturing：一個 plugin 裝 17 個 skill 與 4 個 connector（Autodesk Fusion、Infor、Microsoft 365、Oracle NetSuite）。官方明說不操作設備、不寫入 System of Record，Infor 權限跟著使用者走，改單得另裝並經核准；只具名 6 個 skill，沒有客戶案例或效益數字。Databricks 把 Genie 改成可排程、可被指標觸發的常駐企業同事，以使用者身分與原權限行動，動作可追溯；91% 正確率是自有 benchmark 的廠商自報。Google 則把 MCP 工具與 Agent Skills 綁成 Agent Plugins，下一步要做打包、搜尋與版本管理。AWS 另提五層可治理、可觀測的參考架構。",
+      "view": "我覺得今天賣的不是「更聰明的模型」，而是一份附流程、權限和人簽核的工作包。這和昨天商家／會議要亮名牌是同一條線的下一層：先讓 IT 點頭「它碰不到真正的系統」，再談能不能天天用。三家各包一層（產業 SOP、長時間治理、發行格式）是編輯整理，不是聯合發表；跨平台能不能把 skill 帶走，也還沒被驗證。",
+      "lesson": "評估產業 agent 時，先看它能不能寫入記錄系統、權限是否跟使用者走、以及哪個步驟必須人簽——再看模型分數或官方示範。",
+      "threads": [
+        "agent-infra",
+        "ai-security"
+      ],
+      "sources": [
+        {
+          "title": "Claude 官方文章",
+          "href": "https://claude.com/resources/articles/claude-for-manufacturing"
+        },
+        {
+          "title": "Databricks Blog",
+          "href": "https://www.databricks.com/blog/new-genie-autonomous-ai-complex-enterprise-work"
+        },
+        {
+          "title": "Google Open Source Blog",
+          "href": "https://opensource.googleblog.com/2026/11/scaling-ai-agents-open-standards-mcp-aaif.html"
+        },
+        {
+          "title": "AWS Architecture Blog",
+          "href": "https://aws.amazon.com/blogs/architecture/inside-an-enterprise-ai-agent-a-governed-observable-loop-architecture/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-12",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "📒",
+      "headline": "79% 已有 agent 上線，只有 15% 連到損益；有團隊開始砍帳單",
+      "analysis": "Genpact 調查 2,000 多位營收 10 億美元以上企業高管（問卷自報）：79% 已有 agent 上線，只有 20% 廣泛且一致地使用，15% 把 AI 投資完整連到損益，過去兩年資助的專案平均 49% 達到預期價值。The Pragmatic Engineer 則寫出 incident.io 的內部數字：每位工程師 AI 支出從 2026 年 8 月每月 4,500 美元降到 1,600 美元，降幅超過六成；具體砍了哪些工具文章未細述。",
+      "view": "我覺得這正好打在工作包的痛點上：裝箱只證明「試過了」，對帳才證明「天天用、算得出錢」。incident.io 的數字之所以重要，不是因為 1,600 美元是正確價格，而是終於有團隊願意公布從瘋狂試用到精算後的落差。Genpact 是廠商新聞稿裡的問卷，我只當方向，不當精確的產業普查。",
+      "lesson": "上線率不能當成投資回報；要問這個 agent 連到哪一條損益科目，以及取消訂閱後少掉的是費用還是產出。",
+      "threads": [
+        "ai-capital",
+        "ai-pricing"
+      ],
+      "sources": [
+        {
+          "title": "PR Newswire（Genpact 新聞稿）",
+          "href": "https://www.prnewswire.com/news-releases/79-of-enterprises-report-ai-agents-in-production-but-only-15-have-fully-tied-ai-investment-to-pl-outcomes-302937385.html"
+        },
+        {
+          "title": "The Pragmatic Engineer",
+          "href": "https://blog.pragmaticengineer.com/the-pulse-details-of-incident-ios-ai-spend/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-05",
+          "id": "i2"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "⚡",
+      "headline": "Gemini 4 Hydrogen 取代 Flash：便宜的 worker 決定工作包跑不跑得起",
+      "analysis": "Google 11/12 發表 Gemini 4 Hydrogen，取代 Flash 品牌：100 萬 token context，每百萬 token 輸入 1.50 美元、輸出 7.50 美元。官方稱預設 high 等級下完成任務比 Gemini 3.8 Flash 快約 2.5 倍，Terminal-Bench 4.1 為 57%（3.8 Flash 為 18.2%，皆官方自報）。Antigravity Orchestrator 可在同一 session 切換 Carbon 與 Hydrogen，由 Hydrogen 擔任 worker 與驗證者。HN 主文 439 讚，當日最高。資料未說明舊 Flash 端點何時關閉。",
+      "view": "我覺得 Hydrogen 和昨天的 Carbon 是配對出現的：Carbon 跑更長的驗證迴圈、較貴；Hydrogen 要當大量日常步驟的便宜引擎。工作包要每天跑，成本就取決於便宜模型能扛下多少步，而不是旗艦模型偶爾拿高分。取代 Flash 品牌是命名與產品線調整，在官方說清端點之前，我不把它當成已經退場。",
+      "lesson": "為常駐 agent 估價時，把「旗艦模型做架構與稽核、便宜模型做平行苦工」分開算，並確認舊品牌端點的退役時程。",
+      "threads": [
+        "model-price",
+        "model-lifecycle",
+        "agent-infra"
+      ],
+      "sources": [
+        {
+          "title": "Google 官方部落格",
+          "href": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+        },
+        {
+          "title": "Hacker News 討論",
+          "href": "https://news.ycombinator.com/item?id=50471431"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-11",
+          "id": "i2"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "🧪",
+      "headline": "aws-emulator 後續：人類只設計測試和閘門，程式據稱全由 agent 寫",
+      "analysis": "11/12 已記官方開源 aws-emulator、可免帳號在本機或 CI 模擬 AWS API。今天是不同文章：About Amazon 說模擬器由數百個 agent 寫成，分成寫 fidelity 測試、重跑找問題、修 bug 三組，最後過編譯、規範、安全與擬真度的合併閘門；涵蓋 438 個 API 模型、數萬個測試。AWS 稱團隊沒寫也沒審任何一行程式碼，人類設計的是測試與閘門。此為官方自述，尚無獨立驗證。先前已寫明模擬器只供開發測試，不能當資安驗證。",
+      "view": "我覺得這比「又一個模擬器」更值得記：它把昨天的產品，補上「驗收標準寫得多清楚，agent 就能做多少事」。沒有人類審一行碼的說法很滿，我只當公司自述。閘門如果本身有盲點，agent 只會很有效率地把盲點做大。",
+      "lesson": "若要把實作交給 agent，先把測試、擬真度與安全閘門寫到可以自動拒絕合併；再決定人要審的是程式，還是這些規則本身。",
+      "threads": [
+        "agent-infra",
+        "review-merge"
+      ],
+      "sources": [
+        {
+          "title": "About Amazon",
+          "href": "https://www.aboutamazon.com/news/aws/how-autonomous-ai-agents-built-aws-emulator"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-12",
+          "id": "i4"
+        }
+      ]
+    },
+    {
+      "id": "i5",
+      "icon": "📣",
+      "headline": "NVIDIA 官方宣布黃仁勳即刻卸任：傳聞走完，聲明仍沒寫原因",
+      "analysis": "這是 11/10 調查、11/11 坦承報導、11/12 WSJ「董事會準備撤換」傳聞之後的官方宣布：黃仁勳即刻卸任總裁、CEO 與董事，CFO Colette Kress 暫代 CEO，Harvey C. Jones 出任首位董事長。新聞稿未說明原因；董事會稱營運與產品路線不受影響，11/17 財報照常，並啟動繼任遴選。股價單日重挫逾 14%、市值蒸發超過 1,800 億美元，台指期夜盤一度跌逾 700 點後翻紅。接班點名（含 Tim Cook）仍是傳聞；台廠供應鏈與「AI 央行連環爆」是分析或假設。間諜情節仍屬先前傳聞／指控，不能因已卸任而視為獲證實。",
+      "view": "我覺得今天終於有一份可以核對的公司聲明，但最容易寫錯的仍是因果：卸任是事實，原因官方沒寫，市場跌幅也不能拿來當情節的證據。要把「已經發生的人事與股價」和「還沒證實的原因、接班人選、供應鏈放緩」分成三層。11/17 財報會是下一個觀察點，看的是指引與語氣，不是再去證明傳聞。",
+      "lesson": "公司治理從傳聞變成公告後，先記官方寫了什麼、沒寫什麼，再讀市場與評論；不要用結果倒推原因。",
+      "threads": [
+        "ai-capital",
+        "nvidia-financing"
+      ],
+      "sources": [
+        {
+          "title": "NVIDIA Newsroom",
+          "href": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition"
+        },
+        {
+          "title": "Cool3c",
+          "href": "https://www.cool3c.com/article/254064"
+        },
+        {
+          "title": "TechNews",
+          "href": "https://finance.technews.tw/2026/11/13/nvidias-stock-price-plunge-sends-a-bombshell-into-global-tech-stocks/"
+        },
+        {
+          "title": "TechNews",
+          "href": "https://finance.technews.tw/2026/11/12/jensen-huang-successor-debate-reignites-apple-ceo-tim-cook-emerges/"
+        },
+        {
+          "title": "天下雜誌",
+          "href": "https://www.cw.com.tw/article/5143692"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-12",
+          "id": "i5"
+        },
+        {
+          "date": "2026-11-11",
+          "id": "i5"
+        },
+        {
+          "date": "2026-11-10",
+          "id": "i4"
+        }
+      ]
+    },
+    {
+      "id": "i6",
+      "icon": "🧯",
+      "headline": "PostgreSQL 舊 typo 被串成 RCE，Microsoft 365 再次全球降級",
+      "analysis": "安全研究者把一個據稱潛伏 22 年的 PostgreSQL type confusion 串成遠端程式碼執行，編號 CVE-2026-6460（研究者／HN 討論；修補範圍以官方公告為準）。同日 Microsoft 365 全球性服務降級，HN 432 讚／413 則留言，引用 ABC、r/sysadmin 與 Downdetector；摘要未附微軟官方根因。GitHub 也在 secret scanning 新增 Cloudflare service token 偵測。",
+      "view": "我覺得這兩則不是同一件事，但打在同一個維運直覺上：老系統裡的「低風險邊緣案例」可能被組合成完整攻擊鏈；而辦公套件一降級，影響面比任何單點 CVE 都立刻感覺得到。工作包和常駐 agent 若掛在這些共用基礎設施上，治理規則寫得再完整，也會一起停。",
+      "lesson": "修補以官方公告為準，不要只根據討論串判斷嚴重性；對「單一辦公套件依賴」要有降級時的備援，而不是假設它不會再斷。",
+      "threads": [
+        "platform-sec",
+        "ai-security"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論",
+          "href": "https://news.ycombinator.com/item?id=50471761"
+        },
+        {
+          "title": "Hacker News 討論",
+          "href": "https://news.ycombinator.com/item?id=50471731"
+        },
+        {
+          "title": "GitHub Changelog",
+          "href": "https://github.blog/changelog/2026-11-12-secret-scanning-adds-a-detector-for-cloudflare"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-12",
+          "id": "i3"
+        }
+      ]
+    }
+  ]
+}
