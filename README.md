@@ -53,3 +53,5 @@
 
 ## 連結設計
 和 daily-news 一樣：外部連結是純 `<a href rel="noopener noreferrer">`、不加 target，JS 只在允許彈窗時改開新分頁，避免在 sandboxed iframe 預覽裡點了沒反應。
+
+**修改 `build.py` 或產生頁面前，請先讀 [STYLE.md](STYLE.md)（「深夜書房」風格：深色優先、琥珀／青綠分層）並照做。**
