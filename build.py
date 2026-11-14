@@ -13,48 +13,55 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 WEEK = "一二三四五六日"
 e = lambda s: html.escape(str(s), quote=True)
 
-CSS = r""":root{--bg:#f6f4ef;--card:#fff;--ink:#2b2d33;--mute:#6b6f78;--acc:#4f7cac;--acc2:#e8eef6;--line:#e7e3da;--view:#fff7e6;--viewb:#f0d9a8;--learn:#eaf6ee;--learnb:#bfe0c9;--hero1:#eaf1f9;--hero2:#f4eefa;--navbg:rgba(246,244,239,.92);--btn:#fff}
-@media (prefers-color-scheme:dark){:root{--bg:#16181d;--card:#1f2229;--ink:#e6e7ea;--mute:#a0a4ad;--acc:#8fb4e0;--acc2:#24324a;--line:#30343d;--view:#2c2618;--viewb:#5c4a24;--learn:#1b2b21;--learnb:#2f5a3c;--hero1:#1c2534;--hero2:#271f33;--navbg:rgba(22,24,29,.92);--btn:#262a32}}
+CSS = r""":root{--bg:#0f1218;--card:#171b23;--ink:#e8e6e1;--mute:#9a9ba3;--line:#2a2f3a;--amber:#e0a458;--teal:#5fb3a1;--violet:#9b8cd6;--link:#e0a458;--serif:Georgia,"Noto Serif TC","PingFang TC",serif;--sans:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;--mono:ui-monospace,SFMono-Regular,Consolas,monospace}
+@media (prefers-color-scheme:light){:root{--bg:#f5f1e8;--card:#fffdf8;--ink:#23221f;--mute:#6f6a5f;--line:#e0d9c8;--amber:#a8651a;--teal:#2f7d6d;--violet:#6a58b0;--link:#a8651a}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.75;-webkit-text-size-adjust:100%}
-a{color:var(--acc)}
-.wrap{max-width:920px;margin:0 auto;padding:20px 16px 60px}
-header{text-align:center;padding:24px 10px 16px}
-header .date{color:var(--acc);font-weight:600;letter-spacing:.08em;font-size:.9rem}
-header h1{margin:.3em 0 .2em;font-size:1.85rem}
-header p{color:var(--mute);margin:0;font-size:.9rem}
-.hero{background:linear-gradient(135deg,var(--hero1),var(--hero2));border:1px solid var(--line);border-radius:18px;padding:20px 22px;margin:8px 0 28px}
-.hero h2{margin:0 0 8px;font-size:1.15rem}
-.hero p{margin:0 0 10px}
-.today{background:var(--learn);border:1px solid var(--learnb);border-radius:12px;padding:10px 14px;font-size:.95rem}
-.newslink{display:inline-block;margin-top:10px;font-size:.88rem}
-h2.sh{font-size:1.25rem;margin:26px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--line)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;margin:0 0 18px;scroll-margin-top:70px}
-.card:target,.card.flash{outline:3px solid var(--acc)}
-.card h3{font-size:1.1rem;margin:0 0 8px;line-height:1.5}
-.lbl{display:inline-block;font-size:.75rem;font-weight:700;color:var(--mute);letter-spacing:.05em;margin-bottom:2px}
-.ana{margin:0 0 12px;font-size:.95rem}
-.view,.learn{border-radius:10px;padding:10px 12px;margin:0 0 10px;font-size:.94rem}
-.view{background:var(--view);border:1px solid var(--viewb)}
-.learn{background:var(--learn);border:1px solid var(--learnb)}
-.view p,.learn p{margin:2px 0 0}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px}
-.tag{background:var(--acc2);color:var(--acc);font-size:.72rem;padding:2px 9px;border-radius:999px;font-weight:600;text-decoration:none}
-.links{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 10px}
-.lnk{font-size:.82rem;color:var(--acc);text-decoration:none;border:1px solid var(--line);border-radius:8px;padding:3px 10px;background:var(--btn)}
-.rel{font-size:.88rem;margin:0;padding-left:1.2em}
-.rel li{margin:.2em 0}
-.rel .d{color:var(--mute);font-variant-numeric:tabular-nums}
-.thread{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:0 0 14px}
-.thread h3{margin:0 0 4px;font-size:1rem}
-.thread .desc{color:var(--mute);font-size:.86rem;margin:0 0 6px}
-.thread ol{margin:0;padding-left:1.3em;font-size:.9rem}
-.nav{position:sticky;top:0;z-index:10;display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;padding:10px;background:var(--navbg);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
-.nav button,.nav select{font:inherit;font-size:.9rem;color:var(--ink);background:var(--btn);border:1px solid var(--line);border-radius:10px;padding:6px 12px;cursor:pointer}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.8 var(--sans);-webkit-text-size-adjust:100%}
+a{color:var(--link)}
+.wrap{max-width:760px;margin:0 auto;padding:20px 16px 64px}
+.nav{position:sticky;top:0;z-index:10;display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;padding:10px;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav button,.nav select{font:inherit;font-size:.88rem;font-family:var(--mono);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:6px;padding:6px 12px;cursor:pointer}
 .nav button:disabled{opacity:.4;cursor:default}
 .day[hidden]{display:none}
-footer{margin-top:30px;padding-top:14px;border-top:1px solid var(--line);color:var(--mute);font-size:.82rem}
-@media (max-width:600px){header h1{font-size:1.45rem}.hero{padding:16px}.card{padding:15px 14px 12px}}
+header{padding:36px 0 8px}
+header .date{font:600 .8rem var(--mono);letter-spacing:.14em;color:var(--amber);text-transform:uppercase}
+header h1{margin:.25em 0 .15em;font:700 2rem/1.25 var(--serif)}
+header p{margin:0;color:var(--mute);font-size:.9rem}
+.hero{margin:20px 0 34px;padding:2px 0 2px 18px;border-left:4px solid var(--amber)}
+.hero h2{margin:0 0 6px;font:600 .75rem var(--mono);letter-spacing:.14em;color:var(--amber);text-transform:uppercase}
+.hero p{margin:0 0 10px;font:500 1.2rem/1.75 var(--serif)}
+.today{margin:0;padding:0;border:0;background:none;font-size:.95rem;color:var(--mute)}
+.today::before{content:"今日學到　";font:600 .75rem var(--mono);letter-spacing:.1em;color:var(--teal)}
+.newslink{display:inline-block;margin-top:10px;font:.82rem var(--mono)}
+h2.sh{margin:34px 0 14px;font:600 .75rem var(--mono);letter-spacing:.14em;color:var(--mute);text-transform:uppercase;padding-bottom:8px;border-bottom:1px solid var(--line)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:20px 20px 14px;margin:0 0 18px;scroll-margin-top:70px}
+.card:target,.card.flash{border-color:var(--amber)}
+.card h3{margin:0 0 10px;font:700 1.18rem/1.5 var(--serif)}
+.lbl{display:block;margin:0 0 2px;font:600 .68rem var(--mono);letter-spacing:.14em;color:var(--mute);text-transform:uppercase}
+.ana{margin:0 0 16px;font-size:.96rem}
+.view,.learn{margin:0 0 14px;padding:2px 0 2px 14px;border:0;border-radius:0;background:none;font-size:.96rem}
+.view{border-left:3px solid var(--amber)}
+.view .lbl{color:var(--amber)}
+.view p{font-family:var(--serif);font-size:1rem}
+.learn{border-left:3px solid var(--teal)}
+.learn .lbl{color:var(--teal)}
+.view p,.learn p{margin:2px 0 0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.tag{font:600 .7rem var(--mono);color:var(--violet);border:1px solid var(--violet);border-radius:4px;padding:1px 8px;text-decoration:none}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 12px}
+.lnk{font:.8rem var(--mono);color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:4px;padding:3px 10px}
+.rel{margin:0;padding-left:1.2em;font-size:.88rem}
+.rel li{margin:.2em 0}
+.rel .d{font-family:var(--mono);color:var(--mute);font-variant-numeric:tabular-nums}
+.thread{position:relative;background:none;border:0;border-radius:0;padding:0 0 0 22px;margin:0 0 26px;border-left:2px solid var(--line)}
+.thread h3{margin:0 0 4px;font:700 1.02rem var(--serif);color:var(--violet)}
+.thread .desc{margin:0 0 8px;color:var(--mute);font-size:.86rem}
+.thread ol{list-style:none;margin:0;padding:0;font-size:.9rem}
+.thread li{position:relative;margin:.35em 0}
+.thread li::before{content:"";position:absolute;left:-28px;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--violet)}
+footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);color:var(--mute);font:.78rem var(--mono)}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+@media (max-width:600px){header h1{font-size:1.6rem}.hero p{font-size:1.08rem}.card{padding:16px 14px 10px}}
 """
 
 JS = r"""
@@ -173,15 +180,15 @@ def build(threads, days):
         later = [rel_li(*x) for x in linked(dt, it, earlier=False)]
         rel = ""
         if prev:
-            rel += f'<span class="lbl">🔗 關聯（之前）</span><ul class="rel">{"".join(prev)}</ul>'
+            rel += f'<span class="lbl">RELATED · 關聯（之前）</span><ul class="rel">{"".join(prev)}</ul>'
         if later:
-            rel += f'<span class="lbl">➡️ 後續</span><ul class="rel">{"".join(later)}</ul>'
+            rel += f'<span class="lbl">NEXT · 後續</span><ul class="rel">{"".join(later)}</ul>'
         return (f'<article class="card" id="{aid(dt, it["id"])}"><div class="tags">{tags}</div>'
                 f'<h3>{e(it.get("icon", ""))} {e(it["headline"])}</h3>'
-                f'<span class="lbl">📰 發生什麼、為什麼重要</span><p class="ana">{e(it["analysis"])}</p>'
-                f'<div class="view"><span class="lbl">💡 我的見解（分析觀點）</span><p>{e(it["view"])}</p></div>'
-                f'<div class="learn"><span class="lbl">📚 學到什麼</span><p>{e(it["lesson"])}</p></div>'
-                f'<span class="lbl">🔎 依據新聞</span><div class="links">{links}</div>{rel}</article>')
+                f'<span class="lbl">ANALYSIS · 分析</span><p class="ana">{e(it["analysis"])}</p>'
+                f'<div class="view"><span class="lbl">MY VIEW · 我的見解</span><p>{e(it["view"])}</p></div>'
+                f'<div class="learn"><span class="lbl">LEARNED · 學到什麼</span><p>{e(it["lesson"])}</p></div>'
+                f'<span class="lbl">SOURCES · 依據新聞</span><div class="links">{links}</div>{rel}</article>')
 
     def thread_block(dt):
         out = []
@@ -190,7 +197,7 @@ def build(threads, days):
             if not steps:
                 continue
             lis = "".join(f'<li><span class="d">{md(d2)}</span> <a href="#{aid(d2, it["id"])}">{e(it["headline"])}</a></li>' for d2, it in steps)
-            out.append(f'<div class="thread"><h3>🧵 {e(t["name"])}（{len(steps)}）</h3><p class="desc">{e(t["desc"])}</p><ol>{lis}</ol></div>')
+            out.append(f'<div class="thread"><h3>{e(t["name"])}（{len(steps)}）</h3><p class="desc">{e(t["desc"])}</p><ol>{lis}</ol></div>')
         return "".join(out)
 
     newest = sorted(days, key=lambda d: d["date"], reverse=True)
@@ -201,14 +208,14 @@ def build(threads, days):
         news = d.get("news_url") or f"https://penguin-yeh.github.io/daily-news/#{dt}"
         body.append(
             f'<div class="day" data-date="{e(dt)}" data-title="{e(title)}" hidden>'
-            f'<header><div class="date">{e(long_date(dt))}</div><h1>🔭 Penguin 每日洞察</h1>'
+            f'<header><div class="date">{e(long_date(dt))}</div><h1>Penguin 每日洞察</h1>'
             f'<p>從每日新聞統整挑出值得關注的點，寫成判讀、見解與學習</p></header>'
-            f'<section class="hero"><h2>🧠 今日判讀（分析觀點）</h2><p>{e(d["verdict"])}</p>'
-            f'<div class="today"><strong>📚 今日學到：</strong>{e(d["learned"])}</div>'
-            f'<a class="newslink lnk" href="{e(news)}" rel="noopener noreferrer">📰 看當天完整新聞統整 ↗</a></section>'
-            f'<h2 class="sh">💎 今日洞察（{len(d["insights"])}）</h2>'
+            f'<section class="hero"><h2>今日判讀 · 分析觀點</h2><p>{e(d["verdict"])}</p>'
+            f'<div class="today">{e(d["learned"])}</div>'
+            f'<a class="newslink lnk" href="{e(news)}" rel="noopener noreferrer">看當天完整新聞統整 ↗</a></section>'
+            f'<h2 class="sh">今日洞察（{len(d["insights"])}）</h2>'
             + "".join(card(d, it) for it in d["insights"])
-            + f'<h2 class="sh" id="{aid(dt, "threads")}">🧵 持續追蹤（截至 {md(dt)}）</h2>{thread_block(dt)}'
+            + f'<h2 class="sh" id="{aid(dt, "threads")}">持續追蹤（截至 {md(dt)}）</h2>{thread_block(dt)}'
             + '<footer>「我的見解」「學到什麼」「今日判讀」為分析觀點；事實與數字皆取自當天新聞統整，原始出處見各卡片連結。</footer></div>')
     html_body = "".join(body).replace(" hidden>", ">", 1)
     opts = "".join(f'<option value="{e(d["date"])}">{e(d.get("label") or d["date"])}</option>' for d in newest)
