@@ -108,11 +108,16 @@ h2.sh{margin:34px 0 14px;font:600 .75rem var(--mono);letter-spacing:.14em;color:
 ```css
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
 .tag{font:600 .7rem var(--mono);color:var(--violet);border:1px solid var(--violet);border-radius:4px;padding:1px 8px;text-decoration:none}
-.links{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 12px}
+.src{margin:22px 0 0;padding:2px 0 2px 14px;border-left:3px solid var(--line)}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 0}
 .lnk{font:.8rem var(--mono);color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:4px;padding:3px 10px}
-.rel{margin:0;padding-left:1.2em;font-size:.88rem}
+.relwrap{margin:14px 0 0;padding:2px 0 2px 14px;border-left:3px solid var(--violet)}
+.relwrap .lbl{color:var(--violet)}
+.rel{margin:6px 0 0;padding-left:1.2em;font-size:.88rem}
 .rel .d{font-family:var(--mono);color:var(--mute);font-variant-numeric:tabular-nums}
 ```
+
+`SOURCES` 用 `.src` 包起來（中性 `--line` 色線，22px 上邊距跟上面三段彩色區塊拉開明顯距離，因為它是「出處」不是判斷）；`RELATED`／`NEXT` 用 `.relwrap` 包起來（紫色線，跟上面 `.tag` 用同一個 `--violet`，呼應「關聯／主線」這個語意）。**三個區塊（分析/見解/學到、出處、關聯）看起來要是同一套「左側色線分層」邏輯的延伸，不能只有前三段有線、後面兩段裸露沒有線。**
 
 ### 3.5 持續追蹤（主線）：時間軸
 
