@@ -4,7 +4,7 @@
 >
 > 與 `daily-news`（晨間電訊、全行內 CSS）不同：這是網站，不是信件，**`build.py` 裡的 `CSS` 常數可以是單一 `<style>`**，因為需要用 CSS 變數與 `prefers-color-scheme` 做深淺色。除此之外維持「自含單檔、不載外部資源」。
 >
-> `build.py` 目前的 `CSS` 還是舊樣式（淺色優先、漸層 hero、彩色填滿方框）。本文件是新的目標樣式，不一致時**以本文件為準**，並同步修改 `build.py`。資料格式（`data/*.json`、`threads.json`）與 README 的更新流程、連結行為都**不變**。
+> `build.py` 目前的 `CSS` 已經照這份文件做（2026-11 最後一次對過）。本文件是目標樣式，兩者不一致時**以本文件為準**並同步修改 `build.py`。資料格式（`data/*.json`、`threads.json`）與 README 的更新流程、連結行為都**不變**。
 
 ## 0. 設計方向
 
@@ -69,11 +69,13 @@ header p{margin:0;color:var(--mute);font-size:.9rem}
 ```css
 .hero{margin:20px 0 34px;padding:2px 0 2px 18px;border-left:4px solid var(--amber)}
 .hero h2{margin:0 0 6px;font:600 .75rem var(--mono);letter-spacing:.14em;color:var(--amber);text-transform:uppercase}
-.hero p{margin:0 0 10px;font:500 1.2rem/1.75 var(--serif)}
+.hero p{margin:0 0 10px;font-family:var(--serif);font-weight:400;font-size:1.05rem;line-height:1.75}
 .today{margin:0;padding:0;border:0;background:none;font-size:.95rem;color:var(--mute)}
 .today::before{content:"今日學到　";font:600 .75rem var(--mono);letter-spacing:.1em;color:var(--teal)}
 .newslink{display:inline-block;margin-top:10px;font:.82rem var(--mono)}
 ```
+
+`.hero p` **一定要用明確的 `font-weight:400`，不要寫 `font: 500 ...`**：`--serif` 的 CJK 字型（Noto Serif TC）通常只有 400／700 兩個字重，瀏覽器收到 500 會湊成偏粗的樣子，開頭第一段文字因此看起來不正常地重、醜。字級也刻意比標題小（1.05rem，不是 1.2rem），這是整頁第一段文字，太大會壓過下面的卡片標題。
 
 ### 3.3 洞察卡
 
@@ -81,21 +83,25 @@ header p{margin:0;color:var(--mute);font-size:.9rem}
 
 ```css
 h2.sh{margin:34px 0 14px;font:600 .75rem var(--mono);letter-spacing:.14em;color:var(--mute);text-transform:uppercase;padding-bottom:8px;border-bottom:1px solid var(--line)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:20px 20px 14px;margin:0 0 18px;scroll-margin-top:70px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:22px 22px 20px;margin:0 0 26px;scroll-margin-top:70px}
 .card:target,.card.flash{border-color:var(--amber)}
-.card h3{margin:0 0 10px;font:700 1.18rem/1.5 var(--serif)}
-.lbl{display:block;margin:0 0 2px;font:600 .68rem var(--mono);letter-spacing:.14em;color:var(--mute);text-transform:uppercase}
-.ana{margin:0 0 16px;font-size:.96rem}
-.view,.learn{margin:0 0 14px;padding:2px 0 2px 14px;border:0;border-radius:0;background:none;font-size:.96rem}
+.card h3{margin:0 0 12px;font:600 1.18rem/1.5 var(--serif)}
+.lbl{display:block;margin:0 0 6px;font:600 .68rem var(--mono);letter-spacing:.14em;color:var(--mute);text-transform:uppercase}
+.ana{margin:0 0 20px;font-size:.96rem}
+.ana strong,.ana b{font-weight:600;color:var(--ink)}
+.view,.learn{margin:14px 0 0;padding:6px 0 6px 14px;border:0;border-radius:0;background:none;font-size:.96rem}
 .view{border-left:3px solid var(--amber)}
 .view .lbl{color:var(--amber)}
 .view p{font-family:var(--serif);font-size:1rem}
 .learn{border-left:3px solid var(--teal)}
 .learn .lbl{color:var(--teal)}
-.view p,.learn p{margin:2px 0 0}
+.view p,.learn p{margin:4px 0 0}
+.hero strong,.hero b{font-weight:600;color:var(--amber)}
 ```
 
 標籤字樣：分析 → `ANALYSIS · 分析`，見解 → `MY VIEW · 我的見解`，學到 → `LEARNED · 學到什麼`。卡片標題前保留 `icon` emoji（資料欄位），其他位置不加 emoji。
+
+**2026-11 改版重點（間距、字重）**：舊版 `.card` 下 padding 只有 14px、`.lbl` 跟內文只隔 2px、`.view`／`.learn` 兩段之間完全沒有上邊距（0），整張卡擠成一團。現在 `.card` 上下 padding 拉開（22/20px）、`.lbl` 留 6px、`.view`／`.learn` 彼此間加 14px 上邊距＋6px 內邊距，卡片標題字重從 700 降到 600（太粗太壓迫）。改內距/字重時維持「有呼吸空間但不加裝飾」的方向，不要為了緊湊又縮回單位數的 px。
 
 ### 3.4 標籤、連結、關聯
 
@@ -128,7 +134,7 @@ h2.sh{margin:34px 0 14px;font:600 .75rem var(--mono);letter-spacing:.14em;color:
 .day[hidden]{display:none}
 footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);color:var(--mute);font:.78rem var(--mono)}
 :focus-visible{outline:2px solid var(--amber);outline-offset:2px}
-@media (max-width:600px){header h1{font-size:1.6rem}.hero p{font-size:1.08rem}.card{padding:16px 14px 10px}}
+@media (max-width:600px){header h1{font-size:1.6rem}.hero p{font-size:1rem}.card{padding:16px 14px 10px}}
 ```
 
 ## 4. 內容撰寫與版面的配合
