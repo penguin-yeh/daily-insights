@@ -50,9 +50,12 @@ h2.sh{margin:34px 0 14px;font:600 .75rem var(--mono);letter-spacing:.14em;color:
 .view p,.learn p{margin:4px 0 0}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
 .tag{font:600 .7rem var(--mono);color:var(--violet);border:1px solid var(--violet);border-radius:4px;padding:1px 8px;text-decoration:none}
-.links{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 12px}
+.src{margin:22px 0 0;padding:2px 0 2px 14px;border-left:3px solid var(--line)}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 0}
 .lnk{font:.8rem var(--mono);color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:4px;padding:3px 10px}
-.rel{margin:0;padding-left:1.2em;font-size:.88rem}
+.relwrap{margin:14px 0 0;padding:2px 0 2px 14px;border-left:3px solid var(--violet)}
+.relwrap .lbl{color:var(--violet)}
+.rel{margin:6px 0 0;padding-left:1.2em;font-size:.88rem}
 .rel li{margin:.2em 0}
 .rel .d{font-family:var(--mono);color:var(--mute);font-variant-numeric:tabular-nums}
 .thread{position:relative;background:none;border:0;border-radius:0;padding:0 0 0 22px;margin:0 0 26px;border-left:2px solid var(--line)}
@@ -182,15 +185,15 @@ def build(threads, days):
         later = [rel_li(*x) for x in linked(dt, it, earlier=False)]
         rel = ""
         if prev:
-            rel += f'<span class="lbl">RELATED · 關聯（之前）</span><ul class="rel">{"".join(prev)}</ul>'
+            rel += f'<div class="relwrap"><span class="lbl">RELATED · 關聯（之前）</span><ul class="rel">{"".join(prev)}</ul></div>'
         if later:
-            rel += f'<span class="lbl">NEXT · 後續</span><ul class="rel">{"".join(later)}</ul>'
+            rel += f'<div class="relwrap"><span class="lbl">NEXT · 後續</span><ul class="rel">{"".join(later)}</ul></div>'
         return (f'<article class="card" id="{aid(dt, it["id"])}"><div class="tags">{tags}</div>'
                 f'<h3>{e(it.get("icon", ""))} {e(it["headline"])}</h3>'
                 f'<span class="lbl">ANALYSIS · 分析</span><p class="ana">{e(it["analysis"])}</p>'
                 f'<div class="view"><span class="lbl">MY VIEW · 我的見解</span><p>{e(it["view"])}</p></div>'
                 f'<div class="learn"><span class="lbl">LEARNED · 學到什麼</span><p>{e(it["lesson"])}</p></div>'
-                f'<span class="lbl">SOURCES · 依據新聞</span><div class="links">{links}</div>{rel}</article>')
+                f'<div class="src"><span class="lbl">SOURCES · 依據新聞</span><div class="links">{links}</div></div>{rel}</article>')
 
     def thread_block(dt):
         out = []
