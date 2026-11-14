@@ -29,7 +29,7 @@ header h1{margin:.25em 0 .15em;font:700 2rem/1.25 var(--serif)}
 header p{margin:0;color:var(--mute);font-size:.9rem}
 .hero{margin:20px 0 34px;padding:2px 0 2px 18px;border-left:4px solid var(--amber)}
 .hero h2{margin:0 0 6px;font:600 .75rem var(--mono);letter-spacing:.14em;color:var(--amber);text-transform:uppercase}
-.hero p{margin:0 0 10px;font-family:var(--serif);font-weight:400;font-size:1.2rem;line-height:1.75}
+.hero p{margin:0 0 10px;font-family:var(--serif);font-weight:400;font-size:1.05rem;line-height:1.75}
 .hero strong,.hero b{font-weight:600;color:var(--amber)}
 .today{margin:0;padding:0;border:0;background:none;font-size:.95rem;color:var(--mute)}
 .today::before{content:"今日學到　";font:600 .75rem var(--mono);letter-spacing:.1em;color:var(--teal)}
@@ -63,7 +63,7 @@ h2.sh{margin:34px 0 14px;font:600 .75rem var(--mono);letter-spacing:.14em;color:
 .thread li::before{content:"";position:absolute;left:-28px;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--violet)}
 footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);color:var(--mute);font:.78rem var(--mono)}
 :focus-visible{outline:2px solid var(--amber);outline-offset:2px}
-@media (max-width:600px){header h1{font-size:1.6rem}.hero p{font-size:1.08rem}.card{padding:16px 14px 10px}}
+@media (max-width:600px){header h1{font-size:1.6rem}.hero p{font-size:1rem}.card{padding:16px 14px 10px}}
 """
 
 JS = r"""
