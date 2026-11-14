@@ -1,0 +1,34 @@
+name: Sync claude branches into main
+
+# daily-insights 的 GitHub Pages 是 legacy 模式，直接從 main 根目錄部署，push 到 main 會自動重新發布。
+# 這個 workflow 只負責：如果產生當天資料的 session 被限制在 claude/* 分支上開發，
+# 自動把該分支最新一天的 data/*.json 與 build.py 產生的 index.html 同步進 main。
+on:
+  push:
+    branches: ['claude/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-insights-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Fetch source branch
+        run: git fetch origin "+refs/heads/${GITHUB_REF_NAME}:refs/remotes/origin/${GITHUB_REF_NAME}"
+      - name: Sync latest day into main
+        run: scripts/sync_latest.sh "${GITHUB_REF_NAME}"
+      - name: Push main
+        run: |
+          if [ "$(git rev-parse HEAD)" != "$(git rev-parse origin/main)" ]; then
+            git push origin HEAD:main
+          fi
