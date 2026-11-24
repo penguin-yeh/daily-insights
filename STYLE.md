@@ -19,6 +19,14 @@
 5. 手機優先，無橫向捲軸；內容欄寬上限 **760px**（舊版 920px 太寬，行長過長）。
 6. 外部連結維持 README 的規定：純 `<a href rel="noopener noreferrer">`，不加 `target`；JS 只在允許彈窗時改開新分頁。
 7. 保留既有功能：日期下拉、前後一天、鍵盤 ← →、`#YYYY-MM-DD` 與 `#YYYY-MM-DD--i3` 錨點、「持續追蹤」主線。
+8. 本站 favicon 除外：`<head>` 的 `</title>` 之後必須有下面四行（檔案在 repo 根目錄）。`build.py` 產生頁面時也要輸出這四行。
+
+```html
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+<link rel="manifest" href="site.webmanifest">
+```
 
 ## 2. 設計 token（寫進 `CSS` 常數）
 

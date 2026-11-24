@@ -230,7 +230,12 @@ def build(threads, days):
     return ('<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">'
             '<meta name="viewport" content="width=device-width,initial-scale=1">'
             '<meta name="color-scheme" content="light dark">'
-            f'<title>Penguin 每日洞察 · {e(newest[0]["date"])}</title><style>{CSS}</style></head>'
+            f'<title>Penguin 每日洞察 · {e(newest[0]["date"])}</title>'
+            '<link rel="icon" href="favicon.svg" type="image/svg+xml">'
+            '<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">'
+            '<link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">'
+            '<link rel="manifest" href="site.webmanifest">'
+            f'<style>{CSS}</style></head>'
             f'<body>{nav}<div class="wrap">{html_body}</div><script>{JS}</script></body></html>')
 
 def main():
