@@ -1,0 +1,153 @@
+{
+  "date": "2026-11-20",
+  "label": "11/20（五）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/2026-11-20.html",
+  "verdict": "Anthropic 在一個最不友善的環境掛牌：同週台股兩度重挫、11/19 收盤失守 4 萬點，AMD 被空頭指控重挫 9%，國會揭露商務部早已核准 87.9 萬顆 AI 晶片售中。台積電則在掛牌前宣布入股 OpenAI 與 Anthropic——供應商變股東，循環融資又多一個例子。Agent 這邊，Stripe 讓 agent 能在額度內動錢；Railway 的事後報告則說攻擊者很可能也在用 AI。（以上是我的分析觀點。）",
+  "learned": "當供應商、客戶、股東開始是同一群人時，要分清楚每筆錢是需求、投資還是互相撐場。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "🔔",
+      "headline": "Anthropic 掛牌：估值衝高，但體溫計不只一支",
+      "analysis": "Anthropic 11/19 在那斯達克掛牌，路透稱這是 AI 產業「承諾與風險」首次接受公開市場檢驗（HN 822 讚、1573 則留言）。首日完全稀釋估值一度約 2 兆美元，但同期 AMD 等 AI 概念股重挫，泡沫疑慮未散。",
+      "view": "我覺得 HN 留言數是讚數的兩倍，比估值更能說明情緒：大家關心的是一家 AI 實驗室能不能承受季報、揭露和股東的檢驗。2 兆是盤中、完全稀釋的口徑，接下來真正的考題是第一份季報裡的虧損和營收結構。",
+      "lesson": "IPO 首日的估值是情緒，第一份季報才是資料。",
+      "threads": [
+        "anthropic",
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論（路透）",
+          "href": "https://news.ycombinator.com/item?id=50562754"
+        },
+        {
+          "title": "TechNews（估值 2 兆美元）",
+          "href": "https://finance.technews.tw/2026/11/20/anthropic-ipo-valuation-2-trillion-ai-bubble-concerns/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-19",
+          "id": "i5"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "🔁",
+      "headline": "台積電入股 OpenAI 與 Anthropic：供應商變股東",
+      "analysis": "台積電董事會公告入股 OpenAI 與 Anthropic，並成立新的投資子公司。TechNews 分析，選在 Anthropic 掛牌前最後一刻宣布，一方面穩住大客戶關係，一方面卡位潛在獨角獸。",
+      "view": "我覺得這和 10/25 起追的 NVIDIA 循環融資是同一個結構的溫和版：供應商把錢放進客戶，換來訂單能見度。差別在台積電是入股而不是擔保，風險較小；但當上游同時是下游的股東，景氣反轉時虧損也會雙向傳導。",
+      "lesson": "看到供應商入股客戶，要問：這筆投資的回報，靠的是股價還是訂單？",
+      "threads": [
+        "nvidia-financing",
+        "semi-capacity",
+        "anthropic"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（台積電入股）",
+          "href": "https://finance.technews.tw/2026/11/20/tsmc-invests-anthropic-openai-forms-investment-subsidiary/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-19",
+          "id": "i3"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "📉",
+      "headline": "台股失守 4 萬點、限空一週兩次：政策在跟恐慌賽跑",
+      "analysis": "台股 11/19 創收盤史上第 7 大跌點，失守 4 萬點並跌破年線（盤中一度跌逾 1,700 點）；外資重砍主動式 ETF、連 6 日賣超台積電。金管會宣布 11/20 加碼限空，一週內第二次出手。同日眾院外委會揭露商務部已核准售中逾 87.9 萬顆高階 AI 晶片；AMD 遭空頭 Hunterbrook 指控與實體清單中企往來，盤中重挫近 9%。",
+      "view": "我覺得限空是減速帶，不是方向盤：它能壓低賣壓的速度，改不了外資對 AI 供應鏈風險的重新定價。87.9 萬顆的數字則讓出口管制變成雙向壓力——管得太鬆被國會追殺，管得太緊又打到供應鏈營收。",
+      "lesson": "市場干預措施要看它改變的是「速度」還是「方向」。",
+      "threads": [
+        "tw-macro",
+        "semi-capacity"
+      ],
+      "sources": [
+        {
+          "title": "商業週刊（第 7 大跌點）",
+          "href": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBzTHhtMzJHSU1DcHcwaW1zUjNoNzFvM2h0eWlybEU4WS00VVF4aXF2VDNrMVZuQkJJYnVhdF8wVFF5TnQxSEFpU0ZCaEpGdWJ5MWlMOTZBbVlIaWRrMHlyTkhzMUxVdw?oc=5"
+        },
+        {
+          "title": "Google News（限空令加碼）",
+          "href": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5iN2J4bmluSDJMNDlDSjNQSzNuVDBLeE1kLWpjTEd0Q1QtWGZGVE5pMlBNVzd3dmpuNDJDWE1pOGVEU2NLdHFjaDQxVE1QWHJkV0JrQXVLZGpvcHNObGJN?oc=5"
+        },
+        {
+          "title": "TechNews（87.9 萬顆晶片）",
+          "href": "https://technews.tw/2026/11/20/the-u-s-department-of-commerce-has-revealed-that-it-has-approved-the-sale-of-879000-ai-chips-to-china/"
+        },
+        {
+          "title": "TechNews（AMD）",
+          "href": "https://finance.technews.tw/2026/11/20/amd-accused-by-short-selling-firms-of-dealings-with-several-chinese-companies-listed-on-the-entity-list/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-17",
+          "id": "i3"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "💳",
+      "headline": "Stripe 讓 agent 動錢：權限、額度、人工核准三層",
+      "analysis": "Stripe Treasury 開放 AI agent 在使用者設定的額度與權限範圍內，直接轉帳、換匯、支付供應商，並提供可自訂控制項與人工核准機制。同日 The Pragmatic Engineer 整理 Railway 事後報告：攻擊者很可能借助「無安全護欄」的 AI 模型入侵。",
+      "view": "我覺得金流是 agent 座位規則的最後一關：11/12 先亮名牌、11/13 工作包寫進簽核，這次直接碰錢。Stripe 的設計是對的——額度和人工核准預設就有。但 Railway 提醒另一面：攻擊者的 agent 不會有這些護欄，所以防守不能只靠自己 agent 守規矩。",
+      "lesson": "給 agent 碰錢前，先定好單筆上限、每日上限和必須人簽的門檻。",
+      "threads": [
+        "agent-infra",
+        "ai-security"
+      ],
+      "sources": [
+        {
+          "title": "Stripe Blog",
+          "href": "https://stripe.com/blog/give-your-agents-controlled-access-to-analyze-your-data-and-move-funds"
+        },
+        {
+          "title": "The Pragmatic Engineer",
+          "href": "https://blog.pragmaticengineer.com/the-pulse-what-can-we-learn-from-the-railway-hack/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-13",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i5",
+      "icon": "🧭",
+      "headline": "黃仁勳不在位，仍握兩席董事提名權",
+      "analysis": "路透報導，依公司章程，黃仁勳辭去執行長後仍可提名最多兩席董事，在董事會層面保有實質影響力。商周則報導輝達員工大會端出加薪與配股留才，但被指漏了關鍵安撫，市場擔心「離職傳染效應」。",
+      "view": "我覺得這則把「誰說了算」又往前推了一步：11/18 董事會回絕回任，但章程讓他在董事會還有槓桿。人事風波的終局往往不是聲明，而是董事會席次與投票；接下來值得盯的是提名時程與股東會。",
+      "lesson": "讀公司治理新聞時，翻一下章程：誰能提名、誰能投票，往往比誰在發言重要。",
+      "threads": [
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（路透：提名兩席董事）",
+          "href": "https://finance.technews.tw/2026/11/20/jensen-can-still-nominate-two-directors-after-stepping-down/"
+        },
+        {
+          "title": "商業週刊（員工大會）",
+          "href": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9Od0dER25ob1k0VU1VRUMwLWZxcUFYby1XaGQweGdCTmowOEVLOFB2b2tLelNOZ2pyN1c5SGxiOXI4UFZZODJraGI1N0k2akNEcDFmX0t6ajdSZU5LTkExWFlB?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-18",
+          "id": "i2"
+        }
+      ]
+    }
+  ]
+}

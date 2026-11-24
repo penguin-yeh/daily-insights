@@ -1,0 +1,114 @@
+{
+  "date": "2026-11-15",
+  "label": "11/15（日）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/2026-11-15.html",
+  "verdict": "今天沒有新的官方事實，只有大量解讀。黃仁勳 11/13 卸任後，商周、天下、TechNews 把題目從「誰接班」拉到「董事會該管什麼」「華府遊說踩了什麼坑」「內閣為出口政策互咬」；這些都是分析，事實層仍只有那份沒寫原因的聲明。另一邊是兩則老問題的新例子：Lovable 生成的 app 把護照和私訊開在外面；微軟當機時企業靠傳真電話撐場。（以上是我的分析觀點。）",
+  "learned": "評論越多的時候，越要回到「官方說了什麼、沒說什麼」；備援要在出事前就能用，不是出事後才想起傳真機。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "🏛️",
+      "headline": "黃仁勳下台後，題目從「誰接班」換成「董事會該管什麼」",
+      "analysis": "商周指出這是輝達 33 年來第一次沒有黃仁勳坐鎮的治理考驗，並稱公司每年在華府遊說逾 1 億元（幣別未標），把黃仁勳與兩名政治人物的互動當成「踩坑」主因。天下報導川普內閣官員因輝達晶片出口政策互相攻訐。TechNews 則用 1985 年賈伯斯被董事會逼退來類比。三篇都屬分析，沒有新的官方說法。",
+      "view": "我覺得這一天最該做的是「降噪」：從 11/10 的內部調查到 11/13 的卸任聲明，官方從頭到尾沒寫原因，今天多出來的都是解讀。把治理、遊說、出口政策三條線分開看，才不會把媒體的因果推論當成事實。真正的事實檢驗點是 11/17 財報和董事會的下一個動作。",
+      "lesson": "讀人事風波時，先把「官方聲明」「媒體報導」「評論類比」分三欄記，再決定要不要相信因果。",
+      "threads": [
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "商業週刊（董事會該管什麼）",
+          "href": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBxWTVCQUI1M2RDdEtyT3Z1NnVkSFJyNTlBUERKaUxfMGFhNXh2U2NGT0EwYUFJQ3hYWXlOcFN5Nkt3WGZwZnMxQjJyNkVBZG80QktKZFdLcmZEWmw0bGlxYW5R?oc=5"
+        },
+        {
+          "title": "商業週刊（華府遊說）",
+          "href": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE16VkNTSk8xWFNfbjZaUm5fTHl0UDNrN2lxeTJ2cUxBeENXdlN2bE1RVi1zNnNGWVBSTjlLOEtMVFVJbzNvTzhISjVvVUhzLVFmdUNJTVZkUmpyNjRWNUV3cDd3?oc=5"
+        },
+        {
+          "title": "天下雜誌（內閣權鬥）",
+          "href": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9OMHZQNlZ4bEEzS2tSV1daRENtckZETlJOOHRpbUl1NjZRM3ZvTVNSamh3Z1JhNURDTW1BWHV1SzFiWWhSVEZWSFA3SDAtZw?oc=5"
+        },
+        {
+          "title": "TechNews",
+          "href": "https://finance.technews.tw/2026/11/14/chinese-media-state-machinery-targets-jensen-huang-personal-conduct-political-persecution/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-13",
+          "id": "i5"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "🔓",
+      "headline": "Lovable 外洩：一鍵生成的 app，存取控制還是得有人補",
+      "analysis": "資安研究者發現 AI 應用建構平台 Lovable 產生的多個 app 存取控制缺失，護照影像等個資與超過 20 萬則私訊可被外部直接存取，HN 655 讚、279 則留言。摘要沒有說明受影響的 app 數量與修補狀態。",
+      "view": "我覺得這不是「AI 寫的程式比較爛」，而是生成工具把「能跑」做得太容易，把「誰能讀哪筆資料」留給使用者自己想——而這些使用者常常正是不會想到的人。這和 11/12 aws-emulator「別拿模擬器當安全證明」是同一個提醒：產出速度上來了，驗證那一步沒有自動跟上。",
+      "lesson": "用生成工具做出能上線的東西後，第一件事是用別人的帳號（或不登入）去讀自己的資料。",
+      "threads": [
+        "ai-security",
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論",
+          "href": "https://news.ycombinator.com/item?id=50499017"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-12",
+          "id": "i4"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "☎️",
+      "headline": "微軟當機時，企業的備援是傳真機和電話",
+      "analysis": "延續 11/13 的 Microsoft 365 全球降級，TechNews 報導不少企業在當機期間改用傳真、電話與藍牙維持日常運作與交易確認。文章的重點是：核心流程越全面雲端化，雲端商出事時手上越沒有替代方案。",
+      "view": "我覺得這則好笑但不荒謬：傳真之所以能救場，是因為它從來沒被拿掉。多數團隊的備援計畫寫的是「另一個雲」，但真正停擺的常常是身分驗證和郵件這種共用層。工作包和常駐 agent 掛在同一套辦公套件上，停的時候也會一起停。",
+      "lesson": "列出「辦公套件掛掉時還能確認交易的方式」，而且每季真的用一次。",
+      "threads": [
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "TechNews",
+          "href": "https://technews.tw/2026/11/14/microsoft-365-fax-machine-phone-call-bluetooth/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-13",
+          "id": "i6"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "🧭",
+      "headline": "Kitesurf 開源：給 agent 用的瀏覽器，開始能自己架",
+      "analysis": "Cloudflare 開源實驗性的 AI agent 專用瀏覽器引擎 Kitesurf，開發者可以讀原始碼、在本地跑，或部署到 Cloudflare Workers 上（原文 11/13，來源標為近期而非今日）。",
+      "view": "我覺得「agent 專用瀏覽器」開源，代表瀏覽這一步也開始從託管服務變成可以自己控管的元件。對想把 agent 關在自家環境裡的團隊，這比又一個更聰明的模型實用；但實驗性專案能不能長期維護，還要再看。",
+      "lesson": "評估 agent 工具時，問一句「能不能自己架」：能自架的元件，權限和日誌才在自己手上。",
+      "threads": [
+        "agent-infra"
+      ],
+      "sources": [
+        {
+          "title": "The Cloudflare Blog",
+          "href": "https://blog.cloudflare.com/kitesurf-open-source/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-13",
+          "id": "i1"
+        }
+      ]
+    }
+  ]
+}

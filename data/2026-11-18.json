@@ -1,0 +1,128 @@
+{
+  "date": "2026-11-18",
+  "label": "11/18（三）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/2026-11-18.html",
+  "verdict": "這天有三條官方事實。一是 NVIDIA 財報：營收年增 103%、Vera Rubin 已出貨、對台採購承諾 3,900 億美元——生意沒停。二是董事會正式表態：黃仁勳說願意回來，董事會主席聲明回絕、法說會說「沒有考慮」。三是美國商務部的新規則：不只管中國公司，而是封住經海外代工和封測繞道的路。模型端 OpenAI、微軟同日各出「正式版＋輕量版」。（以上是我的分析觀點。）",
+  "learned": "基本面、治理和政策是三條獨立的線；同一天都有消息時，分開記才看得出哪條真的變了。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "📊",
+      "headline": "財報說生意沒停：營收 +103%，人事風波沒打到訂單",
+      "analysis": "輝達公布截至 2026/10/25 的 Q3 財報，營收年增 103%、獲利年增翻倍，雙雙優於預期；新一代 Vera Rubin 已出貨並貢獻營收。代理執行長柯瑞斯稱對台廠採購承諾升至 3,900 億美元。這是 11/13 卸任聲明裡說「照常」的那場財報。",
+      "view": "我覺得這份財報把兩件事切開了：需求端仍很強，風險在治理與政策端。但 3,900 億美元的採購承諾不只是好消息——它也是 11/19 起被問「誰來收尾」的那筆部位。生意越大，接班人要扛的承諾也越大。",
+      "lesson": "財報好不代表風險小；把「營收」和「承諾規模」放在同一張表上看。",
+      "threads": [
+        "ai-capital",
+        "nvidia-financing"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（Q3 財報）",
+          "href": "https://finance.technews.tw/2026/11/18/nvidias-third-quarter-revenue-increased-by-103-year-on-year-exceeding-expectations/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-13",
+          "id": "i5"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "🚫",
+      "headline": "黃仁勳說願意回來，董事會第一次正式說不",
+      "analysis": "黃仁勳於個人社群表態「若董事會認可仍願意回鍋」，董事會主席隨即公開聲明回絕；法說會上公司也明確回應「沒有考慮」讓他回任。",
+      "view": "我覺得這是整件事第一次有「有表決權的人」開口，比前兩天所有連署、白宮表態都重要。不過聲明是今天的立場，不是永久判決——股東壓力和政治壓力都還在，之後若改變，也要看是誰、用什麼程序改的。",
+      "lesson": "正式聲明是追蹤的基準點；之後任何轉向，都拿它來對照。",
+      "threads": [
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（董事會主席回絕）",
+          "href": "https://technews.tw/2026/11/18/jensen-huangs-return-journey-was-blocked/"
+        },
+        {
+          "title": "天下雜誌（黃仁勳表態）",
+          "href": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBoS3ZmZ0RXT0xva2ZKcTE5aTJVOFM0X3FocV9oc2FkMHY3Q0VzcnJYTTA2dDZtLUNOWGZWMTRIT1RnR3cwTFRuUWZNdmg0QQ?oc=5"
+        },
+        {
+          "title": "天下雜誌（法說會）",
+          "href": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFB3VFB5THlYZ0JKTWFsajlWZmNFTTJ6SkpTZWFUS2ZyVFBZdHE0elozZll6Rm1tZ2RSMGNMbHIwd3hhV1VKSmh4Mko0WWVpdw?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-17",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "🧱",
+      "headline": "出口管制改堵「路」：海外代工和封測都被點名",
+      "analysis": "美國商務部 11/17 公布新一輪先進計算與半導體出口管制暫行最終規則（IFR），重點是堵住中國經海外晶圓代工與封測（如 Amkor、日月光投控）間接取得先進晶片與成熟製程產能的路徑，並與同日對新加坡等五國的轉運限制呼應。商周稱這波管制衝擊海外新興算力業者，傳有業者求售。",
+      "view": "我覺得這正好回應了前一天的「東南亞後門」：規則從「賣給誰」改成「經過誰」。對台廠來說，合規成本從出貨端延伸到客戶審查與封測接單；對 neocloud 來說，地點本身變成風險。",
+      "lesson": "管制從產品清單轉向供應鏈路徑時，合規工作量會落在中游的代工和封測。",
+      "threads": [
+        "semi-capacity"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（IFR 新規）",
+          "href": "https://technews.tw/2026/11/17/the-us-is-blocking-chinas-access-to-overseas-manufacturing-and-packagingtesting-services/"
+        },
+        {
+          "title": "商業週刊（五國管制）",
+          "href": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9PNjFzdHlFV0hQaVNrSXJjaEhINDB6aEcxLUE1ZFpTVG94bTk3WnU2a0EwZGxLN0NDUzNUNG5oczdqdXRhSnM0MmlCRFhJel9kVFlGb0x6SlZZZnptOTM4NTZlTGFHakNLNThPcg?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-17",
+          "id": "i2"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "🧩",
+      "headline": "模型同日分層出貨，agent 的工作階段開始能跨裝置帶走",
+      "analysis": "OpenAI 發布 GPT‑6.2 Astra 與 Sol（HN 1036 讚，摘要未附能力細節）；微軟發布 MAI Code 2 與輕量快速的 Code 2 Flash。GitHub 說明開放的 Agent Host Protocol，讓 agent session 能在編輯器、App、手機與雲端之間延續。另有研究者揭露 Java4Shell：OpenJDK 處理特定 Base64 輸入可觸發 RCE。",
+      "view": "我覺得「正式版＋輕量版」已經是標準出貨格式，延續 11/13 Gemini 4 Hydrogen 取代 Flash 的路線：重要的是便宜的那層夠不夠做日常工作。Agent Host Protocol 則把「工作階段」當成可攜帶的資產；可攜帶也意味著權限和日誌要跟著走。",
+      "lesson": "選模型時同時評估「旗艦」和「輕量」兩檔，真正上量的通常是後者。",
+      "threads": [
+        "model-price",
+        "agent-infra",
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論（GPT‑6.2）",
+          "href": "https://news.ycombinator.com/item?id=50535230"
+        },
+        {
+          "title": "Hacker News 討論（MAI Code 2）",
+          "href": "https://news.ycombinator.com/item?id=50535885"
+        },
+        {
+          "title": "GitHub Blog",
+          "href": "https://github.blog/engineering/engineering-principles/building-the-agent-host-protocol-for-sessions-that-continue-across-devices/"
+        },
+        {
+          "title": "Hacker News 討論（Java4Shell）",
+          "href": "https://news.ycombinator.com/item?id=50538240"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-13",
+          "id": "i3"
+        }
+      ]
+    }
+  ]
+}

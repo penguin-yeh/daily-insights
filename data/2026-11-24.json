@@ -1,0 +1,130 @@
+{
+  "date": "2026-11-24",
+  "label": "11/24（二）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/2026-11-24.html",
+  "verdict": "黃仁勳 11 天就回來了。董事會在和他本人討論、聽取美國政府高層意見後一致決議恢復他的總裁、執行長與董事職務，報導稱政府確認沒有國安風險，股價大漲（各來源從 25% 到 33% 不等）。同一批報導裡，紐時寫黃樂與中國國安部官員接觸逾一年——事實和結論在同一天往兩個方向走。台股反彈 778 點，外資仍賣 289 億。科技面，Ladybird 進 Alpha、NariQ 把 27B 模型壓到 10GB，地端 AI 的門檻繼續下降。（以上是我的分析觀點。）",
+  "learned": "治理決定可以在一週內反轉；能留下來的是程序紀錄——誰、依什麼、怎麼表決。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "↩️",
+      "headline": "11 天大逆轉：董事會說了兩次，方向相反",
+      "analysis": "輝達董事會宣布，在與黃仁勳一系列討論並聽取美國政府高層意見後，一致決議恢復其總裁、執行長暨董事職務；報導稱美國政府確認不涉國安風險，川普稱若不留住他中國可能延攬。商周稱川普一句話是轉折。股價漲幅各來源口徑不一（天下 31%、巴哈開盤 33%、TechNews 逾 25%）。",
+      "view": "我覺得這件事最值得記的不是結果，而是 11/18 到 11/24 的程序：董事會主席先公開回絕，六天後一致表決復職，理由寫的是「與本人討論＋政府高層意見」。這代表公司治理在壓力下讓步給了政治和股價。SEC 會計調查、兩席董事提名權這些結構性問題，並沒有因為復職而消失。",
+      "lesson": "治理事件結束時，回頭對照「最初聲明」和「最後決定」的理由，才看得出誰真正施了力。",
+      "threads": [
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "Google News（董事會恢復職務）",
+          "href": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE81QjlTSUFxTV9PTFhJOVloODRGOGF5b3JhTkRiWTlhQlBwbldXcE5EeFEtSHdNVTQ5eWd3TkM2SWQ2MDhuZTlqaFhkbnJjSUU?oc=5"
+        },
+        {
+          "title": "商業週刊（川普一句話）",
+          "href": "https://news.google.com/rss/articles/CBMibEFVX3lxTE83bTVUQTViWkJqN19ueUdiY1NiRlAwWEZnV3M0TTU5LUl2QUVZZi14ZFVYOXpGdkc1bndCM0Q1WjQyUW5wZ3hBV3hQa0xlSk5ZYm4xLTBBN1d0Y2JDYTFSbUtMUVZ3dkR5Rlo3TA?oc=5"
+        },
+        {
+          "title": "天下雜誌（股價 +31%）",
+          "href": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9IWU94VnQ1eGFuZmo4M1lrbVZaWG9LVjdhb0hRbkFoazJsNlRZUV9tWjFQcENGcFp1eVFOSUtDQlhlZXJ6c2ZUSXJUMnRqZw?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-18",
+          "id": "i2"
+        },
+        {
+          "date": "2026-11-22",
+          "id": "i3"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "🧩",
+      "headline": "紐時報導與「無國安風險」同一天出現：結論和事實分開記",
+      "analysis": "《紐約時報》報導，與黃仁勳有婚外情的黃樂曾與中國國安部官員保持聯繫逾一年，時間點與兩人交往重疊；同批報導揭露遭美國列入黑名單的 Megaspeed 涉嫌協助中國取得輝達 AI 晶片。同日報導稱美國政府確認復職案不涉國安風險。",
+      "view": "我覺得這是整個事件最需要冷靜的一天：一邊是報導出更多接觸細節，一邊是政府說沒有風險。兩者不必然矛盾——「有接觸」不等於「有洩密」——但也代表政府的結論沒有公開理由。Megaspeed 則把焦點拉回 11/17 以來的轉運問題，那條線比個人風波更持久。",
+      "lesson": "官方「沒有風險」的結論若沒附理由，就記成結論，不要拿來否定或證實其他報導。",
+      "threads": [
+        "semi-capacity",
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "Google News（紐時報導）",
+          "href": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE00dDgwVXFHUFdMNDN4OVRMZm0wUDZlcU1MSDJscW1fT1NFMFRSaExERUVnZXFIdE9RM3lraXBLamNyT0RaSy04ZElPS3N3V2hYcnMzSzNrcmpXNGlsOW9v?oc=5"
+        },
+        {
+          "title": "Google News（無國安風險）",
+          "href": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE81QjlTSUFxTV9PTFhJOVloODRGOGF5b3JhTkRiWTlhQlBwbldXcE5EeFEtSHdNVTQ5eWd3TkM2SWQ2MDhuZTlqaFhkbnJjSUU?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-19",
+          "id": "i4"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "💻",
+      "headline": "27B 模型壓到 10GB、多台 PC 串記憶體：地端 AI 的門檻一直往下掉",
+      "analysis": "NariQ 把 Qwen3.8-27B 做 3-bit 以下量化，檔案約 10GB，團隊稱在 DeepSWE（41.0 對 39.8）與 Terminal-Bench 2.1（63.8 對 62.6）上與 BF16 相當甚至略高（自報）。微軟則為 Windows 11 推出 RDMA over USB4，讓多台 PC 共享記憶體與運算，在地端跑大型模型。",
+      "view": "我覺得這兩則接在 11/19 DaisyRose 後面看很有意思：同一個 Qwen3.8 家族，一邊用 RL 提升 agent 能力，一邊用量化壓低硬體需求。量化後分數「超過原版」通常是評測誤差範圍，不必當真；但 10GB 能跑長任務 agent，代表很多原本只能上雲的工作可以留在本機。",
+      "lesson": "量化模型的分數看「掉多少」而不是「贏多少」；能不能留在本機，才是實際收益。",
+      "threads": [
+        "model-price",
+        "agent-infra"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論（NariQ）",
+          "href": "https://news.ycombinator.com/item?id=50611402"
+        },
+        {
+          "title": "Hugging Face",
+          "href": "https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF"
+        },
+        {
+          "title": "TechNews（RDMA over USB4）",
+          "href": "https://technews.tw/2026/11/23/microsoft-introduces-rdma-over-usb4-on-windows/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-19",
+          "id": "i2"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "🧭",
+      "headline": "Ladybird 進 Alpha、Apple 下架 FSNotes：開源與平台的拉扯",
+      "analysis": "從零打造、不依賴 Chromium 或 WebKit 的 Ladybird 瀏覽器進入 Alpha（HN 1312 讚、314 則留言）。開源筆記 app FSNotes 的開發者則指出，Apple 把這款上架 9 年的 app 從歐盟 App Store 下架，討論集中在審核規則不透明。",
+      "view": "我覺得這兩則是同一個問題的兩端：Ladybird 想在引擎層提供替代，FSNotes 則提醒你，就算程式是開源的，發行管道還是平台說了算。對個人開發者，真正的獨立不只是原始碼公開，還包括有不經過單一商店的發行方式。",
+      "lesson": "評估一個工具的長期風險時，同時看「誰能改程式」和「誰能讓它下架」。",
+      "threads": [
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論（Ladybird）",
+          "href": "https://news.ycombinator.com/item?id=50614249"
+        },
+        {
+          "title": "Ladybird 官方",
+          "href": "https://ladybird.org/posts/alpha/"
+        },
+        {
+          "title": "Hacker News 討論（FSNotes）",
+          "href": "https://news.ycombinator.com/item?id=50616933"
+        }
+      ],
+      "related": []
+    }
+  ]
+}
