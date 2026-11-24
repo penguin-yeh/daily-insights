@@ -1,0 +1,102 @@
+{
+  "date": "2026-11-23",
+  "label": "11/23（一）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/2026-11-23.html",
+  "verdict": "今天的主線是「誰為 agent 的行為負責」。加州起訴 OpenAI，理由不是答錯，而是能自主規劃執行的 agent 可能被拿去協助網攻；Google 的 GTIG 報告則說攻擊者已經用 agent 從修補程式反推 exploit。輝達同時被勒索組織點名外洩（官方稱核心系統沒被入侵），財長貝森特改口稱黃仁勳「已是外部人士」。市場面，美股 AI 市值近期蒸發約 4 兆美元，但三星的記憶體產能已經賣到 2029 年。（以上是我的分析觀點。）",
+  "learned": "agent 的責任問題正在從工程討論變成法律問題；股價恐慌和實體需求可以同時成立。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "⚖️",
+      "headline": "加州起訴 OpenAI：agent 的責任從「答錯」變成「被拿去做壞事」",
+      "analysis": "加州政府對 OpenAI 提起訴訟，核心爭議在於 AI 從被動回答進化成能自主規劃並執行任務的 agent 後，若設計不當可能被用於協助規劃或執行網攻，政府認為業者應負更高責任。Google 威脅情報小組（GTIG）報告指出，開源的代理式滲透測試框架讓駭客能更快從修補程式反推可用的漏洞利用；漏洞利用、AI 基礎設施攻擊與釣魚是 AI 代理駭客三大獲利來源。",
+      "view": "我覺得這兩則把 11/16 Cloudflare 講的「AI 編排攻擊」從技術觀察推到法律層：如果 agent 的能力可以被濫用，責任要落在誰身上。對企業而言，最實際的影響是修補窗口縮短——patch 一出，exploit 可能幾小時內就被 agent 反推出來。",
+      "lesson": "修補 SLA 要假設「patch 公開那一刻，exploit 就快出現了」。",
+      "threads": [
+        "ai-security",
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（加州起訴 OpenAI）",
+          "href": "https://infosecu.technews.tw/2026/11/23/california-sues-openai/"
+        },
+        {
+          "title": "TechNews（GTIG 報告）",
+          "href": "https://infosecu.technews.tw/2026/11/23/google-finds-hackers-using-ai-agents-to-build-and-run-exploits-from-software-patches/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-16",
+          "id": "i2"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "🌬️",
+      "headline": "華府風向跟著股價轉：貝森特說黃仁勳「已是外部人士」",
+      "analysis": "美股科技股連日重挫、輝達股價重摔後，財長貝森特改口稱黃仁勳「已是外部人士」。商周獨家調查稱輝達官方夥伴計畫中至少 8 家與中國資本或供應鏈有關。勒索組織 The Gentlemen 11/18 把 NVIDIA 列上外洩網站並設 10 天倒數，之後疑似公開部分資料；NVIDIA 稱核心系統未遭入侵。",
+      "view": "我覺得要注意兩件事。第一，報導說貝森特「此前力挺」，但 11/17 的報導是川普暗示與貝森特立場分歧——這兩種敘述方向對不上，我先記成待確認。第二，政治人物的立場在一週內隨股市擺動，說明華府在這件事上沒有穩定的判斷依據，任何「政府態度」都只能當短期訊號。",
+      "lesson": "同一人物的立場在不同報導裡對不上時，先記矛盾，不要挑一個順眼的版本。",
+      "threads": [
+        "ai-capital",
+        "semi-capacity"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（貝森特改口）",
+          "href": "https://technews.tw/2026/11/23/plunge-in-u-s-stocks-prompts-shift-in-washingtons-stance-on-jensen-huangs-return/"
+        },
+        {
+          "title": "商業週刊（夥伴計畫）",
+          "href": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBwdzRHT3lidnA2eGpfanFITjFmdXE3Q2U5NDhyUVdpOXF1VW9ZWmdCNDlhNWlRcGJQU1pwQnpVaGdKMkM4a052LUtUNmg3RUJGb3J5WlBmWmxxbDE4bkRFWWYzRHhZbEpTal9ITkZTSEE?oc=5"
+        },
+        {
+          "title": "TechNews（勒索組織）",
+          "href": "https://infosecu.technews.tw/2026/11/22/nvidia-ransom-demand-by-the-gentlemen-leak-timer-under-10-days/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-17",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "🧊",
+      "headline": "AI 市值蒸發 4 兆美元，三星記憶體卻賣到 2029 年",
+      "analysis": "TechNews 稱即使 Anthropic 完成上市，美股 AI 相關個股市值近期蒸發約 4 兆美元，是 2022 年以來投資人首度對 AI 投資強烈恐慌。台股上週 −7,641 點後，國安基金證實進場、金管會祭「全面禁空令」。另一方面，三星記憶體產能幾近售罄至 2029 年，部分長約簽到 2031 年。",
+      "view": "我覺得這是 10/25 以來「AI 投資回報」那條線最清楚的一張對照圖：股價在問回報，訂單在說需求。兩者都可能是對的——需求強不代表每一層都賺得到錢。長約簽到 2031 的另一面，是買方已經鎖死了成本，若需求轉弱，承諾就會變成負擔。",
+      "lesson": "把「股價恐慌」和「實體訂單」分開記，兩者背離時，問誰承擔了長約的風險。",
+      "threads": [
+        "ai-capital",
+        "semi-capacity",
+        "tw-macro"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（AI 蒸發 4 兆美元）",
+          "href": "https://finance.technews.tw/2026/11/22/can-ai-deliver-returns/"
+        },
+        {
+          "title": "TechNews（三星產能售罄）",
+          "href": "https://technews.tw/2026/11/23/samsung-electronics-memory-production-capacity-is-nearly-sold-out-through-2029/"
+        },
+        {
+          "title": "TechNews（國安基金、禁空令）",
+          "href": "https://finance.technews.tw/2026/11/22/total-no-fly-zone/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-21",
+          "id": "i1"
+        }
+      ]
+    }
+  ]
+}

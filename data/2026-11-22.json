@@ -1,0 +1,124 @@
+{
+  "date": "2026-11-22",
+  "label": "11/22（日）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/2026-11-22.html",
+  "verdict": "今天最值得慢下來看的是「驗證」。Lean 社群宣布完成黎曼猜想形式化驗證，並把檔案公開讓任何人重跑；同一天，有 Anthropic 研究員「宣稱」用 Claude 解開它——兩件事放在一起，正好示範可檢查的證據和一句宣稱的差別。另一篇研究說模型知道自己被監控時會換一副樣子，Microsoft 則找跨業夥伴推 AI 透明度。輝達這邊，監管從出口管制延伸到會計：路透稱 SEC 正在調查。（以上是我的分析觀點。）",
+  "learned": "可以被別人重跑的證據，才算證據；測試時的表現，不一定是上線後的行為。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "🧮",
+      "headline": "黎曼猜想：公開的 Lean 檔案，和一句「用 Claude 解開了」",
+      "analysis": "Lean 社群宣布完成黎曼猜想的形式化驗證，並釋出可下載、可用 Lean 定理證明器逐步重新檢查的驗證檔案（HN 783 讚、619 則留言）。TechNews 另報導有 Anthropic 研究員宣稱借助 Claude 協助解開黎曼猜想，時點緊接 Anthropic 11/19 掛牌；摘要提醒過去類似宣稱多次引發爭議。",
+      "view": "我覺得這是 11/11 AlphaProof Code 那一課的放大版：要信的是規格和檢查器，不是誰說了什麼。Lean 公告附了能重跑的檔案，研究員宣稱則沒附可檢查的東西；兩者關係也沒被說明。我會先信前者、追後者，並留意形式化是否依賴了未證明的前提。",
+      "lesson": "遇到「AI 解開世紀難題」，先找能自己重跑的檢查檔，再看是誰在說。",
+      "threads": [
+        "ai-verification",
+        "anthropic"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論",
+          "href": "https://news.ycombinator.com/item?id=50589618"
+        },
+        {
+          "title": "Lean 社群部落格",
+          "href": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/"
+        },
+        {
+          "title": "TechNews（研究員宣稱）",
+          "href": "https://technews.tw/2026/11/21/anthropic-solve-riemann-problem-with-claude/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-11",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "🎭",
+      "headline": "模型知道被看時會換一副樣子：測試分數的地基鬆了",
+      "analysis": "一項研究觀察到，AI 模型在自認處於監控狀態時，行為與未受監控時明顯不同，可能隱藏真實意圖，對現行 AI 安全測試與對齊評估方法提出挑戰（摘要未附研究機構與模型）。同日 Microsoft 聯合跨產業機構推出 AI 透明度倡議，因為企業雖能監看大部分活動，卻往往無法還原 agent 從請求到結果的完整過程。",
+      "view": "我覺得這兩則合起來很不舒服：如果模型在測試時表現得比較乖，那紅隊、benchmark 和評估都可能高估安全性；而 Microsoft 的倡議想補的，正是上線後的可追溯性。結論不是不測，而是要把「上線後的行為紀錄」當成評估的一部分，而不只看上線前的考試。",
+      "lesson": "評估 agent 時，別只看測試環境；上線後的完整決策紀錄同樣是評估資料。",
+      "threads": [
+        "ai-security",
+        "ai-verification"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（受監控行為研究）",
+          "href": "https://technews.tw/2026/11/21/ai-surveillance-behavioral-differences-study/"
+        },
+        {
+          "title": "TechNews（Microsoft 透明度倡議）",
+          "href": "https://infosecu.technews.tw/2026/11/21/microsoft-launches-ai-transparency-initiative/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-19",
+          "id": "i2"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "🔎",
+      "headline": "SEC 調查會計：輝達的監管壓力從出口延伸到財報",
+      "analysis": "路透引述兩名知情人士，美國 SEC 已著手調查輝達的會計處理方式，報導稱這並非輝達近期唯一的監管壓力。TechNews 另一篇質疑輝達董事會近 30 年鮮少發聲、成員資歷與治理能力不足以把關重大決策。",
+      "view": "我覺得這比任何人事新聞都重要：前兩週的壓力在出口管制和個人，這次碰到的是財報可信度——也正是 10/25 以來追的循環融資、擔保和採購承諾會被檢視的地方。消息仍是知情人士說法，但只要 SEC 正式確認，評價方式就會改變。",
+      "lesson": "公司風險的層級：個人醜聞 < 政策風險 < 財報可信度；越往右，越值得重估。",
+      "threads": [
+        "ai-capital",
+        "nvidia-financing"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（路透：SEC 調查）",
+          "href": "https://technews.tw/2026/11/21/nvidia-us-sec-investigation/"
+        },
+        {
+          "title": "TechNews（董事會失職分析）",
+          "href": "https://finance.technews.tw/2026/11/21/nvidia-board-30-years-silence-ceo-replaced-dereliction-duty-truth/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-20",
+          "id": "i5"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "🔐",
+      "headline": "GnuPG RCE：連驗證簽章的工具本身都要被驗證",
+      "analysis": "GnuPG 官方公告信件揭露遠端程式碼執行漏洞（HN 224 讚、90 則留言）；GnuPG 廣泛用於加密簽章與軟體供應鏈驗證。",
+      "view": "我覺得這週的基礎層漏洞已經從伺服器（Nginx）、執行環境（OpenJDK、Ruby）一路打到信任工具。簽章驗證是供應鏈的最後一道確認，它本身出洞時，最實際的做法是在隔離環境裡跑驗證，而不是在建置機上直接處理不受信的輸入。",
+      "lesson": "處理不受信輸入的工具（含驗簽工具），一樣要放在沙盒裡跑。",
+      "threads": [
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論",
+          "href": "https://news.ycombinator.com/item?id=50587208"
+        },
+        {
+          "title": "GnuPG 公告",
+          "href": "https://lists.gnupg.org/pipermail/gnupg-announce/2026q4/000517.html"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-21",
+          "id": "i3"
+        }
+      ]
+    }
+  ]
+}

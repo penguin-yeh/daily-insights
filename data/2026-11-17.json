@@ -1,0 +1,150 @@
+{
+  "date": "2026-11-17",
+  "label": "11/17（二）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/2026-11-17.html",
+  "verdict": "黃仁勳的去留在這天變成兩個權力中心的拉扯：外電說董事會對回鍋「完全不感興趣」，川普卻說不介意他復職、沒人證明黃樂是間諜。同時，事件外溢到出口管制：東南亞資料中心被質疑是晶片流向中國的後門，商務部長盧特尼克被爆家族企業與這類業者有客戶關係。市場用腳投票——費半 −5.3%、台股重挫 2,635 點。資安面則是集中風險的提醒：一家銀行出事拖累多家，一個 CMS 元件被改就影響一串品牌官網。（以上是我的分析觀點。）",
+  "learned": "集中帶來效率，也讓單點故障變成系統事件——不管是一家晶片公司、一家銀行，還是一個第三方腳本。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "⚖️",
+      "headline": "白宮說可以回來，董事會說不感興趣：誰說了算要分清楚",
+      "analysis": "外電報導輝達董事會對黃仁勳回歸「完全不感興趣」，重心放在內部調查與財務整頓。川普則公開表示不介意他復職，並稱沒人證明黃樂是間諜，暗示與財長貝森特在晶片政策上有分歧。商周稱馬斯克號召矽谷人士組「作戰中心」，連署一度衝上 17 萬人，但董事會態度強硬。",
+      "view": "我覺得這一天的重點是方向分歧：總統的表態能影響輿論和股價，但復職與否是董事會的投票。把白宮表態寫成「回鍋在即」，就跟 11/12 把 WSJ 傳聞寫成「已撤換」一樣，都是把聲音大小當成決定。",
+      "lesson": "追一件公司治理事件時，先標出每個發言者手上有沒有表決權。",
+      "threads": [
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（董事會不感興趣）",
+          "href": "https://technews.tw/2026/11/17/nvidias-board-of-directors-has-absolutely-no-interest-in-huang-jen-hsuns-idea-of-%e2%80%8b%e2%80%8breturning/"
+        },
+        {
+          "title": "Google News（川普表態）",
+          "href": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE9IUTZKQURGcDJka3V1QzdnOWY4UW9UR3FUNDJBR3lmM0Npc25PQ3dCNHBPdnBRdDMzTm56bHNZX2lsUXA5UkJ5S0ExZ2RnWnY5cXNCUUo0QlB3UdIBX0FVX3lxTE9ISHRLYnlQakVZTjBpem1UaGsxazBhaU42OWdwY2tybGU0S19IUmdodmtVNDVNQWJmcjJIUWtfbHNJNkh6ZHhrTVo3ME13MnBkbzJ0eWwxbEtnd2FTXzJj?oc=5"
+        },
+        {
+          "title": "商業週刊（馬斯克作戰中心）",
+          "href": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE44cjJNVFZJMWozMF9YX2VIQjc0cDNVR3kyanQyeTV0dklmTldPWUJkV05JaVlBZm5OdWYyZXlMMEFrWjU4MFVpY0xRMm9vUGw1WGtQYW51R2ppWEtpaUk2cDNn?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-16",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "🚪",
+      "headline": "東南亞「後門」與部長家族生意：出口管制的漏洞開始被點名",
+      "analysis": "天下追蹤指出，東南亞資料中心被質疑是輝達先進晶片流向中國的「後門」。TechNews 引述爆料：商務部長盧特尼克過去反對擴大晶片出口管制，而其家族企業與東南亞向中國轉售晶片的資料中心業者有客戶關係，引發利益衝突質疑。天下另評美中 AI 角力已從晶片擴大到算力使用監管。",
+      "view": "我覺得出口管制的真正戰場一直不是「賣不賣給中國」，而是「透過誰」。今天的爆料若屬實，代表規則制定者本身就在轉運鏈裡；但目前只是爆料與質疑，還沒有官方調查結論。值得追的是：美方會不會改用「算力使用」而非「晶片出貨」來管。",
+      "lesson": "看管制政策時，要找的是第三地轉運路徑，而不是只看直接出貨名單。",
+      "threads": [
+        "semi-capacity",
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "天下雜誌（東南亞後門）",
+          "href": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5saGtubWdXZXJUQ1pkSktqR3N6QnBYbG9YeUxGbmgyRDJObGlfa2pYWlpiTzNOR0hVM2pDclpfSERUMldNN0VaNEZ4ZUJkZw?oc=5"
+        },
+        {
+          "title": "TechNews（盧特尼克爆料）",
+          "href": "https://technews.tw/2026/11/16/lutnick-chip-rules-and-family-business/"
+        },
+        {
+          "title": "天下雜誌（費半與算力）",
+          "href": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBkYXdpd3U4Vk92QXYwVnA2S3hlcEdVMkV1RGNldDNfdUZ4WjZIWERQZUZ4QWhnSVA1aDdCdlRZbGZFUmFhd0N1Y04zZmt0Zw?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-15",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "📉",
+      "headline": "台股重挫 2,635 點：一個人的去留，變成整個供應鏈的風險定價",
+      "analysis": "黃仁勳辭職引發 AI 前景疑慮，費半單日 −5.3%，台股重挫 2,635.04 點、史上第二大單日跌點，台積電單日跌 135 元。同日央行總裁楊金龍表示 12 月是否升息要看通膨、放款熱度等三因素，CPI 漲幅持續高於 2%。",
+      "view": "我覺得這個跌幅與其說是在定價輝達的基本面，不如說是在定價「不確定性本身」：沒人知道誰掌舵、出口管制會怎麼變、華府會不會再加碼。台股對單一客戶的集中度在這種時候會被放大；央行同時還得面對通膨，政策空間比表面上窄。",
+      "lesson": "持股集中在同一條供應鏈時，要假設「龍頭的治理事件」也是你的風險。",
+      "threads": [
+        "tw-macro",
+        "semi-capacity"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（台股重挫）",
+          "href": "https://finance.technews.tw/2026/11/16/taiwan-stock-market-plunges-2635-04-points-second-largest-drop-ever-tsmc-shares-fall-nt135/"
+        },
+        {
+          "title": "TechNews（楊金龍談升息）",
+          "href": "https://finance.technews.tw/2026/11/16/december-rate-hike-central-bank-governor-yang-chin-long-highlights-3-key-factors-consider-inflation-lending-heat/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-10",
+          "id": "i4"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "🏦",
+      "headline": "一家銀行故障拖累多家、一個 CMS 元件被改波及一串官網",
+      "analysis": "摩根大通 11/16 技術問題，Wells Fargo、Truist 等多家美國銀行的網銀與 App 同時延遲（AP；HN 687 讚／549 則留言）；摘要推測源自共用後端，但根因未證實。另據 Report URI 研究，Optimizely 元件遭入侵，被用來在 Zoom、GitLab 等品牌官網植入惡意 JavaScript。",
+      "view": "我覺得這兩則都在講「你不知道你依賴了誰」。銀行用戶不會知道背後共用哪個清算或驗證服務；品牌官網的資安團隊也未必盤點過 A/B 測試腳本。11/15 的微軟當機是同一課：共用層一斷，下游全部一起斷。",
+      "lesson": "第三方腳本要加完整性檢查（SRI／CSP），關鍵供應商要列進故障演練。",
+      "threads": [
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論（摩根大通）",
+          "href": "https://news.ycombinator.com/item?id=50521045"
+        },
+        {
+          "title": "Hacker News 討論（Optimizely）",
+          "href": "https://news.ycombinator.com/item?id=50523300"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-15",
+          "id": "i3"
+        }
+      ]
+    },
+    {
+      "id": "i5",
+      "icon": "🧬",
+      "headline": "AlphaGenome 2：AI 先縮小候選，濕實驗才是最後一關",
+      "analysis": "Google DeepMind 發表 AlphaGenome 2，能預測 DNA 序列變異對基因調控、蛋白質表現等多層影響，比前代擴大可預測的分子特徵與基因體覆蓋，讓研究者在實驗前先縮小候選變異範圍。同日日本主導的國際調查稱，自 2025/10 起約 1,000 台伺服器疑似用於 AI 驅動網攻。",
+      "view": "我覺得 AlphaGenome 2 延續的是 10/28 以來「AI 提候選、人做驗證」的分工：價值在省下篩選成本，而不是取代實驗。反過來，同一種「大量自動產生候選」的能力，在攻擊方手上就是千台伺服器規模的釣魚和掃描。",
+      "lesson": "評估 AI 科學工具時，看它把哪一步的候選縮小了多少，以及最後由誰驗證。",
+      "threads": [
+        "ai-research",
+        "ai-security"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（AlphaGenome 2）",
+          "href": "https://technews.tw/2026/11/16/google-deepmind-announces-alphagenome-2/"
+        },
+        {
+          "title": "TechNews（千台伺服器 AI 網攻）",
+          "href": "https://infosecu.technews.tw/2026/11/17/thousands-of-servers-could-be-used-in-ai-powered-cyberattacks/"
+        }
+      ],
+      "related": []
+    }
+  ]
+}

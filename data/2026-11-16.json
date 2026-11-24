@@ -1,0 +1,120 @@
+{
+  "date": "2026-11-16",
+  "label": "11/16（一）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/2026-11-16.html",
+  "verdict": "黃仁勳卸任第三天，風向從「誰接班」轉成「要不要讓他回來」：FT 傳他和親信談回鍋、員工股東連署、兩家持股逾 21 億美元的機構聯名施壓，同時他和商務部長被傳到參院聽證。科技面則是攻守兩邊都自動化了：AI 編排的滲透測試能大規模打外露設施，agent 自己挑套件、自己安裝，把原本的人工審查跳過。（以上是我的分析觀點。）",
+  "learned": "防守的假設要跟著攻擊方的自動化程度一起更新；而「回任聲浪」再大，決定權仍在董事會。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "🔁",
+      "headline": "回任聲浪成形，但決定權還在沒開口的董事會",
+      "analysis": "路透引述 FT，黃仁勳已與親信討論重返執行長；員工與股東發起連署，兩家合計持股逾 21 億美元的華爾街機構聯名要董事會「別急著換人」。同時報導稱他被傳喚出席參議院聽證，商務部長盧特尼克也須作證。董事會本日沒有新表態。",
+      "view": "我覺得要看清楚每股壓力來自誰：連署是情緒，大股東聯名信是籌碼，參院聽證是政治風險——三者方向不一定相同。FT 的「與親信討論」只是傳聞層級；在董事會開口前，任何「回鍋」都還不是事件。",
+      "lesson": "評估人事變數時，先問「誰有投票權」，再看聲浪大小。",
+      "threads": [
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論（路透引述 FT）",
+          "href": "https://news.ycombinator.com/item?id=50511982"
+        },
+        {
+          "title": "Reuters",
+          "href": "https://www.reuters.com/world/china/jensen-huang-discusses-comeback-nvidia-ceo-with-allies-ft-reports-2026-11-15/"
+        },
+        {
+          "title": "Google News（兩大股東施壓）",
+          "href": "https://news.google.com/rss/articles/CBMi4gNBVV95cUxQZzlPUFlhVGlJWUJIVlhUTTRGS0FrYTN4QURMWnZrYTJZc20yc0RQaVhRUjUzXzBNSGxGTTB3d0RWV1VhMkczMzAtTWQ1OWhUTmVQWVJsS1A5X2VZRTNqRzgweG1YT0w4bE5PWlpTSjVKaXQyYnpJUHVnc1RwVER3MU15ak1Vb0RZTU1lZEFHYW05XzBlVXZ3SE9FRmZHNTJxaGtWQVl3UnYzNkV3THJFWlNKR3ozS3pKLTd6RDN1MUx3Y1BWVXV3bk5iMVMwX005RXVKdGJQZHk5azhRdkxpWEdENHpzM0lFOUFyYW80OUd4c2tVOWluTjZxVjlxelFXQjZ0M2hEU2Y0OXNfQTdBTTN4RHhmeVhqNVZiZXcyTnFrb05fVXl2R0o4VG4yTXlCa2QxUXUwQ1kzR0ltemwtUmhfZDJCR19qd1pfX1JmSnhWTjVscV9WZlJUcXI5aFVxdk10WW4tNm84RHlZMjhoS0dPdGdtS1VYVFRoY24taUdLR1VBSnVvSWlOMDRidFp1OFhLZTR5dS1fQzFxWUV2SWxIY21YeGM0dmlOU3AxTUFnUktub2hCbGxabHRzODJZXzZQQXFRODRHMEpFUjh6ajhRc2t5eHlBcmNRVFdHQ1lDZw?oc=5"
+        },
+        {
+          "title": "Google News（參院聽證）",
+          "href": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE84TXZSOTJSdmtuNVdyLTVTWlZ3Q1ZnbG5JcjZTSmFKaDRwXzJuYkFXaUZ4ZVFwRlFlVGVRWDNwR2ViQVA3TnVEQ2lDeGU5NS1zeUZ1NTFqc2hpRUNVLWpNdnk0Tm5BMU3SAWxBVV95cUxPTTBLakVWRHVKb3dHLXIxbEhkT0U0ekx1YnJXVEtLaW50OUZraG5CcWlfOEFwT1RrUTd4WWFSWm1ITTJOalo3UWlBUzg3cmRHQS1vLXJGR0lpM05DNDFPV0hnOF9DcW9aNXhhTV8?oc=5"
+        },
+        {
+          "title": "商業週刊（連署）",
+          "href": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9KcjFfZjFwQUNXQWVZU3h1TFNySWlGQlhsLUtnRWRiUWczWm1jb1d5bzdjRWlqekdpd1Jzc1QwMDVBQlBjTnVlYlhvMjZfRW1uSVlKV1liX21OUi1xblJ6NWRB?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-15",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "🤖",
+      "headline": "攻擊和安裝都自動化了：防守還假設有人在看",
+      "analysis": "Cloudflare 指出 ARTEX 這類 AI 編排的滲透測試平台，已能自動、大規模地對外露基礎設施發動有效攻擊，並提出「現代資安模型」。Changelog 訪談 Socket CTO、前 npm CTO Ahmad Nassri：agent 能自己挑選並安裝相依套件，原本靠人工審查的套件信任機制正在瓦解，攻擊者也開始誘騙 agent 安裝惡意套件。",
+      "view": "我覺得這兩則是同一個缺口的兩面：攻擊方把「掃描、利用、橫向移動」交給 AI 串起來，防守方卻還把「有人看過 diff、有人點過安裝」當成最後一道關。agent 一旦能自己 npm install，這道關就不存在了；套件允許清單和鎖檔（像 11/12 的 Actions lockfile）會比事後掃描重要。",
+      "lesson": "讓 agent 碰相依套件之前，先限定它只能從允許清單或鎖檔安裝。",
+      "threads": [
+        "ai-security",
+        "agent-infra"
+      ],
+      "sources": [
+        {
+          "title": "The Cloudflare Blog",
+          "href": "https://blog.cloudflare.com/adapting-to-ai-penetration-testing-orchestrators/"
+        },
+        {
+          "title": "Changelog 播客",
+          "href": "https://changelog.com/podcast/690"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-12",
+          "id": "i3"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "🔗",
+      "headline": "舊短網址被重新註冊：過期的連結也是攻擊面",
+      "analysis": "包含 Burger King 官方推文用過的舊 Bitly 短網址，因原帳號刪除或過期後被他人重新註冊，連結被導向惡意內容或詐騙頁面（HN 116 讚）。",
+      "view": "我覺得這類漏洞最麻煩的是沒有人負責：發文的人早就離職，推文還在，信任還掛在品牌名字上。短網址、舊網域、過期的 S3 bucket 都是同一型——資產停用了，但指向它的連結沒停。",
+      "lesson": "停用帳號或網域前，先盤點有哪些公開連結還指向它。",
+      "threads": [
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論",
+          "href": "https://news.ycombinator.com/item?id=50511395"
+        },
+        {
+          "title": "原文",
+          "href": "https://ransomnews.com/burger-king-tweet-bitly-link-hijack-2026/"
+        }
+      ],
+      "related": []
+    },
+    {
+      "id": "i4",
+      "icon": "⚖️",
+      "headline": "「AI 寫的程式碼都該開源」：回饋開源的帳開始被拿出來算",
+      "analysis": "Jakub Jankiewicz 主張既然 AI 寫程式的能力來自大量開源專案，AI 產出的程式碼在道德上也應開源回饋，否則是單方面榨取。HN 1054 讚、577 則留言，討論兩極。",
+      "view": "我不認為這會變成規則，但它把一個問題講白了：訓練資料的授權爭議過去在作者和模型公司之間，現在延伸到每個用 AI 寫程式的團隊。實務上更可能出現的是公司內部政策（哪些產出要標註、哪些不能進閉源產品），而不是全面開源。",
+      "lesson": "團隊用 AI 產生程式碼時，先寫好「產出的授權與標註政策」，不要等客戶或法務來問。",
+      "threads": [
+        "ai-copyright"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論",
+          "href": "https://news.ycombinator.com/item?id=50507303"
+        },
+        {
+          "title": "原文",
+          "href": "https://jakub.jankiewicz.org/blog/ai-code-open-source/"
+        }
+      ],
+      "related": []
+    }
+  ]
+}

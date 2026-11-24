@@ -1,0 +1,123 @@
+{
+  "date": "2026-11-21",
+  "label": "11/21（六）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/2026-11-21.html",
+  "verdict": "這一週用數字收尾：台股 11/20 再跌 2,393 點、單週 −7,641 點、市值蒸發約 25 兆元，台積電盤中跌破 2,000 元；日經同日 −3,007 點；Anthropic 首日 +17% 也救不了。台積電被傳暫停 16 奈米以下中國訂單，公司不評論。在這種盤勢下，輝達仍傳洽購 Inception。技術面，nginx2root 和 ruby2shell 接連出現，Cloudflare 的 WAF 能擋，但它自己也說只是暫時的。（以上是我的分析觀點。）",
+  "learned": "邊緣防護（WAF、限空令、國安基金）能買時間，買不到根治；根治要靠升級與基本面。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "🌊",
+      "headline": "單週 −7,641 點：這不是一天的恐慌，是一週的重新定價",
+      "analysis": "台股 11/20 重挫 2,393.60 點（逾 6%，史上第三大單日跌點）收 36,033.29，26 檔千金股跌停；單週累計 −7,641.83 點、市值蒸發約 25 兆元，全球排名退至第七。台積電盤中一度跌至 1,970 元，7 個多月新低，零股成交逾 241 億元。日經同日 −3,007.56 點；天下稱美股入修正區，川普對矽谷加稅並展開晶片清查。國安基金與限空令 2.0 均未止跌。",
+      "view": "我覺得零股成交 241 億元是這週最值得記的數字：外資在賣、散戶在接。這不一定錯，但代表風險正從機構轉到個人。延續 11/20 的判斷，限空和國安基金改的是速度；真正讓方向改變的，會是輝達治理、出口管制和美國政策三條線裡任何一條先明朗。",
+      "lesson": "大跌時看「誰在買」：籌碼從機構移到散戶，波動通常還沒結束。",
+      "threads": [
+        "tw-macro",
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "Google News（史上第三大跌點）",
+          "href": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5mbjgweXp0ejQ2d3E5dDI1T0dEMkhmWkJvNzEtMFVkei1USk5jNzVJQm5uVEZ6NVA3TW1UZWt4eE1jX3RjMmN2TWk0eXlGWU1FU2NIQ2o3MDRFSl9lQ0lR?oc=5"
+        },
+        {
+          "title": "TechNews（市值蒸發 25 兆）",
+          "href": "https://finance.technews.tw/2026/11/20/taiwan-stock-market-cap-evaporates-25-trillion-falls-7th-globally/"
+        },
+        {
+          "title": "TechNews（台積電 7 個月新低）",
+          "href": "https://finance.technews.tw/2026/11/20/tsmc-2000-stock-price/"
+        },
+        {
+          "title": "TechNews（日股）",
+          "href": "https://finance.technews.tw/2026/11/20/nikkei-plunges-more-than-3000-points/"
+        },
+        {
+          "title": "天下雜誌（美股修正區）",
+          "href": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5UMVlYbVhJMV9wRDhlMDhmWFl4cEpQVFBpVndMemZibTJMNU5LRFg2dkRaSWUzN0RzX0RPYkxtRktpQnZTMjJCdmNTQjBfQQ?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-20",
+          "id": "i3"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "✂️",
+      "headline": "台積電傳停 16 奈米以下中國單：「不評論」也是一種訊號",
+      "analysis": "傳出台積電因應美國新一輪對中國 AI 晶片出口管制，已暫停 16 奈米以下製程的中國客戶訂單，公司僅回應「不評論」；國內七大相關廠商也在評估應對。",
+      "view": "我覺得這和 11/18 的 IFR 是直接連動：規則封的是「經海外代工繞道」，台積電就是那個海外代工。不評論代表公司不否認，但也沒確認範圍；在官方說明前，我會把它記成傳聞，並看下季中國營收占比是否變化來驗證。",
+      "lesson": "公司「不評論」時，找一個之後能驗證的數字（例如營收占比）來追。",
+      "threads": [
+        "semi-capacity"
+      ],
+      "sources": [
+        {
+          "title": "Google News（台積電傳停單）",
+          "href": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9kZUlCYWVMTThTTHg0MkJZN09INW9MNGcwWmMySmtoR3psMHhPV21OczBRWWhHSGtSWVN4YmRCRk5VU01sTGdhbEdYRUNzQkhUM1HSAVBBVV95cUxNMTZJeThwN0lxRzBCVTRVZ09QR05UX1EyQWp3c0FNYVFwN195WnpsRmw0cmVxdmdPYmlpVG5MZGxXYXNvQXpLMjZVWXVqYXNVbg?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-18",
+          "id": "i3"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "🛡️",
+      "headline": "nginx2root、ruby2shell：WAF 擋得住，但只是幫你爭取升級時間",
+      "analysis": "研究者揭露五個統稱 nginx2root 的 nginx 記憶體損毀漏洞，未經驗證即可執行任意程式碼；Cloudflare 稱受其代理保護的源站可擋下最嚴重的攻擊。ruby2shell（CVE-2026-132825）讓攻擊者未登入即可對預設 Rails、Sinatra 應用造成記憶體損毀；Cloudflare 已在 WAF 為所有客戶（含免費方案）自動攔截，但明確提醒仍須盡快升級 Ruby。",
+      "view": "我覺得 Cloudflare 這兩篇最誠實的一句是「WAF 只是暫時補丁」。這週從 Java4Shell、Nginx HTTP/2 到 nginx2root、ruby2shell，全是基礎層的記憶體問題；邊緣防護讓修補不用在半夜做，但如果它變成不升級的理由，下一個繞過規則的變種就會直接打進來。",
+      "lesson": "把 WAF 規則上線的那天，當成升級排程的起點，而不是終點。",
+      "threads": [
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "The Cloudflare Blog（nginx2root）",
+          "href": "https://blog.cloudflare.com/nginx2root/"
+        },
+        {
+          "title": "The Cloudflare Blog（ruby2shell）",
+          "href": "https://blog.cloudflare.com/ruby2shell-waf-protection/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-19",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "🍎",
+      "headline": "Devin 一個工作階段一台全新 Mac：agent 隔離做成用完即丟",
+      "analysis": "AWS 架構部落格拆解 Cognition 的做法：每個 Devin 工作階段都在 Amazon EC2 Mac 裸機上取得一台全新的 macOS 虛擬機，靠磁碟快照、使用者空間網路閘道、預備客體映像，讓 Devin 能建置、執行與測試 iOS／macOS app。",
+      "view": "我覺得這是 10/26 以來「agent 關進沙盒」最具體的工程版本：不是限制 agent 能做什麼，而是讓它每次都在乾淨、用完即丟的機器上做。成本高，但換來的是不會互相污染、出事好回溯。Mac 這種難虛擬化的平台都做得到，Linux 就更沒有藉口。",
+      "lesson": "設計 agent 環境時，優先考慮「每次全新、用完即丟」，而不是一台長期共用的機器。",
+      "threads": [
+        "agent-infra",
+        "ai-security"
+      ],
+      "sources": [
+        {
+          "title": "AWS Architecture Blog",
+          "href": "https://aws.amazon.com/blogs/architecture/ai-coding-agents-on-amazon-ec2-mac-how-cognition-scales-devin-for-macos/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-15",
+          "id": "i4"
+        }
+      ]
+    }
+  ]
+}

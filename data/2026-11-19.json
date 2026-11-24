@@ -1,0 +1,158 @@
+{
+  "date": "2026-11-19",
+  "label": "11/19（四）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/2026-11-19.html",
+  "verdict": "今天的主角是「被拆開的數字」。Nginx 爆出未授權 RCE，提醒最普及的元件就是最大的攻擊面；DaisyRose-27B 把 Terminal-Bench 從 5.6% 拉到 12%——進步一倍，但絕對值仍低。輝達這邊，財報好、訂單照拉，但千億美元擔保誰收尾、H200 不再售中國、以及一則未證實的「2022 年牽線阿里巴巴」報導，讓基本面和政治風險繼續分岔。Anthropic 在這個背景下定價上市。（以上是我的分析觀點。）",
+  "learned": "一個數字要配上它的分母：漏洞看部署量、benchmark 看絕對值、訂單看背後的擔保。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "🧨",
+      "headline": "Nginx 未授權 RCE：最普及的元件，就是最大的攻擊面",
+      "analysis": "HN 討論指向兩個新 CVE（CVE-2026-123633、CVE-2026-123007）：Nginx 處理 HTTP/2 請求時存在未經驗證可遠端觸發的程式碼執行漏洞，Wiz 發布細節與緩解建議（HN 1066 讚、483 則留言）。同日 momo 母公司富邦媒公告「mo店+」部分出貨資料遭存取，範圍未說明。",
+      "view": "我覺得 Nginx 這種等級的漏洞，難的不是修，而是找出自己到底有幾台：反向代理、容器映像、廠商設備裡內嵌的版本都算。延續 11/18 的 Java4Shell，這週連續是「基礎函式庫層」的洞，防守重點應該放在資產清冊而不是新工具。",
+      "lesson": "先能回答「我們有幾個 Nginx、各是哪個版本」，再談修補 SLA。",
+      "threads": [
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論",
+          "href": "https://news.ycombinator.com/item?id=50547374"
+        },
+        {
+          "title": "TechNews（momo 資安事件）",
+          "href": "https://infosecu.technews.tw/2026/11/19/momo-has-suffered-a-cybersecurity-incident/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-18",
+          "id": "i4"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "📏",
+      "headline": "Terminal-Bench 翻倍到 12%：進步是真的，可用還早",
+      "analysis": "RadixArk 發表 DaisyRose-27B，以約 1,200 個任務做強化學習微調，讓 Qwen3.8 在 Terminal-Bench 4.1 從 5.6% 升到 12%（團隊自報）。同日 Google 發布 Gemini 4 Neon（摘要未附細節），Cloudflare 把擷取模型 Clairic 轉正並推出輕量 Clairic-flash，皆以 open-weight 上 Workers AI；Meta 說明 REA agent 把驗證過的改進自動推廣到整個廣告排序模型群。",
+      "view": "我覺得 DaisyRose 的訊號在方法不在分數：用一千多個任務做 RL，就能讓中型開源模型在 agent 任務上翻倍，代表「任務資料」比參數規模便宜。但 12% 意味著十次有八次多失敗，離無人看管還很遠。Meta REA 的做法反而提醒：agent 最穩的用途，是把已驗證的改動大量複製。",
+      "lesson": "看 agent benchmark 時，把相對進步和絕對成功率分開報。",
+      "threads": [
+        "ai-verification",
+        "model-price",
+        "agent-infra"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論（DaisyRose-27B）",
+          "href": "https://news.ycombinator.com/item?id=50551046"
+        },
+        {
+          "title": "Hacker News 討論（Gemini 4 Neon）",
+          "href": "https://news.ycombinator.com/item?id=50552424"
+        },
+        {
+          "title": "The Cloudflare Blog（Clairic）",
+          "href": "https://blog.cloudflare.com/open-clairic/"
+        },
+        {
+          "title": "Engineering at Meta（REA）",
+          "href": "https://engineering.fb.com/2026/11/18/ml-applications/ai-agents-to-scale-ml-innovations-across-ads-ranking-models/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-18",
+          "id": "i4"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "🧾",
+      "headline": "換帥不換單，但千億美元擔保要有人簽收",
+      "analysis": "商周整理法說會：董事會否決回任、公司喊話台廠擴產，並罕見具名景碩、矽品，稱載板與封測拉貨未減。另一篇指出黃仁勳任內留下千億美元級供貨與產能擔保，誰承接是新團隊第一道難題。報導稱代理 CEO 宣布 H200 不再銷售中國，財報亮眼仍拖累道瓊 −561 點。",
+      "view": "我覺得「換帥不換單」和「千億擔保」是同一枚硬幣：訂單照拉，是因為承諾早就簽了。新團隊真正的考題不是能不能賣，而是要不要繼續替客戶與供應鏈擔保——這正是 10/25 起一路追的循環融資問題。",
+      "lesson": "供應鏈好消息要回頭問：這是需求，還是之前簽下的承諾在兌現？",
+      "threads": [
+        "nvidia-financing",
+        "ai-capital",
+        "semi-capacity"
+      ],
+      "sources": [
+        {
+          "title": "商業週刊（換帥不換單）",
+          "href": "https://news.google.com/rss/articles/CBMibkFVX3lxTE92c056bVdwbFdhSnpyaXpLMUZGZDNGNEVVdS05bXlSTXdmMW5tTDFlN0dOc1JfV3RpZU5sR3BVSDFKUWdOQmNJcWZQQTJsanJGZG1JWnBwWHRxQ0pGbDgxV2FSM0VoTDJPemFCb2hR?oc=5"
+        },
+        {
+          "title": "商業週刊（千億美元擔保）",
+          "href": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9FVTdndlU5OXFZbGtwRE52SGNFQnFLU01iTTZmRWRSVmpJVjBBZnhFbFJVR1NfOHpNMGJKcXlaaEx1Tml6VXRqelN6NFBfTGxsX3JyOENuZXNzTEZKUVdQVkE2d2x6NHM2UjBSUzJ0TU8?oc=5"
+        },
+        {
+          "title": "Google News（H200 與美股）",
+          "href": "https://news.google.com/rss/articles/CBMihgRBVV95cUxNSjYxa3htdDRTUkdVT2hpcHJwdEFSMXhCeGRkMmlPRWZNajNWZmpXZnM3NUtKMVlJcjBpaU44dk5GLVN1MzZlMHVpVXYwQ05PMmRGdUJUYnQzU2ZEeWZvX04tTjNkYnRQRXlrMlpMNGxOcm5sM3NwNnBzcTJqelZ4U21fRDFMTmZsSGFxSXVnX012RlUzNVl2QkhBZ3o2NWJmMEJJQ1dvNzdqSG5PMUV2cUU5anlzaDZlaXZYLXdKQmRlQWJGcTVLekFOVXNCaEhud3BOeGRQV01YTHlZcVJaNXc2enZNZXMzaEIyNC16emE4NWdPTm5YWi1pekw2YnBUTEZpelQtTlRYeGZNd1lBOGZNNHg0Q3EtZzhvb01zUTFfUEcyUXVaZjJmb1hyTDFnckVPMmNfbk5GMUpva01jdGNCY3EzMjd1Mi1Rbk9ON0QxNWRFd1I5cFloM08waFdWSTZGS1htTmtrdUNWRkFKeGxmZ3l2a2ZvNm00ZzN2SUtwRldsazduaDZRMnAteG5rTW93dVZMRmJpdVFOUkVPcGhfUFdnLWdWZEJCU0VsRU5VMG15ZkV6aTlTX19QRG1mVVRQcFdLcGdrb1h5NEUyeF9HUXI3QXZBZW1yeHVGamx1bGZjMTc1Rk5UN2JoVHk0aGlCQzh6SHdlQklTbzJsTGVSSWgxUQ?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-18",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "🕵️",
+      "headline": "「2022 年牽線阿里巴巴」：一則未證實報導，把個人風波接上出口管制",
+      "analysis": "《The Information》引述匿名人士報導，輝達在 2022 年美國出口管制實施前數月，曾牽線阿里巴巴與晶片工程師黃樂，疑似協助規劃繞過管制的替代方案；若屬實，輝達在美方審查中壓力更大。天下另分析東南亞晶片禁令封鎖算力與轉運管道。",
+      "view": "我覺得這則報導危險的地方，是它讓「私人關係」和「出口管制」第一次有了可以被串起來的故事線。但目前只有匿名消息、沒有官方回應；我會把它記成待查，而不是解釋黃仁勳為何下台的答案。",
+      "lesson": "把匿名報導當成「該去查的問題」，不是「已知的答案」。",
+      "threads": [
+        "semi-capacity",
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（The Information 報導）",
+          "href": "https://technews.tw/2026/11/19/nvidia-introduced-alibaba-to-alice-huang-for-workaround-on-u-s-export-controls/"
+        },
+        {
+          "title": "天下雜誌（東南亞禁令）",
+          "href": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1wSHVCYXlPSmhSdUgtMXFPTUIwMDhiREVMNko3M1lLNWhSODZtUENUUFlNckswWFRzUFU1alF5b3pGYWZ1ZGVYVFlNdzVkdw?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-17",
+          "id": "i2"
+        }
+      ]
+    },
+    {
+      "id": "i5",
+      "icon": "🔔",
+      "headline": "Anthropic 在最不安的一週定價",
+      "analysis": "Anthropic 預計 11/18 敲定 IPO 定價，市場人士把這次上市視為檢驗 AI 投資熱潮是否過熱、估值是否合理的指標，結果可能牽動其他 AI 新創的上市節奏。",
+      "view": "我覺得時機本身就是訊息：一週內台股兩度重挫、輝達換帥、出口管制收緊，Anthropic 仍照原計畫定價。這會讓它的首日表現被過度解讀成整個 AI 板塊的體溫計——但一家公司的定價，回答不了整個產業的回報問題。",
+      "lesson": "別把單一 IPO 的首日漲跌當成產業結論；看的是之後幾季的營收與虧損。",
+      "threads": [
+        "anthropic",
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（Anthropic IPO）",
+          "href": "https://finance.technews.tw/2026/11/18/anthropic-ipo-to-test-the-ai-investment-boom/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-11",
+          "id": "i4"
+        }
+      ]
+    }
+  ]
+}
