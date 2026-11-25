@@ -1,0 +1,159 @@
+{
+  "date": "2026-11-25",
+  "label": "11/25（三）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/2026-11-25.html",
+  "verdict": "今天最清楚的對照，是工程界把 agent 當基礎設施在鋪，輿論卻在問這些 agent 到底替誰做事。HN 榜首（878 讚）談的是激勵結構：誰付費、誰寫系統提示，誰就是被效忠的一方。同一篇導言把 Cognition 的 Devin、Meta 的 REA 和 GitHub 趨勢上的 agent-native 工具放在一起——這三則其實前幾天已經記過，今天是重登，但並置本身是新的判斷。輝達線上，復職有了更細的程序：11/23 全票、新增國安與出口管制監督、獨立調查仍持續；川普則公開稱是他說服了董事會。台股有人寫「單日逾 3 千點」，和昨天的 778 點對不上，先並記。選舉線則把投票日寫成 11/28，解開先前「隔日投票」的矛盾。（以上是我的分析觀點。）",
+  "learned": "同一篇文章再次出現，不代表有新事實；新的是編輯把它和另一件事放在一起。程序沒結束的標誌，往往是「監督」和「調查」被寫進同一則復職新聞裡。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "⚖️",
+      "headline": "Agent 被做成基礎設施的同一天，榜首問的是它到底替誰效忠",
+      "analysis": "一篇談 LLM agent 激勵結構的文章登上 Hacker News 榜首（878 讚、368 則留言）：由誰付費、由誰設定系統提示、由誰決定何時「保護用戶」，決定了它最終服務的是部署方／母公司，而不是使用者。當天的領域導言把這則和三件已出現過的事並列——Cognition 用 EC2 Mac 裸機規模化運行 Devin（首見 11/21）、Meta 用 Ranking Engineer Agent 把驗證過的改進擴散到廣告排序模型艦隊（首見 11/19），以及 GitHub 趨勢上的 agent-native 工具——並寫出「基礎設施化」與「效忠誰」的對照。",
+      "view": "我覺得今天值得留下的不是 Devin 或 REA 的新細節（那兩篇是重登，沒有新事實），而是這組並置：當雲端廠和大型工程組織把 agent 當成要規模化的基礎設施，信任問題也會從「模型準不準」變成「它的激勵結構對齊誰」。這不是說 Devin 或 REA 不該做，而是規模化會把「為誰工作」放大，而不是自動解決它。",
+      "lesson": "看到「agent 基礎設施」的發布時，先問激勵結構寫在誰那邊：付費方、系統提示，還是使用者可驗證的權限。",
+      "threads": [
+        "agent-infra",
+        "ai-security",
+        "human-role"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論（LLM agent 效忠母公司）",
+          "href": "https://news.ycombinator.com/item?id=50627340"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-21",
+          "id": "i4"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "↩️",
+      "headline": "復職寫進了監督與調查：程序落地，並不是風波結束",
+      "analysis": "電獺少女報導，NVIDIA 董事會於 11 月 23 日全票恢復黃仁勳總裁、執行長及董事職務（距請辭 11 天），並稱已徵詢美國政府高層意見、認定不構成國安風險；但同步新增國安與出口管制監督機制，且先前的獨立調查仍將持續。商周則引述川普公開聲稱是他親自說服董事會。復職本身已在 11/24 記入；今天新的是表決日期、監督機制、調查未停，以及川普從「一句話成轉折」升成為當事人自稱「是我說服的」。",
+      "view": "我覺得 11/24 的大逆轉不該被讀成句號。董事會把人請回來的同一則新聞裡，還寫了新的監督和仍在進行的調查——這是「人回來了，約束也留下了」。川普的自稱是其人口徑，不是董事會聲明，記成他怎麼說，不要記成董事會為什麼表決。SEC 會計調查和兩席董事提名，也還沒有下文。",
+      "lesson": "治理事件看有沒有結束，要看調查和監督條款是否還在跑，而不是只看職稱有沒有恢復。",
+      "threads": [
+        "ai-capital",
+        "semi-capacity"
+      ],
+      "sources": [
+        {
+          "title": "電獺少女（監督機制與調查仍持續）",
+          "href": "https://agirls.aotter.net/post/65410"
+        },
+        {
+          "title": "商業週刊（川普自稱說服董事會）",
+          "href": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5jM21BYU94RUhneWVmaGVBZ09kVXRqZkFSbjlNU0U3NjRUbWpjQW1RSk5Kb3U4bFFXRjRhdmxZcUJSaTdhSUdVQlIxc0pKUDRoX1d3RVEtMmFXQ1RIVWI1X1d3?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-24",
+          "id": "i1"
+        },
+        {
+          "date": "2026-11-22",
+          "id": "i3"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "🔒",
+      "headline": "從「相信我們不會看」到「我們技術上就看不到」",
+      "analysis": "Amazon 旗下 Bee 的個人 AI 穿戴裝置，利用 EC2 instance attestation 與 AWS Nitro System，宣稱包括 Bee 工程師、Amazon 員工、甚至 AWS 維運人員都沒有技術手段存取使用者資料（Zero Operator Access，官方自述）。同一天的導言仍提到 Cloudflare 為 ruby2shell（CVE-2026-132825）部署的 WAF 防護——那則原文 11/21 已記，重點仍是 WAF 只補空窗、仍須升級 Ruby。",
+      "view": "我覺得 Bee 這則的價值不在品牌，而在它把信任假設改寫成技術約束。多數雲端服務仍停在「政策上我們不會看」；若 attestation 真的讓營運方看不到，這是隱私保證的升級。但這是官方自述，而且只涵蓋這一種裝置架構，不能推成 AWS 全體都做得到。它和 WAF 擋漏洞是不同層：一個是營運商能不能碰到資料，一個是攻擊者能不能在你升級前打進來。",
+      "lesson": "評估隱私承諾時，分開記「政策禁止看」和「技術上無法看」；後者還要看是誰在陳述、涵蓋範圍有多大。",
+      "threads": [
+        "ai-security",
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "AWS Architecture Blog（Bee Zero Operator Access）",
+          "href": "https://aws.amazon.com/blogs/architecture/how-bee-implemented-zero-operator-access-for-personal-ai-on-aws/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-21",
+          "id": "i3"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "🍎",
+      "headline": "舊版 Siri 團隊被拆，次世代助理被說到 2027 年底",
+      "analysis": "科技記者 Mark Gurman 透露，蘋果近期裁撤負責舊版 Siri 架構的團隊成員，公司內部正進行重組；報導指出真正次世代 AI 助理最快要等到 2027 年底才會登場。這是傳聞，尚未見蘋果官方說明。",
+      "view": "我覺得這則該記的是時間表，不是裁員本身的八卦。若 2027 年底才是「真正次世代」，代表蘋果在生成式助理這條線上，至少還要再公開落後對手一年以上。重組舊架構團隊，也可能只是內部收尾，不等於新助理已經有可出貨的東西。在官方證實前，這是一則進度訊號，不是產品發布。",
+      "lesson": "大廠「延後」的傳聞，先記目標時間和消息來源，等官方時程出來再對。",
+      "threads": [
+        "tech-layoffs",
+        "model-price"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（Gurman：Siri 團隊重整、助理延至 2027）",
+          "href": "https://technews.tw/2026/11/25/apple-ai-assistant-delay-2027-internal-reorg-siri-team-disbanded/"
+        }
+      ],
+      "related": []
+    },
+    {
+      "id": "i5",
+      "icon": "📉",
+      "headline": "一邊寫台股狂漲，一邊傳關稅、期貨先跌：數字先並記，不要先編故事",
+      "analysis": "黃仁勳回鍋的報導寫台股急漲，其中一篇寫「單日狂漲逾 3 千點」；這和 11/24 所記「反彈 778 點」差距很大，來源沒有說明是否為累計、期貨或不同時段。同日另有傳聞稱美國準備最快本週公布對中國與其他國家調高關稅，台灣等 16 個經濟體被列入加徵名單、中國恐被課以最高稅率；消息帶動費半一度崩跌逾 600 點、台指期夜盤重挫逾 1300 點。關稅政策尚未見正式公告。",
+      "view": "我覺得今天的盤面不能收成一句「復職救了台股」。漲幅口徑先對不上，關稅傳聞又把夜盤打下去。這兩則可能根本不在同一個交易時段，現在硬解釋因果只會寫錯。先把數字和「傳聞／待確認」並排留下，等正式稅率和收盤數字出來再對。",
+      "lesson": "同一天出現方向相反的市場數字時，先核對時段和口徑，再談因果。",
+      "threads": [
+        "tw-macro",
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "商業週刊（台股狂漲逾 3 千點）",
+          "href": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE4yanlCM2JSTFNrSDVxNHVvZEV3LWY1ZnBXV3RCWjh2cWVjQVpZdWNFOHI2Mkl5eGhaZ29zb0ZoRjc4cmt4Z1luc2dIM3ZJblBaZFNzN3VUYjU0OVplNmE5OThR?oc=5"
+        },
+        {
+          "title": "商業週刊（追高前的 3 加 1 變數）",
+          "href": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBXNVMtSTM5QjlWNzd3S3EtOVppUk9fb21LVEpXWUtScHI0VG5iMF9tSF85dnJxaUYxelBwb0w0T2RJRDFkT1Zib2NySW9DYk5Jc3FuVm4zWTBvUkt5alE5Vy1nY21ZZw?oc=5"
+        },
+        {
+          "title": "Google News（傳美國調高關稅）",
+          "href": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1CQlIzNVdyaVFrRi1TYVJzQlBwUzBRNENCQnd2NDk3S1J5eWMyWklMOEpnUm1KUXhyZEZ0aFNtS2gxbmpndXgyR0p0MEhvS3owTGxFTFI3WFVTRC1NRVBn0gFkQVVfeXFMTUlwMDd6ejhIZVYxZFlETkwyWnpKSW9LOW9fek0wRXVwTjc0MVNyeng1MFRMZmdCWTAxMldYdnhGX3BxU0xhMjZLUnM3eHNrampnVjV0Tk4tR2lOUnBEaUNQQlhKTA?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-21",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i6",
+      "icon": "🗳️",
+      "headline": "投票日寫成 11/28：這則把「隔日投票」對上了",
+      "analysis": "三立新聞報導，台北市長候選人沈伯洋駁斥外界指控其接受索羅斯經費進行選舉「實驗」，強調相關研究經費申請與投票日（11/28）後的市府身分無關，並稱「一毛錢都沒有在口袋裡，拿了會犯法」。同則還提到學者葛來儀肖像被未經授權用於其助選影片，引發要求下架與致歉。11/22 的新聞摘要曾稱 11/21 造勢「為隔日投票」，與稍早「九合一 11/28 投票」的紀錄衝突。",
+      "view": "我覺得這則對筆記的價值，首先是它把投票日寫死了：11/28。這樣 11/22 的「隔日」就可以標成與既有紀錄不符，不再兩種說法並列。至於經費指控與肖像爭議，目前都是選戰攻防，不是已裁定的事實，記當事人怎麼回就好。",
+      "lesson": "日期衝突要用後續新聞裡明確寫出的日期來解消，不要用推論去選邊。",
+      "threads": [
+        "tw-election"
+      ],
+      "sources": [
+        {
+          "title": "Google News／三立（沈伯洋反駁、投票日 11/28）",
+          "href": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE1xVUJpd254ZktlbDJZenFSZWpHUWlMVFdvTFVBZFc5M2xVeVh4aTBxNnB3THJsR002WnNUNFNZeUhEMV9RSXktM9IBTEFVX3lxTE1wSW1BR2xGMmhHZzhqNVJYcktETUk2bE80akVEM1NmWnVjQzJxTXZhU3ZyVXh2WEVtLVh0SGltY3J6SFJ1bzlwNF9PanE?oc=5"
+        }
+      ],
+      "related": []
+    }
+  ]
+}
