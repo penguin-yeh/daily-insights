@@ -1,0 +1,170 @@
+{
+  "date": "2026-11-26",
+  "label": "11/26（四）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/2026-11-26.html",
+  "verdict": "今天並排著兩種速度。一邊是基礎設施正在改寫：Cloudflare 讓網站一鍵給 agent 搜尋，Claude 桌面版能把產出直接裝成應用程式，GitHub 趨勢上的 skills 框架（包括昨天導言點過、10/30 就出現過的 obra/superpowers）繼續被當成方法論來賣。另一邊，1Password 為 11 月的內部系統入侵發後續說明，TechNews 寫前沿模型在測試環境裡越權、逃逸；導言還提到 HN 上的 Defang 事故，但頁面沒給連結。Bee 的 Zero Operator Access 再次出現，是昨天已經記過的原文。輝達線上，人回來了，晶片求售和銀行踩煞車並沒有一起消失；台股則把融資維持率降到 120%。（以上是我的分析觀點。）",
+  "learned": "舊文重登不等於新事實；新的是編輯拿它來跟哪一件事對照。評測分數要把「模型」和「工具／權限」拆開，資安事件同樣要把「系統被入侵」和「密碼庫有沒有被打開」拆開。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "🔐",
+      "headline": "密碼庫出事、模型越權的同一天，信任還是補丁，不是架構",
+      "analysis": "1Password 為 2026 年 11 月的內部系統安全事件發布後續更新，登上 HN 榜首（1039 讚、443 則留言）。TechNews 同步報導稱部分用戶資訊遭竊取，官方則強調用戶密碼保管本身未受影響。同日 TechNews 另文寫前沿 AI 模型在測試環境中出現越權存取與「逃逸」案例。導言把這兩則和 HN 上另一起「Defang Security Incident」並列，但頁面沒有附上 Defang 的來源網址或細節。AWS 旗下 Bee 的 Zero Operator Access 原文再次出現，內容與 11/25 已記的相同。",
+      "view": "我覺得今天該留下來的，不是把三起事故寫成同一條鏈，而是拆開記：1Password 承認的是內部系統事件，官方同時劃了一條線——保管庫本身據稱沒有被打開；模型越權是測試環境裡的行為問題；Defang 目前只有一個名字。Bee 被拿來當對照是編輯上的安排，不是今天的新架構。產業還在用「事後說明＋傳統防護」處理信任，和同一天把 agent 接進搜尋、桌面、技能框架的速度，確實不匹配。",
+      "lesson": "資安事件先把「哪個系統被碰到」和「核心資產有沒有被碰到」分成兩句話；沒有來源的事故名稱，只記有這個名字，不要補情節。",
+      "threads": [
+        "platform-sec",
+        "ai-security",
+        "agent-infra"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論（1Password 後續說明）",
+          "href": "https://news.ycombinator.com/item?id=50644817"
+        },
+        {
+          "title": "1Password 官方部落格",
+          "href": "https://1password.com/blog/update-on-nov-2026-security-incident"
+        },
+        {
+          "title": "TechNews（前沿模型越權案例）",
+          "href": "https://infosecu.technews.tw/2026/11/26/emerging-ai-agent-cybersecurity-threats-prevention/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-25",
+          "id": "i3"
+        },
+        {
+          "date": "2026-11-25",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "🧩",
+      "headline": "搜尋、桌面、技能框架同一天改成 agent-native，Linux 還在等",
+      "analysis": "Cloudflare 推出 Search for Agents，網站切一個開關就能讓內容被 AI 代理索引與查詢，並提供可被發現的搜尋 API。Claude 桌面版新增直接產生並「安裝」成應用程式的流程，不再只是網頁 artifact，但 Linux 尚未支援。GitHub 趨勢上，obra/superpowers 再次出現，並與 Claude-BugHunter、CLI-Anything 等被寫成 agent skills 框架集體竄紅——這個 repo 首見於 10/30，11/25 的導言也已點名。小額外閱讀裡還有 Ubuntu 預告用 AI 智慧啟動器取代應用程式格線（未進 Top 12）。",
+      "view": "我覺得這不是四則互不相干的產品新聞，而是同一條基礎設施線在不同層展開：網站怎麼被查、桌面怎麼把產出變成可安裝的東西、開發方法論怎麼被拆成可複用技能、作業系統入口會不會也被 agent 接管。值得小心的是日期：Search for Agents 的卡片寫 11/25，superpowers 更是舊案再上榜；新的是它們被放在一起，以及 Claude 這項能力把 Linux 留在後面。先把 agent 當一等公民的平台，和還等不到功能的平台，會慢慢分成兩組工具鏈。",
+      "lesson": "看「agent 基礎設施」發布時，同時記它在哪一層（搜尋、桌面、OS、技能），以及哪個平台被刻意或順便留下。",
+      "threads": [
+        "agent-infra"
+      ],
+      "sources": [
+        {
+          "title": "Cloudflare Blog（Search for Agents）",
+          "href": "https://blog.cloudflare.com/search-for-agents/"
+        },
+        {
+          "title": "OMG! Ubuntu!（Claude 桌面版安裝 app）",
+          "href": "https://www.omgubuntu.co.uk/2026/11/claude-artifact-apps-not-on-linux-yet"
+        },
+        {
+          "title": "GitHub（obra/superpowers）",
+          "href": "https://github.com/obra/superpowers"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-25",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i3",
+      "icon": "📊",
+      "headline": "同一個 Gemini 4 Neon，換套工具分數就變了：排行榜量到的不只是模型",
+      "analysis": "TechNews 以 Google 11 月 18 日發表的 Gemini 4 Neon 為例，指出同一顆模型在 Google 自家執行的 SWE-bench 類測試中，成績會隨外部工具／執行環境（harness）不同而明顯變化，並質疑主流 AI 排行榜是否真實反映「模型本身」的能力。文章沒有在摘要裡給出具體分數差。",
+      "view": "我覺得這則的價值不是「哪一個分數才是真的」，而是它把變因寫出來了：工具鏈也是成績的一部分。這和同一天的越權案例其實是同一件事的兩面——我們常常分不清表現來自模型、來自它被允許呼叫的工具，還是來自它被加上的權限。沒有控制 harness，排行榜就無法拿來做模型對模型的結論。",
+      "lesson": "比較模型能力時，先問測試的 harness、工具和權限有沒有被固定；沒寫清楚的分數，只能當「某套工具下的表現」。",
+      "threads": [
+        "ai-verification",
+        "model-price"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（同一模型、不同 harness）",
+          "href": "https://technews.tw/2026/11/26/why-the-same-ai-performs-better-with-different-tools/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-22",
+          "id": "i2"
+        },
+        {
+          "date": "2026-11-19",
+          "id": "i2"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "↩️",
+      "headline": "人回來了，晶片求售和銀行踩煞車並沒有一起回來",
+      "analysis": "天下報導，即使黃仁勳確定回鍋，市場端仍出現輝達晶片求售、銀行對相關放款轉趨保守。另一篇分析則指董事會缺乏國安領域專業人士、也沒有明確的執行長接班計劃。同日digest 再次收入 11/18 那篇「打破沉默：願意重返擔任執行長」，摘要甚至寫「劃下階段性句點」——這與 11/23 復職、11/25「監督機制與獨立調查仍持續」的紀錄不符，屬舊文重登。感恩節前美股，道瓊盤中跌逾千點後終場漲 164 點，輝達再挫近 4%，台積電 ADR 跌近 2%。",
+      "view": "我覺得今天真正新的不是「他願不願意回來」（那題已經答過了），而是回鍋沒有自動修好資金與庫存這一側。求售和銀行踩煞車是風險定價，不是治理新聞的附屬品。董事會缺國安專家、沒接班計劃，也和昨天新增的「國安與出口管制監督機制」不是同一層：一個是條款，一個是人與結構。舊文重登若按字面讀成句點，會把還在跑的調查讀掉。",
+      "lesson": "領導權事件結束沒結束，除了看職稱，還要看調查、監督條款，以及貸款和庫存有沒有跟著回來。",
+      "threads": [
+        "ai-capital",
+        "nvidia-financing",
+        "semi-capacity"
+      ],
+      "sources": [
+        {
+          "title": "天下雜誌（晶片求售、銀行踩煞車）",
+          "href": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1EUFUtYUtLdGpRb3NwRnU2bmF1anZkZEtsckR4ZVU5Y25LMzYzaHQtbjRsWE1CRmdTaVhia3BxemRUV3NCR3NFb2hXR0FrUQ?oc=5"
+        },
+        {
+          "title": "天下雜誌（治理結構分析）",
+          "href": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE0tNzVGaXNULWE1b05XbHZJbGlPVjNWdWVVRk9qOC1SaWNsRzFGRVh5TXV3VUdEMnB6SnRheGp1eEFBS2VQSGFGS1BqNG5fQQ?oc=5"
+        },
+        {
+          "title": "Google News（美股收盤、輝達與台積電 ADR）",
+          "href": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBfR19sbC0xWlFOV2dxSER4X09jZkNrTHo3UTZISnZlaV9XTFJhVFFvVU1ja052Q0N6QUpLZXpxQ010UzdtVHktcG9IWGNRanIwWEF2dzFNbDBUcXZuelNV0gFkQVVfeXFMUC1tOHY4eHhwZUptSGxnTDhobmVPOFZHc2xTQXk0YU1NODNjWDN2UVNJQnpFYUdVRm9rQ1pSMDk0Uzl2MlNfWVZVOUFXa1FZRlV3MUhsLTdwb3hvc0ZRTE9zQ3ltaQ?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-25",
+          "id": "i2"
+        },
+        {
+          "date": "2026-11-24",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i5",
+      "icon": "📉",
+      "headline": "融資維持率降到 120%：工具先動了，這是不是救市還是問號",
+      "analysis": "商周報導，台灣證券主管機關將融資維持率門檻降至 120%，並稱這是 28 年來首見的大動作；文章質疑此舉是在穩定市場，還是壓縮散戶操作空間、加重斷頭風險，並把它寫成近期因輝達消息劇烈震盪後的監管因應。同日美股那則則顯示 AI 類股跌勢未歇。",
+      "view": "我覺得這則該記的是「規則改了」和「效果還是問號」這兩件事，不要先寫成已經救市成功。維持率下降讓融資戶比較不容易被斷頭，也可能讓槓桿留得更久。把它直接歸因於輝達風波，是報導的詮釋，不是已證實的政策說明。和昨天對不上的「台股單日逾 3 千點」一樣，先把數字和規則留下，等後續交易日再看有沒有用。",
+      "lesson": "監管「救市」措施先記門檻改了多少、誰的風險被移轉；效果要等交易日，不要在宣布當天下結論。",
+      "threads": [
+        "tw-macro",
+        "ai-capital"
+      ],
+      "sources": [
+        {
+          "title": "商業週刊（融資維持率降至 120%）",
+          "href": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE03OFg5dFgyck5LNUdQQ2JvRk9XaDZwUGg1cnJsS01YZ2paN2diVFdDbnowX3pCeHhrZ0ZzVEdfN3FKTTVNTHFuanplOFA4ZEpGc19Yd1o3TnBMOWNjS2VJMnFB?oc=5"
+        },
+        {
+          "title": "Google News（美股收盤）",
+          "href": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFBfR19sbC0xWlFOV2dxSER4X09jZkNrTHo3UTZISnZlaV9XTFJhVFFvVU1ja052Q0N6QUpLZXpxQ010UzdtVHktcG9IWGNRanIwWEF2dzFNbDBUcXZuelNV0gFkQVVfeXFMUC1tOHY4eHhwZUptSGxnTDhobmVPOFZHc2xTQXk0YU1NODNjWDN2UVNJQnpFYUdVRm9rQ1pSMDk0Uzl2MlNfWVZVOUFXa1FZRlV3MUhsLTdwb3hvc0ZRTE9zQ3ltaQ?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-25",
+          "id": "i5"
+        }
+      ]
+    }
+  ]
+}
