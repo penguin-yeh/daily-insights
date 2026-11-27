@@ -1,0 +1,197 @@
+{
+  "date": "2026-11-27",
+  "label": "11/27（五）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/2026-11-27.html",
+  "verdict": "投票日前一天，真正新的事大多不在軟體部落格的舊文重登。Devin 的 EC2 Mac、Bee 的 Zero Operator Access、Cloudflare 的 Search for Agents 和 ruby2shell WAF，都是已經記過的原文，今天只是又被放在一起。新的破口在 agent 會不會聽話：研究指出，AI 程式助理可以被一張看似無害的下載清單文字檔誘導去執行惡意程式——這和 10/26 的間接提示注入是同一類問題。同一天，傳統詐騙也沒停：假追劇 App 木馬盜轉 1,742 萬。媒體端，《紐約時報》禁特約攝影師用 Photoshop 2027，怕真實照片被標成 AI 生成。供應鏈上，輝達據報暫停東南亞四國先進伺服器出貨；台積電亞利桑那轉虧為盈，稀土馬達卻被寫成隱憂。明天就是九合一投票日。（以上是我的分析觀點。）",
+  "learned": "導言把舊文排成「今天的攻防」，不代表今天有新事實。攻擊手法要看 agent 被允許讀什麼、執行什麼；標示規則要看它保護的是「誰拍的」，還是「看起來像不像真的」。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "🕳️",
+      "headline": "一張下載清單就能讓 coding assistant 去跑惡意程式",
+      "analysis": "TechNews 報導，企業導入具高度自動執行力的 AI 程式開發助理後，研究發現這類助理可能被看似無害的下載清單文字檔誘導，進而執行惡意程式。這不是 10/26 那篇「惡意文字檔間接提示注入」的同一則續報，但攻擊面類似：agent 會讀檔，也有足夠權限去執行。同日導言把已記過的 Devin／EC2 Mac、Bee ZOA、Search for Agents 與 ruby2shell 再排成「信任邊界」故事，那些原文沒有新細節。",
+      "view": "我覺得今天該記的不是雲端廠又發了哪篇架構部落格，而是權限模型：當助理被設計成「看到清單就去下載、安裝、執行」，攻擊就不需要先攻破沙盒，只要寫一份它願意讀的文字檔。10/26 已經出現過這條線，今天只是把載體寫得更具體。和假追劇木馬放在同一天看也很清楚——一個騙的是 agent，一個騙的是人，都是「看起來無害的入口」。",
+      "lesson": "評估 coding assistant 的風險時，先列出它會自動讀哪些檔、能執行到哪一步；不是只看模型會不會拒絕惡意指令。",
+      "threads": [
+        "ai-security",
+        "agent-infra"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（下載清單文字檔誘導 AI 程式助理）",
+          "href": "https://infosecu.technews.tw/2026/11/27/ai-agents-tricked-by-a-rogue-downloads-file-into-running-dangerous-malware/"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-21",
+          "id": "i4"
+        },
+        {
+          "date": "2026-11-26",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "📷",
+      "headline": "紐時禁的不是修圖，是怕真實照片被標成 AI",
+      "analysis": "《紐約時報》要求特約攝影師執行採訪任務時，不得使用最新版 Adobe Photoshop 2027（28.0.0）。報導指出，原因是該版本內建生成式 AI 功能，可能讓真實拍攝的新聞照片在後製後被誤判或標記為 AI 生成內容，衝擊媒體可信度。",
+      "view": "我覺得這則的重點，不是媒體忽然反對後製，而是標示系統開始出現假陽性成本：一張真的照片如果被標成 AI，傷害的是媒體自己的信用。禁的是帶生成功能的特定版本，不是所有 Photoshop。這和訓練資料授權不是同一條線，也和選戰裡公開使用的「陳水滴」AI 化身不同——一個怕被誤標，一個是主動用生成形象站台。",
+      "lesson": "談「AI 內容標示」時，要分開記兩種錯誤：假的沒標出來，和真的被標成假的。",
+      "threads": [
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（紐時禁用 Photoshop 2027）",
+          "href": "https://technews.tw/2026/11/27/ny-times-banning-photographers-from-using-photoshop-2027/"
+        }
+      ],
+      "related": []
+    },
+    {
+      "id": "i3",
+      "icon": "🚧",
+      "headline": "輝達據報對東南亞四國停貨：轉運管制從分析走進出貨通知",
+      "analysis": "外媒報導，輝達已通知製造合作夥伴，暫停向馬來西亞、新加坡、泰國及印尼四國出貨搭載先進 AI 晶片的伺服器，理由是美國進一步封堵中國經第三地取得高階算力。尚未見輝達官方聲明。這比 11/19「東南亞晶片禁令封鎖轉運」的分析更具體，但仍是報導，不是已公布的正式命令全文。同日台積電亞利桑那子公司據報 2025 年轉虧為盈 161.41 億元，水電吃緊；德州擴廠「可能作為談判籌碼」則是傳聞。天下另文寫先進製程設備仰賴稀土磁性馬達，斷鏈會成為隱性弱點。",
+      "view": "我覺得出口管制這條線，今天最值得留下來的是「四個國名＋通知製造夥伴」——比概念性的『東南亞禁令』好追蹤。但在官方或公司自己說明之前，不要把報導寫成已經落地的政策。亞利桑那轉虧為盈是另一則較硬的數字；把它和德州籌碼、稀土馬達串成同一個『台積電危機』故事，會超過資料能支持的範圍。",
+      "lesson": "第三地管制要記到港口或國家名單，並標明是報導還是官方；推測性的『談判籌碼』另外存放。",
+      "threads": [
+        "semi-capacity"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（輝達據報暫停東南亞四國出貨）",
+          "href": "https://technews.tw/2026/11/26/nvidia-halts-server-shipments-to-four-southeast-asian-countries/"
+        },
+        {
+          "title": "TechNews（台積電亞利桑那／德州）",
+          "href": "https://finance.technews.tw/2026/11/27/tsmcs-texas-investment-to-serve-as-a-bargaining-chip/"
+        },
+        {
+          "title": "天下雜誌（稀土馬達）",
+          "href": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBIaklsOTNBOEFtbTBjWHh2dE0ybnRaQ2xHT0xHTGRCM1hlcERhREVZTjJsU0FYMHJ0aU94U2s4RHdJVzdaaWM5eHBfUU5kUQ?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-21",
+          "id": "i2"
+        },
+        {
+          "date": "2026-11-19",
+          "id": "i4"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "📉",
+      "headline": "成長有四分之一靠 AI、出口有八成押科技：泡沫還沒破，集中度已經是風險",
+      "analysis": "天下分析，美國近年約四分之一的經濟成長來自 AI 相關投資與支出，台灣出口近八成集中在科技業，兩地都已深度綁定 AI 週期。摩根大通則警告，AI 投資熱讓金融市場更脆弱，資金過度集中在少數科技巨頭與資料中心；若通膨壓力未緩解，聯準會明年可能將利率推升至 5% 左右。兩則都是分析／預警，不是已經發生的破裂。",
+      "view": "我覺得數字本身比『泡沫』這個詞有用。四分之一與八成說的是集中度：就算沒有戲劇性的崩盤，只要投資放緩，成長和出口會一起減速。利率回到 5% 是有條件的預測（通膨未緩解），不要讀成已經宣布的路徑。它和昨天融資維持率降到 120%、輝達晶片求售，可以放在同一條「資金變貴、風險開始被定價」的線上，但因果還不能寫死。",
+      "lesson": "總體風險先記集中度（成長或出口有多少綁在同一週期），再談泡沫會不會破。",
+      "threads": [
+        "ai-capital",
+        "tw-macro"
+      ],
+      "sources": [
+        {
+          "title": "天下雜誌（美成長與台灣出口的 AI 集中度）",
+          "href": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9uN090YnZHdEtrNEo2UlN0ZkxMVkxtLVZHemxienRLWHp5MG9yc1duMndyaFU4TkRrTmM4TGdKYjh1V3BXNS15dV9sZ3R6UQ?oc=5"
+        },
+        {
+          "title": "天下雜誌（摩根大通：利率恐至 5%）",
+          "href": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE9ELTVyLTRZcURhZDJWdTFjdDc1VEdwNThyc05LWGJFM0hIM2lxeDJmTXVsMTd0UWZBSHdiTzBCYm5rVXN5S2dGbVdIbHNQUQ?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-26",
+          "id": "i4"
+        },
+        {
+          "date": "2026-11-26",
+          "id": "i5"
+        }
+      ]
+    },
+    {
+      "id": "i5",
+      "icon": "🗳️",
+      "headline": "投票日前夕：九合一寫死了，AI 化身和偽造音檔還是要分開記",
+      "analysis": "天下建置 11 月 28 日九合一大選即時開票專題，追蹤六都與 22 縣市長選情，再次寫明投票日與「九合一」名稱。同日，在野組成律師團防選舉奧步，卓榮泰要求加強資安，陸委會稱台灣每日遭 258 萬次網路侵擾並點名中共滲透手法。選戰話題上，陳水扁以 AI 化身「陳水滴」為沈伯洋站台，趙少康隔空警告「這條船不要上」。",
+      "view": "我覺得這則對筆記有兩層用處。第一，天下把「九合一大選、11/28」寫得很清楚，昨天部分報導的「台北市長補選」就更像用詞問題，雖然還不能當成更正稿。第二，「陳水滴」是公開的生成形象站台，和 10/31 那則調查局證實的 deepfake 偽造音檔不是同一類事件：一個是當事人自己用，一個是被人拿去抹黑。選前最後一天把兩者混成「AI 假訊息」，只會讓後面的查核變困難。",
+      "lesson": "選舉和生成內容要先問：這是公開使用、被盜用，還是被偽造成他人發言。",
+      "threads": [
+        "tw-election"
+      ],
+      "sources": [
+        {
+          "title": "天下雜誌（九合一即時開票專題）",
+          "href": "https://news.google.com/rss/articles/CBMia0FVX3lxTE96aTZvQUxJZi11ZU5IU1NQTFRLWGhDMjN4dEFUWVZ5aHJCNXFzRERXbGhTdmxLOXpLdVVpNmVxLVJzUkdpNXJrd3BtNHNSMlltbzNCVFRmd0lWVDV4NFExOEVweGl6LWU0V1BJ?oc=5"
+        },
+        {
+          "title": "Google News（選務資安、258 萬次侵擾）",
+          "href": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFBrcTN6bEdIOUp0MnYxeGU5UnVvUkNJTDhoM3NaUURQemlqNHJUS2dZcWhYcVFzRmJYNWNldERaeWtLLTJYbFE3V0QzbFA0RlFXZE9V0gFYQVVfeXFMTWJMS2NtbjNsanptWmFPY3lxTnJBZndud25MTjllR2RFa0tIWXhndm0wMVFtZXh0WDhHSXdUY3AzN1N4Ul9ZVk1zcjJfcGlld1kyNXdwd1hlYg?oc=5"
+        },
+        {
+          "title": "Google News（陳水滴）",
+          "href": "https://news.google.com/rss/articles/CBMi9wJBVV95cUxOeDJvaVU4MGMzWUpBQjl1ZmZPTk9KQ0pmNVV6QWo3bnVGMnNqeF9kcVZwNGlUMjRQZm52X18tWFFUclNyZXRXUWRWNXVZREZaOWJsQmJCbE8xWVpZV1pxNHp6V3o2SHNhNkRnQlNJc18yNWZYN0tzcmh1WnNVcUVrTnlsX3hVUDU5cW1mbW5KRXAxWThNT1NUVjZTaV9UNC1sNzRXSVY0bVNKem9QbjF0bW41dDJhbXY2VjRKWWZ1OElkVFVpREZSQnlmNEFLYnNOUll6VUdKODJFUEVJcm9lUGpZb2djcHVqemJUTmVUeHhXb0tBZEtyTHRfdWpGek05OUc1LVlNRkNGNlFIVzNrZUQ3Q0FsTks1MTNLQks4dkNaRGRBMnR1ejYxaFZ4RUNfZF9zaWdoeFRkdXJkZGFxNWRRNGhwNG1vUUR4RUxMX25mb0ZpQ2V4dlVBcWw0c2xwTFUtWGtQblpTSXhrVjAybmh5eDIxSGc?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-25",
+          "id": "i6"
+        }
+      ]
+    },
+    {
+      "id": "i6",
+      "icon": "🖥️",
+      "headline": "本機推理還在找 Nvidia 以外的路，軟體工廠則把 CI/CD 說成 agent 的事",
+      "analysis": "Hacker News 出現專為 AMD 顯示卡打造的 llama.cpp 分支（原文 devnull.land，細節有限），討論本機 LLM 推理能否讓 AMD 用戶得到更好的效能與相容性；導言與快照的讚數不完全一致。另一篇《AI 讓自架服務重新變得有趣》主張，AI 程式碼協助代理降低了自架的設定與維運門檻。Changelog 則專訪 Warp 創辦人 Zach Lloyd（卡片日期 11/24），談 Warp Factories：factory as code、agent trace，定位為新一代 CI/CD，並警告自我改進系統會隨時間漂移。",
+      "view": "我覺得這三則共同描出一條「不一定要上雲、但工具鏈會被重寫」的線：AMD 分支是硬體端的缺口，自架是把維運交給 agent 的誘因，Warp 則是想把整個交付流程改成工廠隱喻。細節都還薄——llama.cpp fork 的技術主張幾乎沒寫，Factories 是訪談裡的賭注而不是已驗證的產能。值得記住的反而是那個風險句：系統若會自我改進，它也會漂移，CI/CD 被替換以後，還得有人盯著『它改了自己哪一部分』。",
+      "lesson": "新工具鏈的宣布，先分開記它解決的層（硬體後端、自架門檻、交付流程）和它承認的新風險（漂移、權限、平台缺口）。",
+      "threads": [
+        "agent-infra",
+        "model-price"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論（AMD llama.cpp 分支）",
+          "href": "https://news.ycombinator.com/item?id=50657265"
+        },
+        {
+          "title": "devnull.land",
+          "href": "https://devnull.land/amd-specific-llama-cpp"
+        },
+        {
+          "title": "Hacker News 討論（AI 讓自架服務重新變得有趣）",
+          "href": "https://news.ycombinator.com/item?id=50660180"
+        },
+        {
+          "title": "janlukas.blog",
+          "href": "https://janlukas.blog/posts/ai-self-hosting"
+        },
+        {
+          "title": "Changelog（Warp 創辦人談軟體工廠）",
+          "href": "https://changelog.com/podcast/693"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-24",
+          "id": "i3"
+        },
+        {
+          "date": "2026-11-26",
+          "id": "i2"
+        }
+      ]
+    }
+  ]
+}
