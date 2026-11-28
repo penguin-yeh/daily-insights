@@ -1,0 +1,185 @@
+{
+  "date": "2026-11-28",
+  "label": "11/28（六）",
+  "news_url": "https://penguin-yeh.github.io/daily-news/2026-11-28.html",
+  "verdict": "投票日早上交到的這份統整，真正新的風險多半在工具會不會偷偷把東西送走。Convex 的 AI coding skill 被指在使用者不知情時，把 app 構想傳到遠端伺服器——這和昨天「下載清單能讓助理去跑惡意程式」是同一條信任線，手法不同：一個是送出，一個是執行。黑五購物網站則被發現用 WebRTC 通道做信用卡側錄，鑽的是掃描與 CSP 較少監控的洞。法律面上，多州檢察總長起訴 SpaceX（訴訟稱它是 Grok 的母公司，這一點還待確認），要求阻止 Grok 生成兒童性剝削影像與非自願色情影像；這和昨天紐時怕真實照片被誤標，不是同一類問題。資本市場上，黃仁勳回來了，中信投顧仍在談 2027 年投資與融資降檔，貝瑞則用 CDS 示警。Search for Agents、Warp、Claude 安裝為 app 都是舊文重登。（以上是我的分析觀點。）",
+  "learned": "看 AI 工具時，要分開問它會把什麼送出、會執行什麼、以及生成時有沒有被禁止的類別。形式化驗證也一樣：機器檢查過關，還要問驗證器和前提本身會不會錯。",
+  "insights": [
+    {
+      "id": "i1",
+      "icon": "📤",
+      "headline": "AI skill 沒告訴你，就把 app 構想送到了遠端",
+      "analysis": "有人在 Convex 的 GitHub issue 指出，官方提供給 AI coding agent 使用的 skill，會在使用者完全不知情、未經同意的情況下，把輸入的 app 構想送到遠端伺服器（HN 210 讚、60 則留言）。這不是昨天「下載清單文字檔誘導執行惡意程式」的續報，也不是 10/26 的間接提示注入，但同屬 coding assistant 的信任問題：一個是送出你的構想，一個是執行它讀到的指令。",
+      "view": "我覺得這則該留下的是「未經告知的資料流」，不是再寫一次 agent 很危險。開發者安裝官方 skill 時，通常以為它只在本機幫你寫程式；如果構想會被送到別處，那這就是產品預設值的問題，不是使用者操作錯誤。昨天問的是它會不會跑惡意程式，今天問的是它會不會把你的想法帶走——兩件事都要在安裝前能被檢查。",
+      "lesson": "導入 AI coding skill 時，先問它會把哪些輸入送到哪裡、有沒有提示使用者同意；不要只看它能不能把程式寫完。",
+      "threads": [
+        "ai-security",
+        "agent-infra"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論（Convex skill 傳送 app 構想）",
+          "href": "https://news.ycombinator.com/item?id=50669765"
+        },
+        {
+          "title": "GitHub issue",
+          "href": "https://github.com/convex/convex-backend-skill/issues/64"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-27",
+          "id": "i1"
+        },
+        {
+          "date": "2026-11-26",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i2",
+      "icon": "🛒",
+      "headline": "黑五的側錄改走 WebRTC：掃描在盯 XHR，錢從另一條通道走",
+      "analysis": "安全研究人員在多個熱門購物網站上發現新型信用卡側錄腳本，利用 WebRTC 建立的資料通道回傳偷到的卡號與個資。報導指出，多數網站安全掃描與 CSP 政策主要盯著一般 JavaScript／XHR 外洩，對這類點對點通道相對缺乏監控，因此在黑色星期五購物旺季更容易躲過偵測（HN 396 讚、202 則留言）。",
+      "view": "我覺得這則的教訓很具體：防護範圍等於你正在看的協定。CSP 和腳本掃描如果只覆蓋傳統的外送請求，攻擊者只要換一條被當成「媒體連線」的通道就能繞過去。這和 agent 信任問題不是同一條線，但同屬「預設監控沒覆蓋到的入口」。黑五只是讓規模變大，不是手法只能在黑五用。",
+      "lesson": "檢討前端防洩漏時，要把 WebRTC 等點對點通道算進監控範圍，不要只掃 XHR 和表單送出。",
+      "threads": [
+        "platform-sec"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論（WebRTC 信用卡側錄）",
+          "href": "https://news.ycombinator.com/item?id=50668145"
+        },
+        {
+          "title": "InfoHawk",
+          "href": "https://www.infohawk.com/news/2026-11-27-black-friday-webrtc-skimmer"
+        }
+      ],
+      "related": []
+    },
+    {
+      "id": "i3",
+      "icon": "⚖️",
+      "headline": "檢察總長要阻止的是有害生成，不是怕照片被誤標",
+      "analysis": "多個州的檢察總長對 SpaceX 提起訴訟，要求阻止 Grok 生成兒童性剝削影像與非自願色情影像（revenge porn）。新聞稿與報導把 SpaceX 寫成 X、xAI 與 Grok 的母公司；這與既有筆記把 SpaceX 記成太空與星鏈公司、以及常見「馬斯克旗下分屬不同公司」的理解可能不同，待確認。這是生成內容的法律責任線，和 11/27《紐約時報》擔心真實照片被標成 AI 生成，不是同一類問題。",
+      "view": "我覺得這則要記的是請求什麼、告誰、以及母公司這個表述還不確定。不要把「有害生成被起訴」和「標示出現假陽性」收成同一句 AI 內容治理。前者問的是模型被允許產出什麼，後者問的是真照片會不會被系統誤傷。在股權關係澄清之前，SpaceX 出現在被告欄，先照訴訟寫，不要自行改寫成 xAI 或 X。",
+      "lesson": "生成內容相關新聞，先分開記「被禁止生成的類別」和「被標示成 AI 的代價」；公司主體以訴訟或官方文件為準，有疑問就標待確認。",
+      "threads": [
+        "platform-sec",
+        "ai-security"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論（多州檢察總長起訴）",
+          "href": "https://news.ycombinator.com/item?id=50670855"
+        },
+        {
+          "title": "Virginia AG 新聞稿",
+          "href": "https://www.oag.state.va.us/media-center/news-releases/jay-jones/3162-attorneys-general-jones-and-rayfield-file-suit-against-spacex-parent-company-of-x-xai-and-grok-over-creation-and-promotion-of-child-exploitation-and-non-consensual-images-on-platform"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-27",
+          "id": "i2"
+        }
+      ]
+    },
+    {
+      "id": "i4",
+      "icon": "📉",
+      "headline": "人回來了，2027 的投資與信用警報並沒有一起解除",
+      "analysis": "TechNews 引述中信投顧總經理陳柏州，指黃仁勳 11 天復職後，2027 年仍有三大隱憂：AI 投資降溫、融資環境轉緊、企業成長放緩，並稱「一人決策」時代結束。同日另一則報導引述麥可·貝瑞（Michael Burry），警告 CDS 市場已出現類似 2007 年次貸危機的警訊，並把 Google、Meta、Nvidia、OpenAI 相關債務曝險列為觀察重點。這是分析與示警，不是已經發生的違約或官方下修。美股同一窗口則出現 AI 股反彈，標普 500 創 2025 年 4 月以來最佳單周，Anthropic 估值據報重返上市前水準。",
+      "view": "我覺得今天不能只讀成「市場又樂觀了」或「泡沫要破了」。復職解決的是治理空窗，沒有自動改寫 2027 年的資本支出與信用條件。貝瑞的 CDS 示警要當觀察清單，不要寫成次貸已經重來；反彈也只是一週的價格，不能拿來否定降檔隱憂。兩則並放，是為了記住：同一條 AI 資金線，可以同時有反彈和警報。",
+      "lesson": "領導權事件之後，仍要分開看股價週期、資本支出展望和信用市場訊號，不要用其中一個去取消另外兩個。",
+      "threads": [
+        "ai-capital",
+        "nvidia-financing"
+      ],
+      "sources": [
+        {
+          "title": "TechNews（2027 三大隱憂）",
+          "href": "https://finance.technews.tw/2026/11/28/jensen-huang-11-day-return-what-changed-one-person-rule-ends-2027-ai-slowdown-experts-3-concerns/"
+        },
+        {
+          "title": "TechNews（貝瑞 CDS 示警）",
+          "href": "https://finance.technews.tw/2026/11/27/subprime-mortgage-crisis/"
+        },
+        {
+          "title": "Google News（美股 AI 股反彈）",
+          "href": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE41Rm5NZm5vcDlXa243YzVjVUNmT2ZGa3luYXZWaG1OVzd6X0xQZUh5ZnlONUVQNlJUY3g4VW9vSXV1OEtEYWxEbk9kZ0pQR1k?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-27",
+          "id": "i4"
+        },
+        {
+          "date": "2026-11-26",
+          "id": "i4"
+        }
+      ]
+    },
+    {
+      "id": "i5",
+      "icon": "🧩",
+      "headline": "機器檢查過關，證明仍可能是錯的",
+      "analysis": "密碼學家 Daniel J. Bernstein（djb）整理並討論一系列「電腦驗證過的數學證明」事後被發現其實是錯的案例，指出形式化驗證工具的規格、前提假設或驗證器實作若有瑕疵，再嚴謹的機器檢查流程也可能放行錯誤結果（HN 173 讚）。同日，Michael Nielsen 下架了長年免費公開的《Neural Networks and Deep Learning》；摘要沒有說明原因，討論很多，原因仍待確認。",
+      "view": "我覺得 djb 這則是對 11/22 Lean 黎曼猜想驗證熱潮最有用的冷卻劑：可檢查、可重跑，仍然可能建立在錯的規格或有洞的驗證器上。這不是要否定形式化驗證，而是提醒「檢查過」不是最終答案。Nielsen 下架教材是另一件事，我不會在原因沒寫清楚時，把它解釋成對深度學習或開放資源的某個結論。",
+      "lesson": "看到「已經被電腦驗證」時，還要問驗證器、規格和前提是誰寫的、有沒有被獨立檢查。",
+      "threads": [
+        "ai-verification"
+      ],
+      "sources": [
+        {
+          "title": "Hacker News 討論（False computer-checked proofs）",
+          "href": "https://news.ycombinator.com/item?id=50667989"
+        },
+        {
+          "title": "djb 原文",
+          "href": "https://cr.yp.to/proofs/falseccp.html"
+        },
+        {
+          "title": "Hacker News 討論（Nielsen 下架 NNDL）",
+          "href": "https://news.ycombinator.com/item?id=50670757"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-22",
+          "id": "i1"
+        }
+      ]
+    },
+    {
+      "id": "i6",
+      "icon": "🗳️",
+      "headline": "投票日當天：九合一、公投第 22 案，以及零時起的助選禁令",
+      "analysis": "來源是 11/27 的「明天投票」稿，寫入 11/28 當日筆記。內容寫明 2026 九合一地方選舉及公投第 22 案（核電）於 11 月 28 日上午 8 時至下午 4 時投票，並整理投票所查詢、22 縣市長候選人與最多領 6 張票等 FAQ。社群媒體自 11/28 零時起禁止助選，違者最重罰 100 萬元。這再一次確認投票日與「九合一」名稱；11/26 部分報導的「補選」用詞仍未見更正。",
+      "view": "我覺得投票日早上最該留下的是規則，而不是造勢金句。投票時段、公投案號、票數上限和社群禁令，都是選後查核會用到的錨點。標題寫「明天」只是因為稿件寫於 11/27，不要因此以為日期又有爭議。",
+      "lesson": "選舉日的筆記先把投票規則和時間寫死，造勢與口號另外存放。",
+      "threads": [
+        "tw-election"
+      ],
+      "sources": [
+        {
+          "title": "Google News（九合一投票 QA）",
+          "href": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE80QmM3YlEtLVYtWDU0RWN5SlRpbHY4V0ZwUW1WN2tpYTRScmpndmtaTEFKLXNUQWlrazVNTS16eWhnQlRhcWV2ODUzMGNwdWxo?oc=5"
+        }
+      ],
+      "related": [
+        {
+          "date": "2026-11-27",
+          "id": "i5"
+        },
+        {
+          "date": "2026-11-25",
+          "id": "i6"
+        }
+      ]
+    }
+  ]
+}
